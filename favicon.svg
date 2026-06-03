@@ -1,0 +1,36 @@
+<!-- Next Visit · App Icon (locked v1.0)
+     Static SVG render of <AppIcon size={64}/> from brand/marks.jsx.
+     If you need to change the icon, change brand/marks.jsx first and re-export
+     this file by hand from the rules in brand/marks.md. Do NOT redraw it
+     in isolation here. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="nvHi" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".06"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="nvLo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000000" stop-opacity=".05"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity=".20"/>
+    </linearGradient>
+    <clipPath id="nvSquircle">
+      <rect x="0" y="0" width="64" height="64" rx="14.32" ry="14.32"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#nvSquircle)">
+    <rect x="0" y="0" width="64" height="64" fill="#0e2240"/>
+    <rect x="0" y="0" width="32" height="64" fill="#06122a"/>
+    <rect x="32" y="0" width="32" height="64" fill="#06122a"/>
+    <text x="20.48" y="32"
+          font-family="'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif"
+          font-weight="700" font-size="39.68" fill="#fbe8de"
+          text-anchor="middle" dominant-baseline="central" letter-spacing="-0.4">N</text>
+    <text x="43.52" y="32"
+          font-family="'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif"
+          font-weight="700" font-size="39.68" fill="#ec4079"
+          text-anchor="middle" dominant-baseline="central" letter-spacing="-0.4">V</text>
+    <rect x="0" y="31.5" width="64" height="1" fill="rgba(0,0,0,0.6)"/>
+    <rect x="0" y="0"  width="64" height="32" fill="url(#nvHi)"/>
+    <rect x="0" y="32" width="64" height="32" fill="url(#nvLo)"/>
+  </g>
+</svg>
