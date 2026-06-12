@@ -36,7 +36,7 @@
   <div class="container container--wide site-header__inner">
     <a class="nv-logo" href="/" aria-label="Next Visit — home"><span class="nv-logo__row"><span class="nv-logo__tile"><span class="nv-logo__glyph">N</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">E</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">X</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">T</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">V</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">I</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">S</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">I</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">T</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span></span></a>
     <nav class="site-nav">
-      <a href="https://go.next-visit.app">Plan a trip</a>
+      <a href="https://go.next-visit.app" target="_blank" rel="noopener">Plan a trip</a>
       <a href="/support">Support</a>
       <a class="site-nav__cta" href="#get">Get the app</a>
       <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to light mode" onclick="nvToggleTheme()"></button>
@@ -114,7 +114,8 @@
 
       <div class="go__grid">
         <ul class="go__list">
-          <li class="reveal"><span class="go__ico"><i class="ph ph-map-trifold"></i></span><div><strong>Multi-city routes</strong><span>London → New York → Miami → Vegas — chained legs, mapped, with nights per stop.</span></div></li>
+          <li class="reveal"><span class="go__ico"><i class="ph ph-sparkle"></i></span><div><strong>AI builds the shortlist</strong><span>Tell it the vibe and it picks the few things actually worth doing — one iconic, one local, one timely — for your dates.</span></div></li>
+          <li class="reveal" data-delay="1"><span class="go__ico"><i class="ph ph-map-trifold"></i></span><div><strong>Multi-city routes</strong><span>London → New York → Miami → Vegas — chained legs, mapped, with nights per stop.</span></div></li>
           <li class="reveal" data-delay="1"><span class="go__ico"><i class="ph ph-airplane-takeoff"></i></span><div><strong>Every flight, prefilled</strong><span>Each leg's search opens with the right airports and dates — plus one tap to book all legs together.</span></div></li>
           <li class="reveal" data-delay="2"><span class="go__ico"><i class="ph ph-bed"></i></span><div><strong>Stays on a live map</strong><span>Hotels and rentals for each stop, on a map, for your dates.</span></div></li>
           <li class="reveal" data-delay="3"><span class="go__ico"><i class="ph ph-suitcase-rolling"></i></span><div><strong>Prep for take-off</strong><span>Visa rules, currency, plug type, eSIM, insurance, car hire — generated per destination.</span></div></li>
@@ -122,14 +123,15 @@
         </ul>
 
         <div class="go__rail reveal" data-delay="2" aria-label="Planner screenshots">
+          <div class="nv-phone"><img src="/img/shot-ai.jpg" alt="AI-picked activities for the trip, with a reason for each" loading="lazy" width="880" height="1907"></div>
           <div class="nv-phone"><img src="/img/shot-route.jpg" alt="A 3-stop route mapped with per-leg flight links" loading="lazy" width="880" height="1907"></div>
           <div class="nv-phone"><img src="/img/shot-multicity.jpg" alt="A multi-city trip summary with countdown" loading="lazy" width="880" height="1907"></div>
-          <div class="nv-phone"><img src="/img/shot-leave.jpg" alt="Book all flights together and draft a leave request" loading="lazy" width="880" height="1907"></div>
-          <div class="nv-phone"><img src="/img/shot-plan.jpg" alt="A single trip planned with flights, stay and activities" loading="lazy" width="880" height="1907"></div>
+          <div class="nv-phone"><img src="/img/shot-flights.jpg" alt="Every flight leg prefilled with the right airports and dates" loading="lazy" width="880" height="1907"></div>
+          <div class="nv-phone"><img src="/img/shot-leave.jpg" alt="Book all flights together and draft a leave-request email" loading="lazy" width="880" height="1907"></div>
         </div>
       </div>
 
-      <p class="go__try reveal"><a class="site-btn site-btn--ghost" href="https://go.next-visit.app">Try the planner free — no app needed <i class="ph ph-arrow-right"></i></a></p>
+      <p class="go__try reveal"><a class="site-btn site-btn--ghost" href="https://go.next-visit.app" target="_blank" rel="noopener">Try the planner — no app needed <i class="ph ph-arrow-right"></i></a></p>
     </div>
   </section>
 
@@ -170,11 +172,14 @@
 
   <!-- ── Final CTA ──────────────────────────────────────────────────── -->
   <section class="cta" id="get">
-    <div class="container cta__inner">
-      <h2 class="reveal">Stop saying <em>"we should go somewhere."</em></h2>
-      <p class="reveal" data-delay="1">Pick a date. Watch it tick down. Go — together.</p>
-      <div class="nv-stores reveal" data-delay="2" data-size="lg" data-variant="on-pink" aria-label="Download Next Visit"></div>
-      <p class="cta__note reveal" data-delay="3">Free to start · no account needed · just the two of you.</p>
+    <div class="container">
+      <div class="cta__card reveal">
+        <img class="cta__icon" src="/favicon.svg" alt="Next Visit" width="76" height="76">
+        <h2>Stop saying <em>"we should go somewhere."</em></h2>
+        <p>Pick a date. Watch it tick down. Go — together.</p>
+        <div class="nv-stores" data-size="lg" data-variant="on-pink" aria-label="Download Next Visit"></div>
+        <p class="cta__note">No sign-ups. No ads. Just the two of you.</p>
+      </div>
     </div>
   </section>
 </main>
@@ -184,7 +189,7 @@
     <div class="site-footer__copy">© 2026 Next Visit</div>
     <nav class="site-footer__links">
       <a href="/">Home</a>
-      <a href="https://go.next-visit.app">Plan a trip</a>
+      <a href="https://go.next-visit.app" target="_blank" rel="noopener">Plan a trip</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
       <a href="/support">Support</a>
