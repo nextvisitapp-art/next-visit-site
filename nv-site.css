@@ -150,10 +150,170 @@ a:hover { text-decoration: underline; }
 .site-footer__links a:hover { color: var(--nv-text-primary); text-decoration: none; }
 .site-footer__copy { font-family: var(--nv-font-mono); font-size: var(--nv-text-xs); color: var(--nv-text-muted); }
 
+/* ═════════════════════════════════════════════════════════════════════
+   LANDING — store-CTA revamp (2026-06). All colour via tokens; the only
+   raw value is the external store-badge black, scoped + labelled below.
+   ═════════════════════════════════════════════════════════════════════ */
+
+/* Header "Get the app" pill */
+.site-nav__cta {
+  display: inline-flex; align-items: center; height: 34px; padding: 0 16px;
+  border-radius: var(--nv-radius-pill); background: var(--nv-accent);
+  color: var(--nv-text-on-pink) !important; font-weight: var(--nv-weight-semibold);
+  font-size: var(--nv-text-sm); transition: background var(--nv-dur-fast) var(--nv-ease-out);
+}
+.site-nav__cta:hover { background: var(--nv-accent-hover); text-decoration: none; }
+
+/* ── Hero (two-column: copy + floating phones) ───────────────────────── */
+.hero { text-align: left; padding: var(--nv-space-16) 0 var(--nv-space-12); overflow: hidden; position: relative; }
+/* warm pink glow bleeding from behind the phones */
+.hero::before {
+  content: ""; position: absolute; top: -10%; right: -8%; width: 60%; height: 120%;
+  background: radial-gradient(closest-side, var(--nv-accent-soft), transparent 70%);
+  opacity: 0.9; pointer-events: none; z-index: 0;
+}
+.hero__grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--nv-space-12);
+  align-items: center;
+}
+.hero__copy { max-width: 33rem; }
+.hero h1 {
+  font-family: var(--nv-font-serif); font-weight: 600;
+  font-size: var(--nv-text-5xl); line-height: var(--nv-leading-tight);
+  letter-spacing: var(--nv-tracking-tight); margin: var(--nv-space-4) 0 var(--nv-space-5);
+}
+.hero h1 em { font-style: italic; color: var(--nv-accent); }
+.hero .lead {
+  font-size: var(--nv-text-lg); color: var(--nv-text-secondary);
+  margin: 0 0 var(--nv-space-6); line-height: var(--nv-leading-normal); max-width: 32em;
+}
+.hero__note { margin: var(--nv-space-4) 0 0; font-size: var(--nv-text-sm); }
+.hero__note a { color: var(--nv-text-secondary); font-weight: var(--nv-weight-medium); }
+.hero__note a:hover { color: var(--nv-accent); }
+
+/* Floating phone pair */
+.hero__art { position: relative; height: 560px; }
+.nv-phone {
+  background: var(--nv-tile-bg);
+  border: 1px solid rgba(251, 232, 222, 0.10);
+  border-radius: 34px; padding: 7px;
+  box-shadow: var(--nv-shadow-xl), 0 0 0 1px rgba(0,0,0,0.4);
+}
+.nv-phone img { display: block; width: 100%; height: auto; border-radius: 27px; }
+.hero__art .nv-phone { position: absolute; width: 256px; }
+.nv-phone--front { left: 8%; bottom: 0; z-index: 2; transform: rotate(-3deg); }
+.nv-phone--back  { right: 4%; top: 0; z-index: 1; transform: rotate(4deg); opacity: 0.96; }
+
+/* ── The one line ────────────────────────────────────────────────────── */
+.oneline { padding: var(--nv-space-12) 0; text-align: center; }
+.oneline p {
+  font-family: var(--nv-font-serif); font-weight: 500;
+  font-size: var(--nv-text-3xl); line-height: var(--nv-leading-snug);
+  letter-spacing: var(--nv-tracking-tight); color: var(--nv-text-primary); margin: 0;
+}
+.oneline em { font-style: italic; color: var(--nv-accent); }
+
+/* ── Feature rows ────────────────────────────────────────────────────── */
+.rows { display: flex; flex-direction: column; gap: var(--nv-space-20); padding: var(--nv-space-8) 0 var(--nv-space-20); }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--nv-space-12); align-items: center; }
+.row--flip .row__text { order: 2; }
+.row__text { max-width: 30rem; }
+.row__text h2 {
+  font-family: var(--nv-font-serif); font-weight: 600; font-size: var(--nv-text-3xl);
+  line-height: var(--nv-leading-snug); letter-spacing: var(--nv-tracking-tight);
+  margin: var(--nv-space-3) 0 var(--nv-space-4);
+}
+.row__text h2 em { font-style: italic; color: var(--nv-accent); }
+.row__text p { font-size: var(--nv-text-lg); color: var(--nv-text-secondary); line-height: var(--nv-leading-normal); margin: 0; }
+.row__art { display: flex; justify-content: center; }
+.row__art .nv-phone { width: 270px; }
+.row:nth-child(odd) .row__art .nv-phone { transform: rotate(2deg); }
+.row:nth-child(even) .row__art .nv-phone { transform: rotate(-2deg); }
+
+/* ── Built for two ───────────────────────────────────────────────────── */
+.pair { background: var(--nv-bg-surface); border-block: 1px solid var(--nv-border-subtle); padding: var(--nv-space-20) 0; }
+.pair__inner { text-align: center; max-width: 720px; }
+.pair h2 {
+  font-family: var(--nv-font-serif); font-weight: 600; font-size: var(--nv-text-3xl);
+  letter-spacing: var(--nv-tracking-tight); margin: var(--nv-space-3) 0 var(--nv-space-4);
+}
+.pair h2 em { font-style: italic; color: var(--nv-accent); }
+.pair__lead { font-size: var(--nv-text-lg); color: var(--nv-text-secondary); margin: 0 auto var(--nv-space-10); max-width: 34em; }
+.pair__steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--nv-space-6); text-align: left; }
+.pair__steps li { display: flex; flex-direction: column; gap: var(--nv-space-3); }
+.pair__steps div { color: var(--nv-text-secondary); font-size: var(--nv-text-sm); line-height: var(--nv-leading-normal); }
+.pair__steps strong { color: var(--nv-text-primary); font-weight: var(--nv-weight-semibold); }
+.pair__num {
+  display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+  border-radius: var(--nv-radius-pill); background: var(--nv-accent-soft); color: var(--nv-accent);
+  font-family: var(--nv-font-serif); font-weight: 600; font-size: var(--nv-text-lg);
+}
+
+/* ── Final CTA ───────────────────────────────────────────────────────── */
+.cta { padding: var(--nv-space-20) 0; }
+.cta__inner { text-align: center; }
+.cta h2 {
+  font-family: var(--nv-font-serif); font-weight: 600; font-size: var(--nv-text-4xl);
+  line-height: var(--nv-leading-tight); letter-spacing: var(--nv-tracking-tight); margin: 0 0 var(--nv-space-3);
+}
+.cta h2 em { font-style: italic; color: var(--nv-accent); }
+.cta p { font-size: var(--nv-text-lg); color: var(--nv-text-secondary); margin: 0 0 var(--nv-space-8); }
+.cta .nv-stores { justify-content: center; }
+.cta__note { font-family: var(--nv-font-mono); font-size: var(--nv-text-xs); color: var(--nv-text-muted); margin: var(--nv-space-6) 0 0; }
+
+/* ── Store badges (rendered by nv-site.js into .nv-stores) ───────────────
+   --nv-store-black is the external Apple/Google badge artwork colour, NOT
+   part of the NV palette — scoped here, never reused elsewhere. */
+.nv-stores { --nv-store-black: #000; display: flex; gap: var(--nv-space-3); flex-wrap: wrap; align-items: center; margin-top: var(--nv-space-2); }
+.nv-store-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 54px; padding: 0 18px; border-radius: 12px;
+  background: var(--nv-store-black); color: #fff;
+  border: 1px solid rgba(255,255,255,0.16); text-decoration: none;
+  transition: transform var(--nv-dur-fast) var(--nv-ease-out), opacity var(--nv-dur-fast);
+}
+.nv-store-badge:hover { text-decoration: none; transform: translateY(-1px); }
+.nv-store-badge svg { flex: none; width: 26px; height: 26px; fill: #fff; }
+.nv-store-badge__txt { display: flex; flex-direction: column; line-height: 1.12; text-align: left; }
+.nv-store-badge__sm { font-size: 10px; letter-spacing: 0.02em; opacity: 0.92; }
+.nv-store-badge__lg { font-family: var(--nv-font-sans); font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+/* Coming-soon (apps not yet live): dimmed, not clickable, little ribbon */
+.nv-store-badge.is-soon { opacity: 0.5; cursor: default; pointer-events: none; position: relative; }
+.nv-stores[data-state="soon"]::after {
+  content: "Coming soon"; align-self: center;
+  font-family: var(--nv-font-mono); font-size: var(--nv-text-xs); letter-spacing: 0.06em;
+  color: var(--nv-text-muted);
+}
+/* On the pink/dark CTA band the badges already pop; keep as-is */
+.nv-stores[data-variant="on-pink"] { justify-content: center; }
+
 /* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .hero__grid { grid-template-columns: 1fr; gap: var(--nv-space-10); }
+  .hero__art { height: 440px; margin: 0 auto; max-width: 420px; width: 100%; }
+  .hero__art .nv-phone { width: 220px; }
+  .row { grid-template-columns: 1fr; gap: var(--nv-space-6); }
+  .row--flip .row__text { order: 0; }
+  .row__text { max-width: none; text-align: center; margin: 0 auto; }
+  .row__art { order: -1; }
+  .pair__steps { grid-template-columns: 1fr; gap: var(--nv-space-5); }
+}
 @media (max-width: 720px) {
   .features { grid-template-columns: 1fr; }
   .hero h1 { font-size: var(--nv-text-4xl); }
+  .oneline p { font-size: var(--nv-text-2xl); }
+  .row__text h2, .pair h2 { font-size: var(--nv-text-2xl); }
+  .cta h2 { font-size: var(--nv-text-3xl); }
   .site-nav { gap: var(--nv-space-3); }
-  .site-nav a:not(.theme-toggle) { display: none; }
+  /* keep the "Get the app" CTA + toggle on mobile; hide only the text links */
+  .site-nav a:not(.theme-toggle):not(.site-nav__cta) { display: none; }
+  .nv-stores { justify-content: center; }
+  .hero, .hero__copy { text-align: center; }
+  .hero__copy { margin: 0 auto; }
+  .hero .lead { margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 380px) {
+  .nv-store-badge { height: 50px; padding: 0 14px; }
+  .hero__art .nv-phone { width: 188px; }
 }
