@@ -80,3 +80,88 @@
   if (document.readyState !== "loading") render();
   else document.addEventListener("DOMContentLoaded", render, { once: true });
 })();
+
+// ── Landing choreography ───────────────────────────────────────────────
+// Scroll reveals, the split-flap destination board, and a whisper of
+// parallax on the hero phones. All of it bails under reduced-motion and
+// no-ops on pages without the landing markup (legal/support).
+(function () {
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function onReady(fn) {
+    if (document.readyState !== "loading") fn();
+    else document.addEventListener("DOMContentLoaded", fn, { once: true });
+  }
+
+  onReady(function () {
+    // Scroll reveals
+    var revealEls = document.querySelectorAll(".reveal");
+    if (revealEls.length) {
+      if (reduced || !("IntersectionObserver" in window)) {
+        revealEls.forEach(function (el) { el.classList.add("is-in"); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+          });
+        }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+        revealEls.forEach(function (el) { io.observe(el); });
+      }
+    }
+
+    // Split-flap destination board — cycles real next-stop ideas. Pads to a
+    // fixed slot count so the board doesn't reflow between words.
+    var board = document.getElementById("flapBoard");
+    if (board) {
+      var WORDS = ["LISBON", "TOKYO", "NEW YORK", "SANTORINI", "KYOTO", "BANFF", "PARIS", "QUEENSTOWN"];
+      var SLOTS = 10;
+      var tiles = [];
+      for (var i = 0; i < SLOTS; i++) {
+        var t = document.createElement("span");
+        t.className = "board__tile";
+        t.textContent = " ";
+        board.appendChild(t);
+        tiles.push(t);
+      }
+      var w = 0;
+      function setWord(word) {
+        var padTotal = SLOTS - word.length;
+        var padL = Math.floor(padTotal / 2);
+        var chars = [];
+        for (var i = 0; i < SLOTS; i++) {
+          var c = word[i - padL];
+          chars.push(c === undefined ? " " : (c === " " ? " " : c));
+        }
+        tiles.forEach(function (tile, i) {
+          var next = chars[i];
+          if (tile.textContent === next) return;
+          if (reduced) { tile.textContent = next; return; }
+          setTimeout(function () {
+            tile.classList.add("is-flipping");
+            setTimeout(function () { tile.textContent = next; }, 170); // swap at mid-flip
+            setTimeout(function () { tile.classList.remove("is-flipping"); }, 380);
+          }, i * 45); // stagger left → right, like a real departure board
+        });
+      }
+      setWord(WORDS[0]);
+      if (!reduced) setInterval(function () { w = (w + 1) % WORDS.length; setWord(WORDS[w]); }, 3400);
+    }
+
+    // Hero phone parallax — tiny translate driven by scroll.
+    var px = document.querySelectorAll("[data-parallax]");
+    if (px.length && !reduced) {
+      var ticking = false;
+      function frame() {
+        ticking = false;
+        var y = window.scrollY || 0;
+        px.forEach(function (el) {
+          var f = parseFloat(el.getAttribute("data-parallax")) || 0;
+          el.style.translate = "0 " + (y * f / 100) + "px";
+        });
+      }
+      window.addEventListener("scroll", function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(frame); }
+      }, { passive: true });
+    }
+  });
+})();

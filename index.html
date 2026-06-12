@@ -7,12 +7,12 @@
 <script>(function(){try{var v=localStorage.getItem('nv_appearance');document.documentElement.setAttribute('data-theme',v==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <meta name="theme-color" content="#0e2240">
 <title>Next Visit — the countdown to your next trip together</title>
-<meta name="description" content="Next Visit is the app for couples who travel. One shared countdown to your next trip, plan it together, and keep every memory after. Free to start.">
+<meta name="description" content="Next Visit is the app for couples who travel. One shared countdown to your next trip, a planner that preps every link for you — flights, stays, visas, even the email to your boss — and the memories you keep after.">
 <link rel="canonical" href="https://hello.next-visit.app/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
 <meta property="og:title" content="Next Visit — the countdown to your next trip together">
-<meta property="og:description" content="The app for couples who travel. One shared countdown, plan it together, keep every memory.">
+<meta property="og:description" content="The app for couples who travel. One shared countdown, a planner that preps every link, and the memories you keep.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Next Visit">
 <meta property="og:url" content="https://hello.next-visit.app/">
@@ -49,17 +49,20 @@
   <section class="hero">
     <div class="container container--wide hero__grid">
       <div class="hero__copy">
-        <p class="eyebrow">For couples who travel</p>
-        <h1>The countdown to your <em>next trip</em> together.</h1>
-        <p class="lead">Every couple has a next trip — the weekend away, the big anniversary one, the bucket-list one you're saving for. Next Visit turns it into a shared countdown you both watch, the plan you build together, and the memories you keep after.</p>
-        <div class="nv-stores" data-size="lg" aria-label="Download Next Visit"></div>
-        <p class="hero__note"><a href="https://next-visit.app">or open it in your browser →</a></p>
+        <div class="board" aria-hidden="true">
+          <span class="board__label">Next stop</span>
+          <span class="board__tiles" id="flapBoard"></span>
+        </div>
+        <h1 class="reveal">The countdown to your <em>next trip</em> together.</h1>
+        <p class="lead reveal" data-delay="1">Every couple has a next trip — the weekend away, the big anniversary one, the bucket-list one you're saving for. Next Visit turns it into a shared countdown you both watch, the plan you build together, and the memories you keep after.</p>
+        <div class="nv-stores reveal" data-delay="2" data-size="lg" aria-label="Download Next Visit"></div>
+        <p class="hero__note reveal" data-delay="3"><a href="https://next-visit.app">or open it in your browser →</a></p>
       </div>
       <div class="hero__art" aria-hidden="true">
-        <div class="nv-phone nv-phone--back">
-          <img src="/img/shot-plan.jpg" alt="" loading="eager" width="880" height="1907">
+        <div class="nv-phone nv-phone--back" data-parallax="-14">
+          <img src="/img/shot-route.jpg" alt="" loading="eager" width="880" height="1907">
         </div>
-        <div class="nv-phone nv-phone--front">
+        <div class="nv-phone nv-phone--front" data-parallax="10">
           <img src="/img/shot-countdown.jpg" alt="A shared trip countdown in the Next Visit app" loading="eager" width="880" height="1907">
         </div>
       </div>
@@ -69,7 +72,7 @@
   <!-- ── The one thing ──────────────────────────────────────────────── -->
   <section class="oneline">
     <div class="container">
-      <p>Pick a date. <em>Watch it tick down.</em> Go.</p>
+      <p class="reveal">Pick a date. <em>Watch it tick down.</em> Go.</p>
     </div>
   </section>
 
@@ -77,54 +80,73 @@
   <section class="container container--wide rows">
 
     <div class="row">
-      <div class="row__text">
+      <div class="row__text reveal">
         <p class="eyebrow">One countdown, two phones</p>
         <h2>The wait becomes the <em>best part</em>.</h2>
         <p>Start a trip, set the date, and the days-to-go appear on both your phones. Day zero stops being far away and starts being something you reach together.</p>
       </div>
-      <div class="row__art">
-        <div class="nv-phone"><img src="/img/shot-countdown.jpg" alt="Next Visit home screen counting down to a trip to Lisbon" loading="lazy" width="880" height="1907"></div>
+      <div class="row__art reveal" data-delay="1">
+        <div class="nv-phone nv-phone--tilt-r"><img src="/img/shot-countdown.jpg" alt="Next Visit home screen counting down to a trip to Lisbon" loading="lazy" width="880" height="1907"></div>
       </div>
     </div>
 
     <div class="row row--flip">
-      <div class="row__text">
-        <p class="eyebrow">Plan it together</p>
-        <h2>Flights, stays and the fun — <em>one place</em>.</h2>
-        <p>Where you're going, where you'll sleep, the things you can't miss — built together instead of buried in seven tabs and a screenshot graveyard. No more "did you book it?"</p>
-      </div>
-      <div class="row__art">
-        <div class="nv-phone"><img src="/img/shot-plan.jpg" alt="The trip planner showing flights, stays and activities for a trip" loading="lazy" width="880" height="1907"></div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="row__text">
+      <div class="row__text reveal">
         <p class="eyebrow">Keep the trip after it ends</p>
         <h2>Every visit, <em>mapped and kept</em>.</h2>
         <p>Your photos and memories from every trip, pinned to a map that's only yours. The countdown becomes a memory — and the start of the next daydream.</p>
       </div>
-      <div class="row__art">
-        <div class="nv-phone"><img src="/img/shot-map.jpg" alt="A world map of a couple's past trips with photo pins" loading="lazy" width="880" height="1907"></div>
+      <div class="row__art reveal" data-delay="1">
+        <div class="nv-phone nv-phone--tilt-l"><img src="/img/shot-map.jpg" alt="A world map of a couple's past trips with photo pins" loading="lazy" width="880" height="1907"></div>
       </div>
     </div>
 
   </section>
 
+  <!-- ── GO showcase ────────────────────────────────────────────────── -->
+  <section class="go">
+    <div class="container container--wide">
+      <div class="go__head reveal">
+        <p class="eyebrow">The planner · go.next-visit.app</p>
+        <h2>Tell it where. <em>It preps everything.</em></h2>
+        <p class="go__lead">Answer a few questions and the planner builds the whole trip — multi-city routes included — with every link you'll need already filled in for your exact dates and destinations.</p>
+      </div>
+
+      <div class="go__grid">
+        <ul class="go__list">
+          <li class="reveal"><span class="go__ico"><i class="ph ph-map-trifold"></i></span><div><strong>Multi-city routes</strong><span>London → New York → Miami → Vegas — chained legs, mapped, with nights per stop.</span></div></li>
+          <li class="reveal" data-delay="1"><span class="go__ico"><i class="ph ph-airplane-takeoff"></i></span><div><strong>Every flight, prefilled</strong><span>Each leg's search opens with the right airports and dates — plus one tap to book all legs together.</span></div></li>
+          <li class="reveal" data-delay="2"><span class="go__ico"><i class="ph ph-bed"></i></span><div><strong>Stays on a live map</strong><span>Hotels and rentals for each stop, on a map, for your dates.</span></div></li>
+          <li class="reveal" data-delay="3"><span class="go__ico"><i class="ph ph-suitcase-rolling"></i></span><div><strong>Prep for take-off</strong><span>Visa rules, currency, plug type, eSIM, insurance, car hire — generated per destination.</span></div></li>
+          <li class="reveal" data-delay="4"><span class="go__ico"><i class="ph ph-envelope-simple"></i></span><div><strong>Even the email to your boss</strong><span>A leave-request draft with your dates filled in. Seriously.</span></div></li>
+        </ul>
+
+        <div class="go__rail reveal" data-delay="2" aria-label="Planner screenshots">
+          <div class="nv-phone"><img src="/img/shot-route.jpg" alt="A 3-stop route mapped with per-leg flight links" loading="lazy" width="880" height="1907"></div>
+          <div class="nv-phone"><img src="/img/shot-multicity.jpg" alt="A multi-city trip summary with countdown" loading="lazy" width="880" height="1907"></div>
+          <div class="nv-phone"><img src="/img/shot-leave.jpg" alt="Book all flights together and draft a leave request" loading="lazy" width="880" height="1907"></div>
+          <div class="nv-phone"><img src="/img/shot-plan.jpg" alt="A single trip planned with flights, stay and activities" loading="lazy" width="880" height="1907"></div>
+        </div>
+      </div>
+
+      <p class="go__try reveal"><a class="site-btn site-btn--ghost" href="https://go.next-visit.app">Try the planner free — no app needed <i class="ph ph-arrow-right"></i></a></p>
+    </div>
+  </section>
+
   <!-- ── Small features grid ────────────────────────────────────────── -->
   <section class="container container--wide">
     <div class="features">
-      <div class="feature">
+      <div class="feature reveal">
         <span class="feature__ico"><i class="ph ph-music-notes"></i></span>
         <h3>Your little corner</h3>
         <p>A song for the season, your anniversaries, AI date ideas — the bits of you and them that don't need a calendar invite.</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal" data-delay="1">
         <span class="feature__ico"><i class="ph ph-globe-hemisphere-west"></i></span>
         <h3>Dream, then go</h3>
         <p>A shared list of places you're saving for — tap any one to turn the daydream into a real plan.</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal" data-delay="2">
         <span class="feature__ico"><i class="ph ph-lock-simple"></i></span>
         <h3>Just the two of you</h3>
         <p>No feed, no followers, no ads. A private space for two — start with just a name, no account required.</p>
@@ -135,13 +157,13 @@
   <!-- ── Built for two ──────────────────────────────────────────────── -->
   <section class="pair">
     <div class="container pair__inner">
-      <p class="eyebrow">Built for two</p>
-      <h2>One space, <em>both your phones</em>.</h2>
-      <p class="pair__lead">Start your space, send your partner the link, and you're paired. Whether you live in the same place or you're counting down from two cities, you're both looking at the same date.</p>
+      <p class="eyebrow reveal">Built for two</p>
+      <h2 class="reveal">One space, <em>both your phones</em>.</h2>
+      <p class="pair__lead reveal" data-delay="1">Start your space, send your partner the link, and you're paired. Whether you live in the same place or you're counting down from two cities, you're both looking at the same date.</p>
       <ol class="pair__steps">
-        <li><span class="pair__num">1</span><div><strong>Start your space.</strong> Open the app, add your name — that's it, you're in.</div></li>
-        <li><span class="pair__num">2</span><div><strong>Send the link.</strong> Your partner taps it, gets the app, and lands straight in your shared space.</div></li>
-        <li><span class="pair__num">3</span><div><strong>Pick your next trip.</strong> Set the date and the countdown begins — on both phones at once.</div></li>
+        <li class="reveal"><span class="pair__num">1</span><div><strong>Start your space.</strong> Open the app, add your name — that's it, you're in.</div></li>
+        <li class="reveal" data-delay="1"><span class="pair__num">2</span><div><strong>Send the link.</strong> Your partner taps it, gets the app, and lands straight in your shared space.</div></li>
+        <li class="reveal" data-delay="2"><span class="pair__num">3</span><div><strong>Pick your next trip.</strong> Set the date and the countdown begins — on both phones at once.</div></li>
       </ol>
     </div>
   </section>
@@ -149,10 +171,10 @@
   <!-- ── Final CTA ──────────────────────────────────────────────────── -->
   <section class="cta" id="get">
     <div class="container cta__inner">
-      <h2>Stop saying <em>"we should go somewhere."</em></h2>
-      <p>Pick a date. Watch it tick down. Go — together.</p>
-      <div class="nv-stores" data-size="lg" data-variant="on-pink" aria-label="Download Next Visit"></div>
-      <p class="cta__note">Free to start · no account needed · just the two of you.</p>
+      <h2 class="reveal">Stop saying <em>"we should go somewhere."</em></h2>
+      <p class="reveal" data-delay="1">Pick a date. Watch it tick down. Go — together.</p>
+      <div class="nv-stores reveal" data-delay="2" data-size="lg" data-variant="on-pink" aria-label="Download Next Visit"></div>
+      <p class="cta__note reveal" data-delay="3">Free to start · no account needed · just the two of you.</p>
     </div>
   </section>
 </main>
