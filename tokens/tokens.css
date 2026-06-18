@@ -1,10 +1,10 @@
 /* ============================================================
-   Next Visit — Design Tokens
+   Next Visit - Design Tokens
    v0.1 · 18 May 2026
 
    Drop this into your app's global stylesheet (or import it).
    Every other color/font in the product should reference one of
-   these variables. If you find yourself writing a raw hex, stop —
+   these variables. If you find yourself writing a raw hex, stop -
    that token is missing from this file. Add it here instead.
    ============================================================ */
 
@@ -29,7 +29,7 @@
   --nv-cream-200:#f6dccb;
   --nv-cream-300:#eccab4;
 
-  /* ── Color · Pink (the accent — use sparingly) ───────────── */
+  /* ── Color · Pink (the accent - use sparingly) ───────────── */
   --nv-pink-50:  #fdeaf2;
   --nv-pink-100: #fcd0e0;
   --nv-pink-200: #f7a5c1;
@@ -81,7 +81,7 @@
   --nv-font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
   --nv-font-sans:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --nv-font-mono:  'DM Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --nv-font-mark:  'Space Grotesk', 'DM Mono', monospace; /* brand-mark glyphs ONLY — never body UI */
+  --nv-font-mark:  'Space Grotesk', 'DM Mono', monospace; /* brand-mark glyphs ONLY - never body UI */
 
   /* Type scale (rem-based, body = 1rem = 15px recommended) */
   --nv-text-xs:    0.75rem;    /* 11px  · labels, captions */
@@ -162,14 +162,14 @@
   --nv-text-secondary: var(--nv-cream-200);
   --nv-text-muted:     rgba(251, 232, 222, 0.55);
 
-  /* Cool navy hairline at low alpha — reads as a structural edge,
+  /* Cool navy hairline at low alpha - reads as a structural edge,
      not a glow. The previous cream-tinted version felt off-brand. */
   --nv-border-subtle:  rgba(197, 206, 224, 0.08);
   --nv-border-strong:  rgba(197, 206, 224, 0.18);
 
   --nv-accent-soft:    rgba(236, 64, 121, 0.18);
 
-  /* Drop the 1px outer ring on shadow-md — the surface tier carries
+  /* Drop the 1px outer ring on shadow-md - the surface tier carries
      card differentiation. Keep a soft drop below for elevation. */
   --nv-shadow-sm:      0 1px 0 rgba(0, 0, 0, 0.30);
   --nv-shadow-md:      0 2px 8px rgba(0, 0, 0, 0.35);

@@ -2,7 +2,7 @@
    Next Visit · site pages (landing + legal + support)
    Shared styling for the static marketing/legal pages. Tokens come from
    /tokens/tokens.css (the source of truth); this file only composes them.
-   Navy is the default look — pages set data-theme="dark" pre-paint.
+   Navy is the default look - pages set data-theme="dark" pre-paint.
    No raw hex: every colour references a token (CLAUDE.md §1).
    ───────────────────────────────────────────────────────────────────── */
 
@@ -23,7 +23,7 @@ a:hover { text-decoration: underline; }
 .container { width: 100%; max-width: 880px; margin: 0 auto; padding: 0 var(--nv-space-5); }
 .container--wide { max-width: 1080px; }
 
-/* ── Brand wordmark (locked) — vanilla mirror of LogoA, identical to the
+/* ── Brand wordmark (locked) - vanilla mirror of LogoA, identical to the
       construction used in the planner's index.html. Do not restyle. ─────── */
 .nv-logo { display: inline-flex; flex-direction: column; align-items: center; gap: 5px; text-decoration: none; }
 .nv-logo:hover { text-decoration: none; }
@@ -57,7 +57,7 @@ a:hover { text-decoration: underline; }
 }
 .site-nav a:hover { color: var(--nv-text-primary); text-decoration: none; }
 
-/* Light/dark toggle — quiet outlined icon button (matches the planner). */
+/* Light/dark toggle - quiet outlined icon button (matches the planner). */
 .theme-toggle {
   display: inline-flex; align-items: center; justify-content: center;
   width: 34px; height: 34px; flex: none;
@@ -152,7 +152,7 @@ a:hover { text-decoration: underline; }
 
 
 /* ═════════════════════════════════════════════════════════════════════
-   LANDING — flash pass (2026-06). All colour via tokens; the only raw
+   LANDING - flash pass (2026-06). All colour via tokens; the only raw
    value is the external store-badge black, scoped + labelled below.
    Motion: scroll-reveals (IO adds .is-in), floating phones, flap board.
    Everything stills under prefers-reduced-motion.
@@ -210,7 +210,7 @@ html { scroll-behavior: smooth; }
 .hero__note a { color: var(--nv-text-secondary); font-weight: var(--nv-weight-medium); }
 .hero__note a:hover { color: var(--nv-accent); }
 
-/* ── Split-flap destination board (content motif — NOT the locked marks;
+/* ── Split-flap destination board (content motif - NOT the locked marks;
       tiles use surface navy, not the mark-only --nv-tile-bg). ─────────── */
 .board { display: inline-flex; align-items: center; gap: var(--nv-space-3); }
 .board__label {
@@ -383,7 +383,7 @@ html { scroll-behavior: smooth; }
 }
 .control__chip i { color: var(--nv-accent); font-size: 17px; }
 
-/* ── Final CTA — a contained, elevated closing panel ─────────────────── */
+/* ── Final CTA - a contained, elevated closing panel ─────────────────── */
 .cta { padding: var(--nv-space-16) 0 var(--nv-space-20); }
 .cta__card {
   position: relative; overflow: hidden; text-align: center;
@@ -411,7 +411,7 @@ html { scroll-behavior: smooth; }
 
 /* ── Store badges (rendered by nv-site.js into .nv-stores) ───────────────
    --nv-store-black is the external Apple/Google badge artwork colour, NOT
-   part of the NV palette — scoped here, never reused elsewhere. */
+   part of the NV palette - scoped here, never reused elsewhere. */
 .nv-stores { --nv-store-black: #000; display: flex; gap: var(--nv-space-3); flex-wrap: wrap; align-items: center; margin-top: var(--nv-space-2); }
 .nv-store-badge {
   display: inline-flex; align-items: center; gap: 10px;
