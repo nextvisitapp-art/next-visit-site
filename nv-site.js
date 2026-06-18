@@ -1,4 +1,4 @@
-// Next Visit · site pages — light/dark toggle. Navy is the default look (set
+// Next Visit · site pages - light/dark toggle. Navy is the default look (set
 // pre-paint by the inline bootstrap in each page's <head>); this only wires the
 // header toggle button and keeps the theme-color meta in step. The choice
 // persists under the shared `nv_appearance` key.
@@ -55,7 +55,7 @@
     if (!soon) { a.target = "_blank"; a.rel = "noopener"; }
     if (soon) { a.setAttribute("aria-disabled", "true"); }
     var isiOS = kind === "ios";
-    a.setAttribute("aria-label", (isiOS ? "Download on the App Store" : "Get it on Google Play") + (soon ? " — coming soon" : ""));
+    a.setAttribute("aria-label", (isiOS ? "Download on the App Store" : "Get it on Google Play") + (soon ? " - coming soon" : ""));
     a.innerHTML = (isiOS ? APPLE : PLAY) +
       '<span class="nv-store-badge__txt">' +
         '<span class="nv-store-badge__sm">' + (isiOS ? "Download on the" : "Get it on") + '</span>' +
@@ -109,7 +109,7 @@
       }
     }
 
-    // Split-flap destination board — cycles real next-stop ideas. Pads to a
+    // Split-flap destination board - cycles real next-stop ideas. Pads to a
     // fixed slot count so the board doesn't reflow between words.
     var board = document.getElementById("flapBoard");
     if (board) {
@@ -147,7 +147,7 @@
       if (!reduced) setInterval(function () { w = (w + 1) % WORDS.length; setWord(WORDS[w]); }, 3400);
     }
 
-    // Hero phone parallax — tiny translate driven by scroll.
+    // Hero phone parallax - tiny translate driven by scroll.
     var px = document.querySelectorAll("[data-parallax]");
     if (px.length && !reduced) {
       var ticking = false;

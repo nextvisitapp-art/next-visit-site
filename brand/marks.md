@@ -14,20 +14,20 @@
 
 ---
 
-## Construction — `FlapChar`
+## Construction - `FlapChar`
 
 The atom. One split-flap tile with one glyph.
 
 | prop | default | meaning |
 |---|---|---|
-| `char` | — | the single character to render |
+| `char` | - | the single character to render |
 | `w` | 50 | tile width (px) |
 | `h` | 68 | tile height (px) |
 | `color` | `--nv-tile-glyph` | glyph color (= cream-100) |
 | `bg` | `--nv-tile-bg` | tile inner background (= #06122a) |
 | `family` | `--nv-font-mark` | Space Grotesk |
 | `weight` | 700 | font-weight |
-| `borderless` | `false` | drop the rounded corners + border — for full-bleed icon use |
+| `borderless` | `false` | drop the rounded corners + border - for full-bleed icon use |
 | `charScale` | 0.66 | glyph font-size as a fraction of `h` |
 | `charOffsetX` | 0 | px translate on the glyph; used by `AppIcon` to pull N/V toward the seam |
 
@@ -41,33 +41,33 @@ Inside each tile (z-stack, bottom → top):
 
 ---
 
-## Construction — `LogoA` (wordmark)
+## Construction - `LogoA` (wordmark)
 
 ```
 NEXTVISIT      ← 9 FlapChar tiles (default)
-· 12 · jul ·   ← optional DM Mono date line, --nv-pink-500 — only when a
+· 12 · jul ·   ← optional DM Mono date line, --nv-pink-500 - only when a
                  real next-visit date is on screen
 ```
 
 | Spec | Value |
 |---|---|
-| Tiles | 9 — spelling `NEXTVISIT` |
+| Tiles | 9 - spelling `NEXTVISIT` |
 | Tile gap | `w * 0.077` (≈ 4 px at default size) |
 | Default size | `w=52, h=70` |
 | Date line (opt-in) | font `--nv-font-mono` (DM Mono), weight 500, tracking `.42em`, uppercase, color `--nv-pink-500` |
 | Wordmark-to-date gap (when date present) | `w * 0.36` |
 
 `<LogoA/>` accepts `w`, `h`, `dateSize`, and `date` props. **`date` defaults
-to `null`** — the wordmark renders as 9 tiles only.
+to `null`** - the wordmark renders as 9 tiles only.
 
 Pass `date="· 12 · jul ·"` on splash screens, share cards, marketing
 surfaces, or anywhere a real next-visit date is the moment. Don't pass
-a placeholder date just to "look complete" — if no date is meaningful,
+a placeholder date just to "look complete" - if no date is meaningful,
 leave it off.
 
 ---
 
-## Construction — `AppIcon` (square icon, full bleed)
+## Construction - `AppIcon` (square icon, full bleed)
 
 Two `FlapChar` tiles, edge-to-edge, no gap, no inner rounding. The outer
 shell is the only thing rounded.
@@ -141,14 +141,14 @@ Make sure it is loaded on any page that renders `<LogoA/>` or `<AppIcon/>`:
 ```jsx
 import { LogoA, AppIcon, FlapChar } from '~/brand/marks';
 
-// Default wordmark — 9 tiles only (header, footer, most surfaces)
+// Default wordmark - 9 tiles only (header, footer, most surfaces)
 <LogoA />
 
 // Larger wordmark for hero / splash
 <LogoA w={64} h={86} />
 
 // Wordmark with a real next-visit date underneath
-// (splash, share cards — only when a real date is on screen)
+// (splash, share cards - only when a real date is on screen)
 <LogoA date="· 12 · jul ·" dateSize={15} />
 
 // App icon at favicon size
@@ -163,5 +163,5 @@ import { LogoA, AppIcon, FlapChar } from '~/brand/marks';
 ## When in doubt
 
 Ask before drawing anything new on top of the mark. The system is small
-on purpose — the answer to "should I make a variant for X?" is almost
+on purpose - the answer to "should I make a variant for X?" is almost
 always **no, use the icon**.

@@ -1,8 +1,8 @@
-// Next Visit — Brand Marks (LOCKED)
+// Next Visit - Brand Marks (LOCKED)
 //
-// FlapChar     — atomic split-flap tile (the building block)
-// LogoA        — primary wordmark: NEXTVISIT (optional · date · line)
-// AppIcon      — square app icon: full-bleed N + V
+// FlapChar     - atomic split-flap tile (the building block)
+// LogoA        - primary wordmark: NEXTVISIT (optional · date · line)
+// AppIcon      - square app icon: full-bleed N + V
 //
 // These three components are the single source of truth for the Next
 // Visit identity. Import them; do NOT redraw or restyle.
@@ -16,7 +16,7 @@
 import React from 'react';
 
 // ─────────────────────────────────────────────────────────────────────
-// FlapChar — one split-flap tile with a glyph
+// FlapChar - one split-flap tile with a glyph
 // ─────────────────────────────────────────────────────────────────────
 export function FlapChar({
   char,
@@ -88,7 +88,7 @@ export function FlapChar({
 }
 
 // ─────────────────────────────────────────────────────────────────────
-// LogoA — the wordmark (locked)
+// LogoA - the wordmark (locked)
 // ─────────────────────────────────────────────────────────────────────
 // Default: 9 flap tiles only. Pass a `date` prop (e.g. "\u00b7 12 \u00b7 jul \u00b7")
 // to add the pink mono date line beneath \u2014 reserved for surfaces where
@@ -123,7 +123,7 @@ export function LogoA({ w = 52, h = 70, dateSize, date = null }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────
-// AppIcon — the square app icon (locked, full bleed)
+// AppIcon - the square app icon (locked, full bleed)
 // ─────────────────────────────────────────────────────────────────────
 const ICON_RADIUS_RATIO = 0.2237; // iOS squircle ratio
 
