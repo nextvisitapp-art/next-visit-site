@@ -34,8 +34,8 @@
 (function () {
   var STORE = {
     ios: {
-      live: false,
-      url: "https://apps.apple.com/app/idREPLACE_WITH_APPLE_ID"
+      live: true,
+      url: "https://apps.apple.com/app/id6775123226"
     },
     android: {
       live: false, // flip true once the Play listing is published
