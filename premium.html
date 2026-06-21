@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>(function(){try{var v=localStorage.getItem('nv_appearance');document.documentElement.setAttribute('data-theme',v==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <meta name="theme-color" content="#0e2240">
-<title>Plans - Next Visit</title>
+<title>Pricing - Next Visit</title>
 <meta name="description" content="Next Visit plans: Free, Plus, and Together. Keep your trips, photos and memories for the two of you - with more room and more ways to play as you go.">
 <link rel="canonical" href="https://hello.next-visit.app/premium">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta property="og:title" content="Plans - Next Visit">
+<meta property="og:title" content="Pricing - Next Visit">
 <meta property="og:description" content="Free, Plus, and Together - choose how much room and play you want.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Next Visit">
@@ -26,22 +26,27 @@
 <link rel="stylesheet" href="/nv-site.css">
 <style>
   /* Plans page - scoped tier cards. Tokens only, no raw colours. */
-  .plans { padding: var(--nv-space-10) 0 var(--nv-space-12); }
-  .plans__head { max-width: 640px; margin: 0 auto var(--nv-space-9); text-align: center; }
-  .plans__grid { display: grid; gap: var(--nv-space-5); grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); align-items: start; }
-  .plan { background: var(--nv-bg-surface); border: 1px solid var(--nv-border-subtle); border-radius: var(--nv-radius-xl, 20px); padding: var(--nv-space-6); display: flex; flex-direction: column; gap: var(--nv-space-3); }
-  .plan--featured { border-color: var(--nv-pink-500); box-shadow: var(--nv-shadow-md); }
-  .plan__tag { font-family: var(--nv-font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--nv-pink-500); }
+  .plans { padding: var(--nv-space-12) 0 var(--nv-space-12); }
+  .plans .container { max-width: 1040px; }
+  .plans__head { max-width: 600px; margin: 0 auto var(--nv-space-10); text-align: center; }
+  .plans__head h1 { margin: var(--nv-space-3) 0 var(--nv-space-4); }
+  .plans__head p { color: var(--nv-text-secondary); margin: 0 auto; max-width: 540px; }
+  .plans__grid { display: grid; gap: var(--nv-space-5); grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; max-width: 1000px; margin: 0 auto; }
+  .plan { position: relative; height: 100%; background: var(--nv-bg-surface); border: 1px solid var(--nv-border-subtle); border-radius: 20px; padding: var(--nv-space-6); display: flex; flex-direction: column; gap: var(--nv-space-3); transition: transform var(--nv-dur-fast) var(--nv-ease-out), box-shadow var(--nv-dur-fast); }
+  .plan--featured { border-color: var(--nv-pink-500); box-shadow: var(--nv-shadow-lg); }
+  .plan__tag { font-family: var(--nv-font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--nv-pink-500); margin: 0; }
   .plan__name { font-family: var(--nv-font-serif); font-size: 24px; font-weight: 600; color: var(--nv-text-primary); margin: 0; }
-  .plan__price { font-family: var(--nv-font-serif); font-size: 30px; font-weight: 600; color: var(--nv-text-primary); line-height: 1; }
-  .plan__per { font-family: var(--nv-font-mono); font-size: 12px; color: var(--nv-text-muted); }
-  .plan__blurb { font-size: 13.5px; color: var(--nv-text-secondary); margin: 0; line-height: 1.5; }
-  .plan__list { list-style: none; padding: 0; margin: var(--nv-space-2) 0 0; display: flex; flex-direction: column; gap: 8px; }
+  .plan__price { font-family: var(--nv-font-serif); font-size: 34px; font-weight: 600; color: var(--nv-text-primary); line-height: 1; margin: 0 0 4px; display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+  .plan__per { font-family: var(--nv-font-mono); font-size: 12px; font-weight: 500; color: var(--nv-text-muted); letter-spacing: 0.02em; }
+  .plan__blurb { font-size: 13.5px; color: var(--nv-text-secondary); margin: 0; line-height: 1.55; min-height: 3.4em; }
+  .plan__list { list-style: none; padding: var(--nv-space-4) 0 0; margin: var(--nv-space-2) 0 0; border-top: 1px solid var(--nv-border-subtle); display: flex; flex-direction: column; gap: 10px; }
   .plan__list li { display: flex; gap: 9px; align-items: flex-start; font-size: 13.5px; color: var(--nv-text-secondary); line-height: 1.45; }
   .plan__list i { color: var(--nv-pink-500); font-size: 15px; line-height: 1.4; flex-shrink: 0; }
-  .plan__soon { font-family: var(--nv-font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--nv-text-muted); }
-  .plans__foot { text-align: center; margin-top: var(--nv-space-9); }
-  .plans__finenote { font-size: 12px; color: var(--nv-text-muted); margin-top: var(--nv-space-4); line-height: 1.6; }
+  .plan__soon { font-family: var(--nv-font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--nv-text-muted); margin: var(--nv-space-3) 0 0; }
+  .plans__foot { text-align: center; margin-top: var(--nv-space-10); }
+  .plans__finenote { font-size: 12px; color: var(--nv-text-muted); margin: var(--nv-space-5) auto 0; max-width: 520px; line-height: 1.6; }
+  @media (min-width: 861px) { .plan--featured { transform: translateY(-8px); } }
+  @media (max-width: 860px) { .plans__grid { grid-template-columns: 1fr; max-width: 420px; } .plan__blurb { min-height: 0; } }
 </style>
 <script src="/nv-site.js" defer></script>
 </head>
@@ -51,7 +56,7 @@
     <a class="nv-logo" href="/" aria-label="Next Visit - home"><span class="nv-logo__row"><span class="nv-logo__tile"><span class="nv-logo__glyph">N</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">E</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">X</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">T</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">V</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">I</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">S</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">I</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span><span class="nv-logo__tile"><span class="nv-logo__glyph">T</span><span class="nv-logo__seam"></span><span class="nv-logo__hi"></span><span class="nv-logo__lo"></span></span></span></a>
     <nav class="site-nav">
       <a href="https://go.next-visit.app">Plan a trip</a>
-      <a href="/premium">Plans</a>
+      <a href="/premium">Pricing</a>
       <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to light mode" onclick="nvToggleTheme()"></button>
     </nav>
   </div>
@@ -60,7 +65,7 @@
 <main class="plans">
   <div class="container">
     <div class="plans__head">
-      <p class="eyebrow">Plans</p>
+      <p class="eyebrow">Pricing</p>
       <h1>Start free. Grow into it.</h1>
       <p>Next Visit is free to use forever. When the two of you fill it with trips and memories, Plus gives you the room to keep them all - and Together adds the playful stuff for the days in between.</p>
     </div>
@@ -86,7 +91,7 @@
       <div class="plan plan--featured">
         <p class="plan__tag">Most room</p>
         <p class="plan__name">Plus</p>
-        <p class="plan__price">$3.99 <span class="plan__per">/ month</span></p>
+        <p class="plan__price">A$3.99 <span class="plan__per">/ month</span></p>
         <p class="plan__blurb">Room to keep everything - thousands of photos and videos for all your memories.</p>
         <ul class="plan__list">
           <li><i class="ph ph-check"></i> Everything in Free</li>
@@ -101,7 +106,7 @@
       <div class="plan">
         <p class="plan__tag" style="color: var(--nv-text-muted)">Everything</p>
         <p class="plan__name">Together</p>
-        <p class="plan__price">$6.99 <span class="plan__per">/ month</span></p>
+        <p class="plan__price">A$6.99 <span class="plan__per">/ month</span></p>
         <p class="plan__blurb">Everything in Plus, plus the games and rituals made for two - and even more room.</p>
         <ul class="plan__list">
           <li><i class="ph ph-check"></i> Everything in Plus</li>
@@ -117,7 +122,7 @@
 
     <div class="plans__foot">
       <a class="site-btn site-btn--primary" href="/#get">Get Next Visit</a>
-      <p class="plans__finenote">Plans are managed in the app under You. Prices shown in USD; your local price appears at checkout. You can change or cancel anytime.</p>
+      <p class="plans__finenote">Plans are managed in the app under You. Prices shown in AUD; your local price appears at checkout. You can change or cancel anytime.</p>
     </div>
   </div>
 </main>
@@ -128,7 +133,7 @@
     <nav class="site-footer__links">
       <a href="/">Home</a>
       <a href="https://go.next-visit.app">Plan a trip</a>
-      <a href="/premium">Plans</a>
+      <a href="/premium">Pricing</a>
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
       <a href="/support">Support</a>
