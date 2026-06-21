@@ -1,7 +1,9 @@
-<!-- Next Visit · App Icon (locked v1.0)
-     Static SVG render of <AppIcon size={64}/> from brand/marks.jsx.
-     If you need to change the icon, change brand/marks.jsx first and re-export
-     this file by hand from the rules in brand/marks.md. Do NOT redraw it
+<!-- Next Visit · App Icon (locked v1.1)
+     N + V as outlined vector paths (Space Grotesk 700), so the mark renders
+     identically everywhere - including as a favicon / <img>, where web fonts
+     don't load. The glyphs are centred as a pair with a clean ~3px gap at the
+     seam: the N and V must NOT overlap. If you need to change the icon, change
+     brand/marks.jsx first and re-export per brand/marks.md. Do NOT redraw it
      in isolation here. -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
@@ -21,14 +23,8 @@
     <rect x="0" y="0" width="64" height="64" fill="#0e2240"/>
     <rect x="0" y="0" width="32" height="64" fill="#06122a"/>
     <rect x="32" y="0" width="32" height="64" fill="#06122a"/>
-    <text x="20.48" y="32"
-          font-family="'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif"
-          font-weight="700" font-size="39.68" fill="#fbe8de"
-          text-anchor="middle" dominant-baseline="central" letter-spacing="-0.4">N</text>
-    <text x="43.52" y="32"
-          font-family="'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif"
-          font-weight="700" font-size="39.68" fill="#ec4079"
-          text-anchor="middle" dominant-baseline="central" letter-spacing="-0.4">V</text>
+    <path d="M14.63 44.83L9.87 44.83L9.87 19.17L19.07 19.17L24.17 41.53L24.83 41.53L24.83 19.17L29.59 19.17L29.59 44.83L20.39 44.83L15.29 22.47L14.63 22.47" fill="#fbe8de"/>
+    <path d="M47.61 44.83L39.32 44.83L32.79 19.17L37.78 19.17L43.21 41.72L43.72 41.72L49.15 19.17L54.13 19.17" fill="#ec4079"/>
     <rect x="0" y="31.5" width="64" height="1" fill="rgba(0,0,0,0.6)"/>
     <rect x="0" y="0"  width="64" height="32" fill="url(#nvHi)"/>
     <rect x="0" y="32" width="64" height="32" fill="url(#nvLo)"/>
