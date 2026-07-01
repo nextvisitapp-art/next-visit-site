@@ -1,5 +1,4 @@
-/* ============================================================
-   Next Visit - Design Tokens
+/* Next Visit - Design Tokens
    v0.1 · 18 May 2026
 
    Drop this into your app's global stylesheet (or import it).
@@ -53,6 +52,13 @@
   --nv-error:      #c83838;
   --nv-error-bg:   #fbe5e1;
 
+  /* Info (sky-blue family). Not in the brand-three palette but
+     surfaces a few signposting affordances (informational toasts,
+     transit / planning hints) that don't fit warning amber or
+     success green. Kept neutral so it never reads as a CTA. */
+  --nv-info:       #1d6298;
+  --nv-info-bg:    #e3eef9;
+
   /* ── Semantic aliases · use these in components ──────────── */
   /* Map the raw scale to roles. Components should reference
      the role tokens, not the scale, so a future re-theme is cheap. */
@@ -67,7 +73,15 @@
   --nv-text-secondary: var(--nv-navy-600);
   --nv-text-muted:     var(--nv-navy-400);
   --nv-text-on-dark:   var(--nv-cream-100);
+  --nv-text-on-dark-muted: rgba(251, 232, 222, 0.78);  /* secondary cream text on a navy/dark card (= cream-100 @ 78%) */
   --nv-text-on-pink:   #ffffff;
+  --nv-text-on-accent: #ffffff;   /* white text/icon on a filled colour chip (pink, success, etc.) */
+
+  /* Faint chips/borders that sit ON a dark (navy) card - e.g. the Together
+     gateway glyph tiles. Absolute (not role-flipped): a dark card looks the
+     same in light and dark mode. */
+  --nv-surface-on-dark: rgba(255, 255, 255, 0.06);
+  --nv-border-on-dark:  rgba(255, 255, 255, 0.10);
 
   --nv-border-subtle:  var(--nv-navy-100);
   --nv-border-strong:  var(--nv-navy-200);
@@ -76,6 +90,33 @@
   --nv-accent:         var(--nv-pink-500);
   --nv-accent-hover:   var(--nv-pink-600);
   --nv-accent-soft:    var(--nv-pink-50);
+
+  /* Scrim used by modal / bottom-sheet backdrops. Pure-black at moderate
+     alpha - a navy tint here murked up the page behind it (navy × pink =
+     burgundy on the countdown hero); black-on-30 dims without re-colouring,
+     so the page-below stays recognisable. */
+  --nv-overlay-scrim:  rgba(0, 0, 0, 0.30);
+  /* Full-screen media backdrop (photo viewer). Brand navy rather than flat
+     black so the immersive surface still feels like Next Visit. Channels only,
+     so callers can set the alpha for the drag-to-dismiss fade:
+     rgb(var(--nv-overlay-photo-rgb) / 0.8). */
+  --nv-overlay-photo-rgb: 5 17 31;   /* = --nv-navy-950 */
+
+  /* Z-index hierarchy. Every layer in the app should reach for one of
+     these tokens rather than picking a one-off number, so the layering
+     stays predictable and a future re-ordering happens here, not across
+     fifteen component files. Modals must portal to document.body for
+     these values to actually win over the bottom nav (a framer-motion
+     ancestor with a transform traps position:fixed inside its box). */
+  --nv-z-base:         1;       /* default layer */
+  --nv-z-sticky:       100;     /* sticky page headers, sub-navs */
+  --nv-z-nav:          1000;    /* bottom nav bar */
+  --nv-z-fab:          1100;    /* floating action button */
+  --nv-z-toast:        4000;    /* sonner toasts - above content, below modals */
+  --nv-z-modal-scrim:  9000;    /* backdrop behind modals / bottom-sheets */
+  --nv-z-modal:        9001;    /* modal content itself */
+  --nv-z-popover:      9500;    /* tooltips, popovers, dropdowns */
+  --nv-z-max:          99999;   /* truly above everything (auth gates, full-screen photo viewer) */
 
   /* ── Type ────────────────────────────────────────────────── */
   --nv-font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
@@ -145,57 +186,61 @@
   --nv-dur-slow:   320ms;
 }
 
-/* ── Dark theme override (apply via data-theme or media query) ────
-   Tuning note: borders + shadow rings in dark mode are reduced from
-   the original spec's 8%/16% cream alphas (which read as warm-white
-   glows against the cool navy page) to subtler cool-navy-tinted
-   hairlines. The card surface tier still does most of the work
-   (navy-900 page → navy-800 card → navy-700 chip), the hairline just
-   crisps the edge without lighting it up. */
+/* ── Dark theme override · opt-in via <html data-theme="dark"> ────────
+   Never fires on its own - the corresponding @media (prefers-color-scheme: dark)
+   query was deliberately retired (see comment below). MyProfile's Appearance
+   toggle is the sole way a user gets here. */
 [data-theme="dark"] {
-  --nv-bg-page:        var(--nv-navy-900);
-  --nv-bg-surface:     var(--nv-navy-800);
-  --nv-bg-subtle:      var(--nv-navy-700);
+  --nv-bg-page:        var(--nv-navy-900);  /* page backdrop */
+  --nv-bg-surface:     var(--nv-navy-800);  /* card / sheet surface */
+  --nv-bg-subtle:      var(--nv-navy-700);  /* secondary surface, hovers */
   --nv-bg-hover:       rgba(251, 232, 222, 0.06);
+  /* `bg-dark` flips to a SLIGHTLY-lighter navy than the page so dark
+     surfaces like the Countdown hero still pop. */
+  --nv-bg-dark:        var(--nv-navy-700);
 
   --nv-text-primary:   var(--nv-cream-100);
   --nv-text-secondary: var(--nv-cream-200);
   --nv-text-muted:     rgba(251, 232, 222, 0.55);
 
-  /* Cool navy hairline at low alpha - reads as a structural edge,
-     not a glow. The previous cream-tinted version felt off-brand. */
-  --nv-border-subtle:  rgba(197, 206, 224, 0.08);
-  --nv-border-strong:  rgba(197, 206, 224, 0.18);
+  --nv-border-subtle:  rgba(251, 232, 222, 0.10);
+  --nv-border-strong:  rgba(251, 232, 222, 0.20);
 
-  --nv-accent-soft:    rgba(236, 64, 121, 0.18);
+  /* Semantic fill backgrounds flip to translucent tints of their OWN hue so
+     they read as dark chips on navy. The light defaults (#e6f3ec etc.) were
+     near-white blocks with invisible text in dark mode - e.g. the completed
+     Local Tourist stops and the success badge. Paired text stays the semantic
+     colour (or cream), both of which read on these dark tints. */
+  --nv-success-bg: rgba(47, 153, 104, 0.22);
+  --nv-warning-bg: rgba(217, 144, 33, 0.22);
+  --nv-error-bg:   rgba(200, 56, 56, 0.24);
+  --nv-info-bg:    rgba(29, 98, 152, 0.26);
 
-  /* Drop the 1px outer ring on shadow-md - the surface tier carries
-     card differentiation. Keep a soft drop below for elevation. */
-  --nv-shadow-sm:      0 1px 0 rgba(0, 0, 0, 0.30);
-  --nv-shadow-md:      0 2px 8px rgba(0, 0, 0, 0.35);
-  --nv-shadow-lg:      0 8px 28px rgba(0, 0, 0, 0.45);
-  --nv-shadow-focus:   0 0 0 3px rgba(236, 64, 121, 0.30);
+  --nv-accent-soft:    rgba(236, 64, 121, 0.22);
+
+  /* The light pink tints flip to translucent brand pink: a solid #fdeaf2
+     fill reads as a glaring light block on navy (profile stat chip, glyph
+     chips, opt-in bell). Every var(--nv-pink-50/100) fill inherits this. */
+  --nv-pink-50:  rgba(236, 64, 121, 0.14);
+  --nv-pink-100: rgba(236, 64, 121, 0.22);
+
+  /* Shadows on dark need to push light/inner glow rather than dropped
+     darker-than-bg shadow. Hairline pink-tinted top stroke + a touch of
+     blur reads as a card lift on navy. */
+  --nv-shadow-sm:    inset 0 0 0 1px rgba(251, 232, 222, 0.06), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --nv-shadow-md:    inset 0 0 0 1px rgba(251, 232, 222, 0.08), 0 4px 12px rgba(0, 0, 0, 0.3);
+  --nv-shadow-lg:    inset 0 0 0 1px rgba(251, 232, 222, 0.10), 0 8px 24px rgba(0, 0, 0, 0.4);
+  --nv-shadow-focus: 0 0 0 3px rgba(236, 64, 121, 0.30);
+
+  /* Scrim a touch more aggressive on dark - black-30 on a near-black page
+     barely reads. Bumping to 50 so a modal still clearly separates from
+     the page underneath. */
+  --nv-overlay-scrim: rgba(0, 0, 0, 0.55);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --nv-bg-page:        var(--nv-navy-900);
-    --nv-bg-surface:     var(--nv-navy-800);
-    --nv-bg-subtle:      var(--nv-navy-700);
-    --nv-bg-hover:       rgba(251, 232, 222, 0.06);
-
-    --nv-text-primary:   var(--nv-cream-100);
-    --nv-text-secondary: var(--nv-cream-200);
-    --nv-text-muted:     rgba(251, 232, 222, 0.55);
-
-    --nv-border-subtle:  rgba(197, 206, 224, 0.08);
-    --nv-border-strong:  rgba(197, 206, 224, 0.18);
-
-    --nv-accent-soft:    rgba(236, 64, 121, 0.18);
-
-    --nv-shadow-sm:      0 1px 0 rgba(0, 0, 0, 0.30);
-    --nv-shadow-md:      0 2px 8px rgba(0, 0, 0, 0.35);
-    --nv-shadow-lg:      0 8px 28px rgba(0, 0, 0, 0.45);
-    --nv-shadow-focus:   0 0 0 3px rgba(236, 64, 121, 0.30);
-  }
-}
+/* Dark mode is opt-in via `[data-theme="dark"]` only. The
+   `@media (prefers-color-scheme: dark)` query was deliberately retired -
+   it was firing whenever a user had iOS / Safari set to dark, flipping
+   text tokens to cream while many cards still hard-coded
+   `background: white`. The user-facing toggle in MyProfile sets
+   `<html data-theme="dark">` to opt in deliberately. */

@@ -13,7 +13,7 @@
       btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
     }
     var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", dark ? "#0e2240" : "#fdf0f0");
+    if (meta) meta.setAttribute("content", dark ? "#0e2240" : "#fafaf7"); // navy-800 / paper (metas can't use vars)
   }
   window.nvToggleTheme = function () {
     var next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
