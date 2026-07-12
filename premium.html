@@ -35,7 +35,7 @@
   .plans__head { max-width: 600px; margin: 0 auto var(--nv-space-10); text-align: center; }
   .plans__head h1 { margin: var(--nv-space-3) 0 var(--nv-space-4); }
   .plans__head p { color: var(--nv-text-secondary); margin: 0 auto; max-width: 540px; }
-  .plans__grid { display: grid; gap: var(--nv-space-5); grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; max-width: 720px; margin: 0 auto; }
+  .plans__grid { display: grid; gap: var(--nv-space-5); grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; max-width: 1060px; margin: 0 auto; }
   .plan { position: relative; height: 100%; background: var(--nv-bg-surface); border: 1px solid var(--nv-border-subtle); border-radius: 20px; padding: var(--nv-space-6); display: flex; flex-direction: column; gap: var(--nv-space-3); transition: transform var(--nv-dur-fast) var(--nv-ease-out), box-shadow var(--nv-dur-fast); }
   .plan--featured { border-color: var(--nv-pink-500); box-shadow: var(--nv-shadow-lg); }
   .plan__tag { font-family: var(--nv-font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--nv-pink-500); margin: 0; }
@@ -49,8 +49,8 @@
   .plan__soon { font-family: var(--nv-font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--nv-text-muted); margin: var(--nv-space-3) 0 0; }
   .plans__foot { text-align: center; margin-top: var(--nv-space-10); }
   .plans__finenote { font-size: 12px; color: var(--nv-text-muted); margin: var(--nv-space-5) auto 0; max-width: 520px; line-height: 1.6; }
-  @media (min-width: 861px) { .plan--featured { transform: translateY(-8px); } }
-  @media (max-width: 860px) { .plans__grid { grid-template-columns: 1fr; max-width: 420px; } .plan__blurb { min-height: 0; } }
+  @media (min-width: 1024px) { .plan--featured { transform: translateY(-8px); } }
+  @media (max-width: 1023px) { .plans__grid { grid-template-columns: 1fr; max-width: 420px; } .plan__blurb { min-height: 0; } .plan--featured { transform: none; } }
 </style>
 <script src="/nv-site.js" defer></script>
 </head>
@@ -73,7 +73,7 @@
     <div class="plans__head">
       <p class="eyebrow">Pricing</p>
       <h1>Start free. Grow into it.</h1>
-      <p>Next Visit is free to use forever. When the two of you start filling it with trips and memories, Plus gives you the room to keep every photo and video - with more ways to play coming as we build.</p>
+      <p>Next Visit is free to use forever. Plus gives you the room to keep every photo and video, and Together unlocks the whole premium world made for two - shared health, one-tap check-ins, games, surprise trips and home-screen widgets.</p>
     </div>
 
     <div class="plans__grid">
@@ -94,8 +94,8 @@
       </div>
 
       <!-- PLUS -->
-      <div class="plan plan--featured">
-        <p class="plan__tag">Most room</p>
+      <div class="plan">
+        <p class="plan__tag" style="color: var(--nv-text-muted)">Most room</p>
         <p class="plan__name">Plus</p>
         <p class="plan__price">A$3.99 <span class="plan__per">/ month</span></p>
         <p class="plan__blurb">Room to keep everything - thousands of photos and videos for all your memories.</p>
@@ -105,7 +105,25 @@
           <li><i class="ph ph-check"></i> 2,000 photos and 100 videos</li>
           <li><i class="ph ph-check"></i> Room for the whole story of you two</li>
         </ul>
-        <p class="plan__soon">And Plus keeps growing - new features land here first.</p>
+        <p class="plan__soon">Room first - and every Together feature includes it.</p>
+      </div>
+
+      <!-- TOGETHER -->
+      <div class="plan plan--featured">
+        <p class="plan__tag">Made for two</p>
+        <p class="plan__name">Together</p>
+        <p class="plan__price">A$6.99 <span class="plan__per">/ month</span></p>
+        <p class="plan__blurb">The premium world for the two of you - feel each other's day, play, and plan the next surprise.</p>
+        <ul class="plan__list">
+          <li><i class="ph ph-check"></i> Everything in Plus</li>
+          <li><i class="ph ph-check"></i> Health together - share sleep and steps, walk to your trip, weekly step face-off</li>
+          <li><i class="ph ph-check"></i> One-tap check-ins - thinking of you, moods, wind-downs</li>
+          <li><i class="ph ph-check"></i> Home-screen widgets - send a feeling, two clocks, the countdown</li>
+          <li><i class="ph ph-check"></i> Surprise trips - book it, they see only the countdown</li>
+          <li><i class="ph ph-check"></i> Games and rituals - daily question, date roulette, little bets, guess where</li>
+          <li><i class="ph ph-check"></i> Couple passport, dream pins and a live flight tracker</li>
+        </ul>
+        <p class="plan__soon">One subscription covers both of you.</p>
       </div>
 
     </div>
