@@ -407,7 +407,6 @@ html { scroll-behavior: smooth; }
 .cta h2 em { font-style: italic; color: var(--nv-accent); }
 .cta p { font-size: var(--nv-text-lg); color: var(--nv-text-secondary); margin: 0 0 var(--nv-space-8); }
 .cta .nv-stores { justify-content: center; margin-bottom: var(--nv-space-2); }
-.cta__note { font-family: var(--nv-font-mono); font-size: var(--nv-text-xs); color: var(--nv-text-muted); margin: var(--nv-space-10) 0 0; letter-spacing: 0.04em; }
 
 /* ── Store badges (rendered by nv-site.js into .nv-stores) ───────────────
    --nv-store-black is the external Apple/Google badge artwork colour, NOT
