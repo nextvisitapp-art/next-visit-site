@@ -6,12 +6,12 @@
 <script>(function(){try{var v=localStorage.getItem('nv_appearance');document.documentElement.setAttribute('data-theme',v==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <meta name="theme-color" content="#0e2240">
 <title>Pricing - Next Visit</title>
-<meta name="description" content="Next Visit plans: Free and Plus. Keep your trips, photos and memories for the two of you - with more room to keep every photo and video as you go.">
+<meta name="description" content="Next Visit plans: Free and Plus, for couples and for crews. Free forever to plan trips and keep memories - Plus adds room for every photo and video, and the Together world for couples.">
 <link rel="canonical" href="https://hello.next-visit.app/premium">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta property="og:title" content="Pricing - Next Visit">
-<meta property="og:description" content="Free and Plus - keep every photo and video of your trips, with more ways to play coming as we build.">
+<meta property="og:description" content="Free and Plus - for your person or the whole crew. See exactly what each one gets.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Next Visit">
 <meta property="og:url" content="https://hello.next-visit.app/premium">
@@ -51,6 +51,29 @@
   .plans__finenote { font-size: 12px; color: var(--nv-text-muted); margin: var(--nv-space-5) auto 0; max-width: 520px; line-height: 1.6; }
   @media (min-width: 861px) { .plan--featured { transform: translateY(-8px); } }
   @media (max-width: 860px) { .plans__grid { grid-template-columns: 1fr; max-width: 420px; } .plan__blurb { min-height: 0; } .plan--featured { transform: none; } }
+
+  /* Who's it for - segmented switch between the couple and crew answers.
+     Both panels are in the DOM and labelled, so with JS off the page still
+     reads as two clear sections instead of one blank one. */
+  .plans__switch { display: flex; justify-content: center; margin: 0 0 var(--nv-space-8); }
+  .segmented { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--nv-bg-subtle); border: 1px solid var(--nv-border-subtle); }
+  .segmented button { appearance: none; border: 0; cursor: pointer; border-radius: 999px; padding: 9px 18px; font-family: var(--nv-font-sans); font-size: 13.5px; font-weight: 600; color: var(--nv-text-secondary); background: transparent; transition: background var(--nv-dur-fast) var(--nv-ease-out), color var(--nv-dur-fast); }
+  .segmented button:hover { color: var(--nv-text-primary); }
+  .segmented button[aria-selected="true"] { background: var(--nv-bg-surface); color: var(--nv-text-primary); box-shadow: var(--nv-shadow-sm); }
+  .segmented button:focus-visible { outline: 2px solid var(--nv-accent); outline-offset: 2px; }
+  .plans__panelhead { text-align: center; max-width: 560px; margin: 0 auto var(--nv-space-6); }
+  .plans__panelhead h2 { font-family: var(--nv-font-serif); font-size: 22px; font-weight: 600; color: var(--nv-text-primary); margin: 0 0 var(--nv-space-2); }
+  .plans__panelhead p { font-size: 14px; color: var(--nv-text-secondary); margin: 0; line-height: 1.6; }
+  /* Honest note about what Plus does NOT do in a crew. Neutral, not a warning
+     colour - it's information, not an error. */
+  .plans__note { max-width: 640px; margin: var(--nv-space-6) auto 0; padding: var(--nv-space-5); border-radius: 16px; background: var(--nv-bg-subtle); border: 1px solid var(--nv-border-subtle); }
+  .plans__note p { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--nv-text-secondary); }
+  .plans__note strong { color: var(--nv-text-primary); }
+  .plan__list li.is-off i { color: var(--nv-text-muted); }
+  /* JS on: only the selected panel shows, and the standalone headings go
+     (the switch labels them instead). */
+  .js .plans__panel[hidden] { display: none; }
+  .js .plans__panelhead--fallback { display: none; }
 </style>
 <script src="/nv-site.js" defer></script>
 </head>
@@ -73,53 +96,164 @@
     <div class="plans__head">
       <p class="eyebrow">Pricing</p>
       <h1>Start free. Grow into it.</h1>
-      <p>Next Visit is free to use forever. One upgrade - Plus - unlocks everything: room for every photo and video, and the whole Together world made for two - shared health, one-tap check-ins, games, surprise trips and home-screen widgets.</p>
+      <p>Next Visit is free to use forever, whether it's your person or the whole crew. Plus is the one upgrade - and what it adds depends on which one you're in.</p>
     </div>
 
-    <div class="plans__grid">
-
-      <!-- FREE -->
-      <div class="plan">
-        <p class="plan__tag" style="color: var(--nv-text-muted)">Free</p>
-        <p class="plan__name">Free</p>
-        <p class="plan__price">$0</p>
-        <p class="plan__blurb">Everything you need to count down to your next visit and start keeping memories.</p>
-        <ul class="plan__list">
-          <li><i class="ph ph-check"></i> Unlimited trip countdowns</li>
-          <li><i class="ph ph-check"></i> Up to 10 memories</li>
-          <li><i class="ph ph-check"></i> 150 photos and 15 videos</li>
-          <li><i class="ph ph-check"></i> Your song, lists and anniversaries</li>
-          <li><i class="ph ph-check"></i> AI date ideas</li>
-        </ul>
+    <div class="plans__switch">
+      <div class="segmented" role="tablist" aria-label="Who are you using Next Visit with?">
+        <button type="button" role="tab" id="tab-couple" aria-controls="panel-couple" aria-selected="true">Me and my person</button>
+        <button type="button" role="tab" id="tab-crew" aria-controls="panel-crew" aria-selected="false">A crew</button>
       </div>
-
-      <!-- PLUS - the one upgrade, everything included -->
-      <div class="plan plan--featured">
-        <p class="plan__tag">Everything</p>
-        <p class="plan__name">Plus</p>
-        <p class="plan__price">A$3.99 <span class="plan__per">/ month</span></p>
-        <p class="plan__blurb">One upgrade, all of it - every memory kept, and the whole Together world for the two of you.</p>
-        <ul class="plan__list">
-          <li><i class="ph ph-check"></i> Everything in Free</li>
-          <li><i class="ph ph-check"></i> Unlimited memories, 2,000 photos and 100 videos</li>
-          <li><i class="ph ph-check"></i> Health together - share sleep and steps, walk to your trip, weekly step face-off</li>
-          <li><i class="ph ph-check"></i> One-tap check-ins - thinking of you, moods, wind-downs</li>
-          <li><i class="ph ph-check"></i> Home-screen widgets - send a feeling, two clocks, the countdown</li>
-          <li><i class="ph ph-check"></i> Surprise trips - book it, they see only the countdown</li>
-          <li><i class="ph ph-check"></i> Games and rituals - daily question, date roulette, little bets, guess where</li>
-          <li><i class="ph ph-check"></i> Couple passport, dream pins and a live flight tracker</li>
-        </ul>
-        <p class="plan__soon">One subscription covers both of you.</p>
-      </div>
-
     </div>
+
+    <!-- ── COUPLE ─────────────────────────────────────────────────────── -->
+    <section class="plans__panel" id="panel-couple" role="tabpanel" aria-labelledby="tab-couple">
+      <div class="plans__panelhead plans__panelhead--fallback">
+        <h2>For the two of you</h2>
+        <p>A couple space - one countdown, your memories, and the rituals made for two.</p>
+      </div>
+
+      <div class="plans__grid">
+
+        <!-- FREE -->
+        <div class="plan">
+          <p class="plan__tag" style="color: var(--nv-text-muted)">Free</p>
+          <p class="plan__name">Free</p>
+          <p class="plan__price">$0</p>
+          <p class="plan__blurb">Everything you need to count down to your next visit and start keeping memories.</p>
+          <ul class="plan__list">
+            <li><i class="ph ph-check"></i> Unlimited trip countdowns</li>
+            <li><i class="ph ph-check"></i> Up to 10 memories</li>
+            <li><i class="ph ph-check"></i> 150 photos and 15 videos</li>
+            <li><i class="ph ph-check"></i> Your song, lists and anniversaries</li>
+            <li><i class="ph ph-check"></i> The daily postcard game</li>
+            <li><i class="ph ph-check"></i> AI date ideas</li>
+          </ul>
+        </div>
+
+        <!-- PLUS - the one upgrade, everything included -->
+        <div class="plan plan--featured">
+          <p class="plan__tag">Everything</p>
+          <p class="plan__name">Plus</p>
+          <p class="plan__price">A$3.99 <span class="plan__per">/ month</span></p>
+          <p class="plan__blurb">One upgrade, all of it - every memory kept, and the whole Together world for the two of you.</p>
+          <ul class="plan__list">
+            <li><i class="ph ph-check"></i> Everything in Free</li>
+            <li><i class="ph ph-check"></i> Unlimited memories, 2,000 photos and 100 videos</li>
+            <li><i class="ph ph-check"></i> Health together - share sleep and steps, walk to your trip, weekly step face-off</li>
+            <li><i class="ph ph-check"></i> One-tap check-ins - thinking of you, moods, wind-downs</li>
+            <li><i class="ph ph-check"></i> Home-screen widgets - send a feeling, two clocks, the countdown</li>
+            <li><i class="ph ph-check"></i> Surprise trips - book it, they see only the countdown</li>
+            <li><i class="ph ph-check"></i> Games and rituals - daily question, date roulette, little bets, guess where</li>
+            <li><i class="ph ph-check"></i> Couple passport, dream pins and a live flight tracker</li>
+          </ul>
+          <p class="plan__soon">One subscription covers both of you.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CREW ───────────────────────────────────────────────────────── -->
+    <section class="plans__panel" id="panel-crew" role="tabpanel" aria-labelledby="tab-crew" hidden>
+      <div class="plans__panelhead plans__panelhead--fallback">
+        <h2>For a crew</h2>
+        <p>A group space for anyone actually going somewhere together - mates, family, the ski trip.</p>
+      </div>
+
+      <div class="plans__grid">
+
+        <!-- FREE - the whole crew product is free -->
+        <div class="plan">
+          <p class="plan__tag" style="color: var(--nv-text-muted)">Free</p>
+          <p class="plan__name">Free</p>
+          <p class="plan__price">$0</p>
+          <p class="plan__blurb">The whole crew experience, free. Start as many crews as you like - no sign-up, no per-person fee.</p>
+          <ul class="plan__list">
+            <li><i class="ph ph-check"></i> Unlimited crews and trip countdowns</li>
+            <li><i class="ph ph-check"></i> One invite link - everyone who taps it is in</li>
+            <li><i class="ph ph-check"></i> Shared planning and the booking list, so nobody's on the wrong flight</li>
+            <li><i class="ph ph-check"></i> Up to 10 memories</li>
+            <li><i class="ph ph-check"></i> 150 photos and 15 videos</li>
+            <li><i class="ph ph-check"></i> The daily postcard game, with a crew leaderboard</li>
+          </ul>
+        </div>
+
+        <!-- PLUS in a crew = STORAGE ONLY. entitlements.js hard-blocks every
+             Together feature for group spaces, so this list must not promise
+             one. -->
+        <div class="plan plan--featured">
+          <p class="plan__tag">More room</p>
+          <p class="plan__name">Plus</p>
+          <p class="plan__price">A$3.99 <span class="plan__per">/ month</span></p>
+          <p class="plan__blurb">For crews, Plus is one thing: room. Keep every photo and video from the trip instead of hitting a cap.</p>
+          <ul class="plan__list">
+            <li><i class="ph ph-check"></i> Everything in Free</li>
+            <li><i class="ph ph-check"></i> Unlimited trip memories</li>
+            <li><i class="ph ph-check"></i> 2,000 photos and 100 videos</li>
+          </ul>
+          <p class="plan__soon">One subscription covers the whole crew.</p>
+        </div>
+
+      </div>
+
+      <div class="plans__note">
+        <p><strong>To be straight with you:</strong> Plus in a crew is storage, not extras. The Together world - shared health, check-ins, surprise trips, home-screen widgets and the couple games - is built for two people and stays in a couple space. If a crew is all you need, Free is genuinely the whole thing.</p>
+      </div>
+    </section>
 
     <div class="plans__foot">
       <a class="site-btn site-btn--primary" href="/#get">Get Next Visit</a>
-      <p class="plans__finenote">Plans are managed in the app under You. Prices shown in AUD; your local price appears at checkout. You can change or cancel anytime.</p>
+      <p class="plans__finenote">One account holds your couple space and every crew you're in - switch between them any time. Plus applies to the space you buy it in and covers everyone in it. Plans are managed in the app under You. Prices shown in AUD; your local price appears at checkout. Change or cancel anytime.</p>
     </div>
   </div>
 </main>
+
+<script>
+// Couple / crew switch. Progressive enhancement: the .js class (set here, so
+// it only ever applies when this script actually ran) is what hides the
+// unselected panel - with JS off both panels render under their own
+// headings and the page still answers the question.
+(function () {
+  var root = document.documentElement;
+  var tabs = {
+    couple: document.getElementById('tab-couple'),
+    crew: document.getElementById('tab-crew'),
+  };
+  var panels = {
+    couple: document.getElementById('panel-couple'),
+    crew: document.getElementById('panel-crew'),
+  };
+  if (!tabs.couple || !tabs.crew || !panels.couple || !panels.crew) return;
+  root.classList.add('js');
+
+  function select(which, focus) {
+    Object.keys(tabs).forEach(function (k) {
+      var on = k === which;
+      tabs[k].setAttribute('aria-selected', on ? 'true' : 'false');
+      panels[k].hidden = !on;
+    });
+    if (focus) tabs[which].focus();
+    try { history.replaceState(null, '', which === 'crew' ? '#crew' : location.pathname); } catch (e) { /* file:// - fine */ }
+  }
+
+  Object.keys(tabs).forEach(function (k) {
+    tabs[k].addEventListener('click', function () { select(k); });
+  });
+  // Left/right arrows move between tabs - standard tablist keyboard support.
+  Object.keys(tabs).forEach(function (k) {
+    tabs[k].addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      select(k === 'couple' ? 'crew' : 'couple', true);
+    });
+  });
+
+  // /premium#crew (and #crews) opens straight on the crew answer - that's
+  // the link the crews section on the home page can point at.
+  var hash = (location.hash || '').toLowerCase();
+  select(hash === '#crew' || hash === '#crews' ? 'crew' : 'couple');
+})();
+</script>
 
 <footer class="site-footer">
   <div class="container container--wide site-footer__inner">
