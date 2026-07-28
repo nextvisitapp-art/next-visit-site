@@ -64,17 +64,34 @@
     return a;
   }
 
+  // Almost everyone arriving from a reel is on an iPhone. Show them the one
+  // badge that does something: a dimmed "coming soon" Play badge next to it
+  // only splits attention, and there is no Android build to send them to.
+  var onIOS = /iPad|iPhone|iPod/.test(navigator.platform || "") ||
+    (/Mac/.test(navigator.userAgent) && "ontouchend" in document) ||
+    /iPhone|iPad|iPod/.test(navigator.userAgent);
+
   function render() {
     var hosts = document.querySelectorAll(".nv-stores");
     if (!hosts.length) return;
-    var anySoon = !STORE.ios.live || !STORE.android.live;
+    var kinds = onIOS && STORE.ios.live ? ["ios"] : ["ios", "android"];
+    var anySoon = kinds.some(function (k) { return !STORE[k].live; });
     hosts.forEach(function (host) {
       host.innerHTML = "";
-      host.appendChild(badge("ios", STORE.ios));
-      host.appendChild(badge("android", STORE.android));
+      kinds.forEach(function (k) { host.appendChild(badge(k, STORE[k])); });
       if (anySoon) host.setAttribute("data-state", "soon");
       else host.removeAttribute("data-state");
     });
+
+    // "Get the app" scrolled to the badges, so an iPhone user had to tap
+    // twice to reach the store. On iOS it now IS the store link.
+    if (onIOS && STORE.ios.live) {
+      document.querySelectorAll('.site-nav__cta').forEach(function (a) {
+        a.href = STORE.ios.url;
+        a.target = "_blank";
+        a.rel = "noopener";
+      });
+    }
   }
 
   if (document.readyState !== "loading") render();
