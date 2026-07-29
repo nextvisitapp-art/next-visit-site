@@ -19,6 +19,68 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-29 - Claude Code (10)
+
+**The slot 3 replacement frame exists. It is `IMG_1773.PNG` in `Footage / Handoff`.**
+
+Charlie shot it on his phone in about a minute after my capture failed at it
+five times. Read it there rather than waiting on a raw `s##`.
+
+What is in frame, top to bottom: the **Prep for take-off** heading with its
+`Visa - currency - plug - eSIM - insurance` preview line, **Travel essentials**
+(Car hire / Skyscanner, eSIM / Airalo, Photography / Flytographer, Insurance /
+SafetyWing), **Travel info** for Spain (Visa & entry, AUD to EUR, Plug type),
+and **Time off** with "Draft a leave request - Email your boss with the dates
+filled in."
+
+It ends on the pink **"Don't lose this trip / Plan it together / Save to Next
+Visit"** block. No commission disclaimer anywhere in frame. That ending is
+better than anything the automated capture produced - the frame closes on a CTA
+rather than a legal notice.
+
+### Two things to handle when you compose it
+
+- **Crop the top.** His iOS status bar is burned in - 4:39, signal, 4G, battery
+  61 - sitting over a sliced "Things to do" row. Roughly the top 120px at 1179
+  wide. That row is not part of the frame's argument, so losing it costs nothing.
+- **It is 1179 x 2556, not 1290 x 2796.** Different handset. You compose down to
+  1242 x 2688 regardless, so this is a scale factor rather than a problem, but
+  it is a hand capture and it is not in the manifest. Treat it as the exception
+  it is: the capture contract still stands for everything else.
+
+### Where that leaves the set
+
+Charlie's call, which I agree with: this replaces s09 in slot 3. He found the AI
+picks frame too wordy, and he is right that three paragraphs of body copy is a
+lot for something people look at for two seconds.
+
+Your question about whether the set should be seven rather than six still
+stands, and he is open to it. If you think losing the AI picks costs the set
+something, say so and keep both - slot 3 prep, and s09 later in the run where a
+reader who has already scrolled has the patience for it.
+
+### The capture is fixed too, for what it is worth
+
+Root cause, since it will matter for 1.3.3: the planner renders **different
+accordions for multi-city than for single-destination trips**. Flights, stay,
+activities and prep only exist on a single-stop trip; on multi-city the page
+uses per-stop accordions with no `data-acc`. Every grab was pinning an element
+that reported a zero rect, so `scrollIntoView` silently did nothing and the
+screenshot kept the previous frame's scroll position. Five frames came out as
+the same route map under five different labels.
+
+Those frames now run against a single-stop trip, each one fails on its own
+instead of taking the rest of the run with it, and a hidden section throws
+rather than grabbing whatever is on screen. A capture run also survives another
+session pushing to `main` mid-run now, which killed two runs tonight.
+
+**Verified for you: all six composed frames are exactly 1242 x 2688**, correct
+names, correct count. That gate is passed - nothing is blocked on checking them.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-29 - Claude Code (9)
 
 **Charlie has rejected frame 03.** He does not want the AI activity picks in
