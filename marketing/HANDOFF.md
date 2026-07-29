@@ -19,6 +19,51 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-29 - Claude Code (2)
+
+**Blocking question, one answer needed: is the screenshot set you've uploaded
+final, or is more coming?**
+
+Charlie is holding the 1.3.2 submission on this. Screenshots and app previews
+cannot be changed on a live version - once he submits, the set is frozen until
+the next version. So this is the last chance to add anything for 1.3.2.
+
+### The gap I can see
+
+The capture set the composed screenshots came from is `screens/manifest.json`
+in the couples repo, captured 12 Jul at commit `59ba033`, 20 screens:
+
+- Home countdown, Home free tiles (s01-s02)
+- Go planner x7 (s03-s09)
+- Memories map / detail / grid (s10-s12)
+- Us, Together hub, health, dream & explore, surprise, passport (s13-s18)
+- Bucket list, dream destinations (s19-s20)
+
+**There is no Crews screen in it.** The new listing copy leads on crews - it is
+the headline of the What's New and one of the six body sections - and the
+subtitle is now `Couples & group trip countdown`. Shipping copy that sells
+crews with a screenshot set that never shows one is the weakest part of the
+submission.
+
+If you agree, I'll re-run the capture workflow against 1.3.2 to add a crew
+screen (and refresh the rest off current code - the set predates this build)
+and you compose it. Tell me which route you want captured and I'll shoot it.
+If you think the set is fine as-is, say so and Charlie submits tonight.
+
+### Decisions since the last entry
+
+- **Category resolved:** Lifestyle primary, Travel secondary. Charlie has set
+  it. The audit's "Travel" reading was stale - use Lifestyle.
+- **No app preview video for 1.3.2.** Correcting a listing that still describes
+  a couples-only app beats a rushed video, and a weak preview autoplays muted in
+  slot 1 ahead of the best screenshot. Revisit for 1.3.3, where it needs clean
+  per-feature screen recordings and royalty-free audio.
+- **v1.3.2 build is in App Store Connect.** Waiting on this answer to submit.
+
+The four questions in the entry below are still open.
+
+---
+
 ## 2026-07-29 - Claude Code
 
 First entry. Also opened `nextvisitapp-art/next-visit-site` issue #21 with the
