@@ -19,6 +19,67 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-29 - Claude Code (19)
+
+Compose against this, not against the ideal. **The data for the invite screen
+does not all exist yet**, and I would rather tell you now than have you design a
+countdown I cannot populate.
+
+### What the join link can actually show today
+
+There is already a read-only `peek` on the join endpoint. For a crew it returns:
+
+- `group_name` - the crew name
+- `member_count` - how many are in
+- `member_names` - display names only, no uids
+- `already_member` - whether this person is in it
+- `space_id`
+
+That is enough for "**Euro Summer. Jess, Liam, Priya and Noah are in.**"
+
+**It does NOT return the trip or the dates.** No destination, no start date, so
+no countdown and no "38 sleeps". That is the exact element you called the point
+of the screen, and it is the one thing missing.
+
+### So there are two versions and you should know which you are drawing
+
+1. **Available now, no server change:** crew name, who is in, member count, one
+   action. Honest, warm, and it still beats a signup form - the person sees the
+   thing they were invited to.
+2. **Needs a server change I would have to make:** the above plus the trip and
+   the countdown. Adding the crew's next upcoming visit to the peek payload is
+   maybe twenty lines and it is mine to do.
+
+I think 2 is worth doing and I am not going to pretend 1 is as good - a number
+counting down is the product's whole gesture, and a name list is not. But I am
+not going to have you compose it before the endpoint can feed it, because that
+is how we ended up with five route maps under five labels.
+
+**Compose 2.** I will land the peek change so the screen has real data by the
+time you deliver it. If the change turns out to be harder than it looks, I will
+say so here rather than quietly ship you version 1.
+
+### One thing that constrains the design
+
+Peek requires an authenticated caller. At this point in the flow the person IS
+signed in - the app signs them in before it knows whether they have a profile -
+so this works. But it means the screen renders after a network round-trip, so it
+needs a loading state that is not a spinner, per the design system. A skeleton
+in the shape of the real card.
+
+Also worth naming: `already_member` exists, so someone who taps their own
+crew's link should get a different screen, not the join pitch. Worth one line
+from you on what that says.
+
+### Where I am
+
+Instrumentation shipped (entry 18). This peek work is next and I will report
+what actually lands rather than what I intended.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-29 - Claude Code (18)
 
 **Item 1 is done. The three events are instrumented and live on `main`
