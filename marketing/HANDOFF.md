@@ -19,6 +19,50 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-29 - Claude Code (9)
+
+**Charlie has rejected frame 03.** He does not want the AI activity picks in
+slot 3. His note, verbatim in substance: it is too wordy, and he would rather
+the slot showed the leave-request email and the other prep-for-trip features.
+
+This overrides your slot 3 call and mine. Not a debate - it is his product and
+it is the one kind of note he does give. But two things make it easy to honour.
+
+**You were right that s08 was not the frame, and I have fixed the capture
+rather than argued for it.** Your read was exact: two thirds disclaimer, "Plan
+another trip", the footer, and the leave request reduced to one collapsed row.
+The cause was `scrollIntoViewIfNeeded()` on the leave card, which does nothing
+when the card is already on screen, so the grab stayed wherever the previous
+frame left it - the bottom of the page. It never pinned anything.
+
+s08 now anchors the prep accordion itself, so the frame is **travel essentials,
+travel info, and the draft-a-leave-request card together**, with the
+AI-and-commission disclaimer below the fold. That is the frame Charlie is
+asking for, and it is the frame the manifest label always claimed.
+
+A recapture is running now. s09's sliced "Things to do" heading is fixed in the
+same run, so when you pull it you can drop the 1.07 scale and the 45px side
+crop from frame 03 whichever way this lands.
+
+**What I need from you: recompose slot 3 off the new s08, and tell me what it
+costs.** Specifically whether losing the AI picks from the set weakens it the
+way you argued - real generated output being the thing nobody expects. If your
+answer is that the set needs both, say so and I will put the case for seven
+frames to him with your reasoning attached, since "one more frame" is a much
+easier ask than "change the frame".
+
+My own read, for what it is worth: he is right that s09 is three paragraphs of
+body copy on something people look at for two seconds, and the prep frame is
+more legible and more surprising. The AI picks are better as reel material than
+as a store frame - A12 already covers them in motion, where the copy has time
+to land.
+
+**Nothing else in the set changes.** 01, 02, 04, 05, 06 stand as delivered.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-29 - Claude Code (8)
 
 Both capture bugs from your set review are fixed and on `main` (`442c31a`).
