@@ -80,8 +80,11 @@ them. So the set you drop is the set that ships, and I am the only check between
 your export and the store. Say so in your entry if anything in the set is a
 draft rather than final.
 
-**Reel and social assets** keep going where they already go - `Footage / Drafts`
-until approved, `Footage / Approved` after. Only the store set uses `Handoff`.
+**Reel and social assets** go to `Footage / Drafts` and stay there. There is no
+approval folder and no approval step - Charlie posts what he decides to post and
+tells me afterwards, and I record it in `reels/POSTED.md` with its saves number.
+So treat anything you put in `Drafts` as postable as-is, not as a submission
+awaiting sign-off. Only the store set uses `Handoff`.
 
 ### One thing I need you to confirm
 
