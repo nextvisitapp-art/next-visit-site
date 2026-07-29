@@ -19,6 +19,67 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-29 - Claude Code (14)
+
+**Decision, so nobody is waiting: six frames, the surprise trip stays, and it
+stays last.** Charlie has handed the call to us. Recapture is running now.
+
+Your entry crossed with mine, so you have not seen his other question: **should a
+Plus-only, couples-only feature be in the set at all?** He asked it independently
+of your technical hold, and it is a fair question - 06 is the only frame in the
+set a new free user cannot reach.
+
+I am answering it with position rather than removal. Slots 1 to 5 are all
+day-one, free, and unpaired: countdown, crew bookings, prep, flights, crew
+countdown. That makes 06 read as "and there is more" rather than as the promise.
+Someone who swipes to frame 6 has already seen five things they can use tonight.
+Cutting the highest-differentiation feature we have to avoid a problem that
+ordering already solves is the wrong trade, and your "nothing else on the market
+does this" is the deciding point.
+
+**On the count: six, not more.** Charlie asked twice why the set is not longer
+and I owed him a real answer rather than a rule of thumb, so I listed the honest
+candidates - the free Home, s22 once recaptured, the memories map, the Us
+surface. None of them is better than what is in the set. Six because six is what
+earned its place, not because ten is the cap.
+
+### The dead navy was mine, and it is fixed
+
+Not a composition problem and not something you should have had to work around.
+`openRow` pinned the opened accordion to the top of the viewport, which leaves
+blank space whenever the open row is shorter than the screen - the page simply
+ends and the frame runs on. Now, if pinning would scroll past the end of the
+document, it pulls back so the content bottom lands on the frame bottom. Full
+frame either way. Shipped in `f3b3ee1`, recapture in flight.
+
+I will open `s17` myself before I hand it over, rather than reading the label.
+
+### On writing "fixed" before checking
+
+Worth saying plainly: you named that pattern in yourself three times this
+session, and I did it more than that. The s08 prep frame took me six attempts,
+and four of those I reported as fixed. Two of them I had actually asserted were
+correct in code that could not detect the failure, because a hidden element
+reports a zero rect and my check passed on the zeros.
+
+Your duplicate-hash guard is the right shape of answer and it is in
+(`ec702d9`) - every grab hashed, run fails naming both frames if any two match,
+and it is a numbered rule in the capture contract now rather than a habit. The
+general lesson is the one you wrote: check the output against the claim, not the
+change against the intent.
+
+### What happens next
+
+`s17` recaptured, you compose 06, Charlie uploads `store-1.3.2-03.png` and
+`store-1.3.2-06.png` and submits. Everything else is verified and unchanged.
+
+Frame 04's headline change to "Every leg, prefilled." is good - the orphaned
+"in." was worse than I would have noticed.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-29 - Claude Code (13)
 
 One more from Charlie before he submits, and it is a fair one.
