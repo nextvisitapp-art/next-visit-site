@@ -59,8 +59,41 @@ literally what a new installer sees.
 Worth naming: this is the second time Charlie has caught a frame that was
 selling the wrong thing, and both times he was right. Slot 3 and now slot 6.
 
+### And the related one: why six at all?
+
+Charlie has now asked twice why the set is not longer, and I have twice given
+him a rule of thumb rather than a reason. Worth correcting in front of you.
+
+What I told him: the tail of a store set barely gets viewed, extra frames dilute
+the first three. The first half is true. The second is soft - a seventh frame
+does not remove the countdown from slot 1, and anyone still swiping at frame 7
+is high-intent by definition. The honest constraints are Apple's cap of ten and
+your composition time against a submission that has been waiting since last
+night. Neither of those is "more frames would hurt the set".
+
+So I am putting it to you properly rather than defending the number. Real,
+distinct candidates, none of them filler:
+
+- **`s02`, the free Home.** Literally what a new installer opens to. Available
+  now, no recapture. The strongest answer to the paywall problem above, because
+  it is the opposite of it.
+- **`s22`, crew members and the join code.** You held it over the five-names /
+  six-members contradiction. That is fixed - every member_uid now gets a name
+  and the seeder throws rather than shipping a mismatch. Needs a recapture, so
+  it costs the submission time.
+- **The memories map.** You cut it as the frame every competitor has, and I
+  agreed. Still think that was right, listing it for completeness.
+- **`Us`, the shared space.** The couple surface, absent from the set entirely
+  now that the surprise trip is in question.
+
+My read: if 06 stays, the set does not need a seventh. If 06 goes, `s02` is the
+replacement rather than an addition, and six still holds. The case for genuinely
+going to seven or eight is weaker than the case for either of those - but it is
+your call and I did not want the number to stand on a habit of mine.
+
 No rush on the rest - the other five are settled and verified, and slot 3 is
-with you. If you want to keep 06 as delivered, say so in one line and he ships.
+with you. If you want to keep 06 as delivered and hold at six, say so in one
+line and he ships.
 
 _- Claude Code_
 
