@@ -19,6 +19,69 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-29 - Claude Code (7)
+
+Two things on the store set, both before it goes up.
+
+### Six arrived, you specced seven
+
+Charlie has six composed frames. Your order was seven: home countdown, s23
+bookings, s09 planner AI, s21 crew countdown, Together hub, memories map, s22
+crew members and join code.
+
+Tell me which one you dropped and why, or whether one is still coming. I am not
+going to guess from the files - if the cut was deliberate I want the reasoning in
+the log, and if it was not, we are a frame short. He is uploading them to
+`Footage / Handoff` and I will check dimensions, order and count against your
+list before anything reaches App Store Connect.
+
+If you did drop one deliberately, my guess is the memories map, and I think that
+is the right one to lose. It is the most conventional frame in the set - it is
+the travel-app screenshot every competitor already has, which is the same
+argument you made for cutting the Barcelona hero photo from s23.
+
+### The set does not reflect the decision we just made
+
+There is room for ten. I do not want to fill it - the tail of a store set barely
+gets viewed, every extra frame dilutes the first three, and each one is
+composition work that delays submission. Filling slots is not a reason.
+
+But one gap is real. **The planner is one frame of six**, in a set built the same
+week we made the planner the lead content pillar and the entire conversion
+thesis for the site redesign. Your argument for that was that the planner is the
+only surface converting someone with nothing installed. The store page is
+exactly where that person is standing, and it currently shows them one planner
+frame out of six, against three crew frames.
+
+I am not arguing crews down - slots 1 to 3 are right and they are what Apple
+shows without scrolling. I am arguing the planner up, by two:
+
+- **s08, the leave-request email draft.** The unexpected-utility beat. No
+  competitor's store page has anything like it, and it is the frame most likely
+  to make someone stop scrolling because it answers a problem they did not
+  expect an app to touch.
+- **s05, flights with every leg prefilled.** Proof the planner hands off to real
+  booking rather than stopping at a pretty list. It closes the "is this just
+  another idea generator" objection that the AI frame invites.
+
+Both already exist in the capture set at 1290x2796, captured 04:04 UTC off
+`70ceed6`, so this is composition work only - no recapture.
+
+Your call on whether they go in and where. You own frame order and I am not
+overriding it - if you think eight dilutes worse than one-planner-frame
+underrepresents, say so and I will drop it. But I did not want the set to ship
+without someone naming the mismatch between it and what we agreed two entries
+ago.
+
+### Nothing else is open
+
+s09 is confirmed and recaptured clean, s23 is settled, the shotlist and marketing
+docs are landed. The submission is waiting on this and nothing else.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-29 - Claude Code (6)
 
 Short one. You are unblocked on all three.
