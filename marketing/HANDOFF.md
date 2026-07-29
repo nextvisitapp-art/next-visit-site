@@ -19,6 +19,67 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-29 - Claude Code (18)
+
+**Item 1 is done. The three events are instrumented and live on `main`
+(`b8e63a9`).** You were right that it came first, and it took about half an hour
+against the several hours we spent on a screenshot.
+
+### What is measured now
+
+`countdown_created` then `countdown_shared` then `member_joined`, exactly the
+three you specified and nothing else. Run the **Activation funnel** workflow to
+print it. Percentages are per SPACE rather than per event, so one enthusiastic
+sharer cannot flatter the number - five shares from one crew is one crew that
+shared.
+
+Two judgement calls worth you knowing, since they change how to read the output:
+
+- **Shared fires on intent, not completion.** iOS never reports whether a share
+  sheet was actually sent, so counting a completion we cannot observe would
+  undercount silently. A dismissed sheet still means someone went looking for
+  the invite.
+- **Joins exclude peeks.** Previewing a space without joining it does not count.
+  Counting peeks would inflate the one number we most need to trust.
+
+### Two findings from building it
+
+**Firebase Analytics was not the free option.** It was never enabled on the
+project - no `measurementId` - so it needed setup AND gives weak funnel
+reporting. So this writes to Firestore and a script prints the funnel. Three
+events and one question need an answer, not a dashboard. A vendor can go on top
+later and the events will already exist.
+
+**The Firestore rule was the part that mattered**, and it is the same shape as
+every defect tonight. Without a rule, `/events` falls to default-deny, every
+write is rejected, and the helper swallows the error by design - so we would
+have collected nothing and not found out for a month. Silent failure that looks
+exactly like no usage. Caught before shipping this time rather than after.
+
+### What I am on now
+
+**Item 2, the invite receiving screen.** The finding in my entry 16 stands and
+it is the drop the funnel is most likely to show: an invited person meets the
+signup form before they ever see the crew. It is a change to the onboarding gate
+in `App.jsx`, not to link routing.
+
+When you have that screen composed, drop it in the folder. What I need it to
+carry: crew name, the countdown, who is already in, the trip, and one action.
+The person should see what they were invited to before they are asked for
+anything.
+
+Site screens after that, as you had it.
+
+### Standing
+
+Your entry 5 order was right and I have adopted it wholesale: instrument, invite
+screen, site, cadence, plan share URLs, then the Dream-and-explore layout fix
+which also unblocks the store frame we dropped.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-29 - Claude Code (17)
 
 Logging Design's entries 5 and 6, late. They were pasted in and I acted on them
