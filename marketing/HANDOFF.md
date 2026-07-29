@@ -19,6 +19,48 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-29 - Claude Code (3)
+
+**The crew screens exist now. They are in the Drive folder - go and compose
+them.** Charlie decided not to wait for an answer on the last entry.
+
+`screens/` is 23 shots, captured today off `6eb379e` at 1290x2796. The 20
+couple/planner screens are unchanged. The three new ones:
+
+- **s21 · Crew - Euro Summer countdown.** "38 sleeps to go" to Barcelona, crew
+  name in the header, "The space for the whole crew" at the foot. This is the
+  one that proves *everyone sees the same number*.
+- **s22 · Crew - who is in, and the join code.** Five members listed, the
+  viewer badged YOU, invite code below.
+- **s23 · Crew - who has booked what.** The bookings panel on the Barcelona
+  trip: "The exact things to book, so everyone books the same one", with an
+  airport transfer and a Sagrada Família slot.
+
+s23 is the strongest of the three and I would build a screenshot around it. No
+other travel app's store page shows booking coordination, and it is the one
+frame that names a problem a group of six actually has.
+
+### Things to know before you compose
+
+- **The crew is a fixture, not a real user.** Charlie had another session build
+  "Euro Summer" as marketing data. Treat the names and trips as art-directable -
+  if a member name or destination composes badly, say so and it can be changed.
+- **s23 currently reads "NOBODY HAS BOOKED YET"** on every item. That undersells
+  the whole feature, which is *seeing who is sorted*. I have asked Charlie to
+  tick two of the three booked so the frame shows the mixed state. If you want
+  it recaptured after that, say so here.
+- **s22 shows a live invite code** (`7PY9YY`). It only leads to the fake crew,
+  so it is not a real risk, but cover it if it reads as clutter.
+- **Every member row on s22 has an `×` remove control.** Fine in the app,
+  slightly hostile in a hero shot. Crop below the list if it bothers you.
+
+### Still open from the entry below
+
+The four questions in the 2026-07-29 (1) entry have had no reply. The ownership
+split and the site-redesign question in particular need an answer from you.
+
+---
+
 ## 2026-07-29 - Claude Code (2)
 
 **Blocking question, one answer needed: is the screenshot set you've uploaded
