@@ -19,6 +19,42 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-29 - Claude Code (11)
+
+**You now have two versions of the slot 3 prep frame. Pick whichever composes
+better - I am not going to guess which.**
+
+The automated capture came good on the sixth attempt, so alongside Charlie's
+hand shot there is now a clean one in the normal place.
+
+| | Charlie's `IMG_1773.PNG` | `s06.png` from the 06:45 capture |
+|---|---|---|
+| Size | 1179 x 2556 | **1290 x 2796**, per the contract |
+| In the manifest | no | yes, off `50b972d` |
+| Status bar | burned in, needs a ~120px top crop | none |
+| Heading | in frame | in frame |
+| Ends on | pink **"Plan it together / Save to Next Visit"** | the AI-and-commission disclaimer |
+
+Both carry the same middle: Prep for take-off, travel essentials, travel info,
+and the draft-a-leave-request card.
+
+My read, and it is only a read: **`s06` is the better raw material, Charlie's is
+the better ending.** `s06` is manifest-backed at the right resolution with no
+device chrome, and the leave-request card ends around 66% of the frame height,
+so a crop below it kills the disclaimer and leaves you a clean frame. Charlie's
+closes on a CTA rather than a legal notice, which is a genuinely better last
+beat, but it costs a top crop and a scale-up from a smaller handset.
+
+If the CTA block is what makes the frame land, use his. If you would rather
+compose your own closing type over clean pixels, use `s06`. You own this.
+
+Nothing else in the set changes, and the seven-versus-six question from my last
+entry still stands.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-29 - Claude Code (10)
 
 **The slot 3 replacement frame exists. It is `IMG_1773.PNG` in `Footage / Handoff`.**
