@@ -52,10 +52,17 @@ jobs:
               });
               const page = await ctx.newPage();
               const hits = [];
-              // The beacon is a keepalive POST, so watch requests rather than
-              // responses - a fire-and-forget send may never surface a response.
+              // Watch requests, not responses: the beacon is a keepalive POST and
+              // a fire-and-forget send may never surface a response event.
               page.on("request", (r) => {
                 if (r.url().includes("/_vercel/insights/")) hits.push(`${r.method()} ${new URL(r.url()).pathname}`);
+              });
+              // The response status, when it does arrive, is the part that says
+              // whether Vercel ACCEPTED the pageview. A sent-but-rejected beacon
+              // looks identical to a healthy one from the request side alone.
+              const statuses = [];
+              page.on("response", (r) => {
+                if (r.url().includes("/_vercel/insights/")) statuses.push(`${new URL(r.url()).pathname} -> ${r.status()}`);
               });
               try {
                 await page.goto(url, { waitUntil: "load", timeout: 60000 });
@@ -67,7 +74,7 @@ jobs:
                 continue;
               }
               const view = hits.find((h) => h.startsWith("POST") && h.endsWith("/view"));
-              console.log(`${view ? "OK  " : "FAIL"} ${url} :: ${hits.join(" | ") || "no insights traffic at all"}`);
+              console.log(`${view ? "OK  " : "FAIL"} ${url} :: ${hits.join(" | ") || "no insights traffic at all"} :: status ${statuses.join(" | ") || "none observed"}`);
               if (!view) failed = true;
               await ctx.close();
             }
