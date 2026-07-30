@@ -1,0 +1,64 @@
+name: Analytics smoke check
+
+# Loads the production pages of hello.next-visit.app and go.next-visit.app in
+# real Chrome and fails unless the Vercel Web Analytics pageview beacon
+# (POST /_vercel/insights/view) is accepted for every page. Run it whenever
+# analytics looks dead - it answers "is the site sending pageviews at all"
+# in about a minute, from a real browser rather than a guess.
+#
+# MANUAL ONLY (workflow_dispatch). Read-only against the sites; the only side
+# effect is the handful of real pageviews it registers.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Install playwright-core
+        run: npm i playwright-core@1
+      - name: Load pages and check the beacon
+        run: |
+          node - <<'EOF'
+          const { chromium } = require("playwright-core");
+          // Plain Chrome UA - the default HeadlessChrome UA is filtered as a
+          // bot by Vercel and the beacon would never be counted.
+          const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
+          const TARGETS = [
+            "https://hello.next-visit.app/",
+            "https://hello.next-visit.app/premium",
+            "https://go.next-visit.app/",
+          ];
+          (async () => {
+            const browser = await chromium.launch({ channel: "chrome", headless: true });
+            let failed = false;
+            for (const url of TARGETS) {
+              const ctx = await browser.newContext({ userAgent: UA, viewport: { width: 390, height: 844 } });
+              const page = await ctx.newPage();
+              const hits = [];
+              page.on("response", (r) => {
+                if (r.url().includes("/_vercel/insights/")) hits.push(`${r.request().method()} ${new URL(r.url()).pathname} -> ${r.status()}`);
+              });
+              try {
+                await page.goto(url, { waitUntil: "load", timeout: 60000 });
+                await page.waitForTimeout(8000);
+              } catch (e) {
+                console.log(`FAIL ${url} - ${e.message}`);
+                failed = true;
+                await ctx.close();
+                continue;
+              }
+              const view = hits.find((h) => h.includes("/view") && /-> 2\d\d$/.test(h));
+              console.log(`${view ? "OK  " : "FAIL"} ${url} :: ${hits.join(" | ") || "no insights traffic at all"}`);
+              if (!view) failed = true;
+              await ctx.close();
+            }
+            await browser.close();
+            process.exit(failed ? 1 : 0);
+          })();
+          EOF
