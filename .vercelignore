@@ -1,0 +1,6 @@
+# Files kept in the repo but never deployed to the live site.
+# This is a static site with no build step, so anything at the repo root is
+# otherwise uploaded and served as-is.
+
+# Third-party skill pack for AI ad creative. Tooling, not site content.
+tools/

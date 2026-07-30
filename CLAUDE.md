@@ -29,3 +29,16 @@ Static site, no build step. `index.html` plus `premium.html`, `privacy.html`,
 `terms.html`, `support.html`, sharing `nv-site.css` and `nv-site.js`.
 `tokens/` and `brand/` are copies of the couples-repo originals - keep them in
 sync rather than editing them here. Hosted on Vercel; pushing to `main` deploys.
+
+Because there is no build step, every file at the repo root is uploaded and
+served. `.vercelignore` is what keeps non-site folders off the live domain, so
+add new tooling or notes folders to it when you create them.
+
+## Tooling
+
+`tools/arcads-claude-code/` is a vendored third-party skill pack for making AI
+ad creative (video and static image ads) through the Arcads API. It is not site
+code and is not deployed. It expects to run as its own project root, so work
+from inside the folder: `cd tools/arcads-claude-code && ./scripts/setup.sh`.
+Read `tools/arcads-claude-code/VENDORED.md` first - it covers the API key, what
+was left out of the copy, and how to update it from upstream.
