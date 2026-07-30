@@ -26,8 +26,12 @@ jobs:
         run: |
           node - <<'EOF'
           const { chromium } = require("playwright-core");
-          // Plain Chrome UA - the default HeadlessChrome UA is filtered as a
-          // bot by Vercel and the beacon would never be counted.
+          // The insights script refuses to send anything from automation:
+          //   if (navigator.webdriver || navigator.userAgent.includes("Headless")) return;
+          // So a stock Playwright run always looks like zero pageviews even when
+          // the page is instrumented correctly. Both halves have to be defeated -
+          // a plain UA below, and navigator.webdriver spoofed per context - or
+          // this check reports a false failure instead of testing the site.
           const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
           const TARGETS = [
             "https://hello.next-visit.app/",
@@ -35,14 +39,23 @@ jobs:
             "https://go.next-visit.app/",
           ];
           (async () => {
-            const browser = await chromium.launch({ channel: "chrome", headless: true });
+            const browser = await chromium.launch({
+              channel: "chrome",
+              headless: true,
+              args: ["--disable-blink-features=AutomationControlled"],
+            });
             let failed = false;
             for (const url of TARGETS) {
               const ctx = await browser.newContext({ userAgent: UA, viewport: { width: 390, height: 844 } });
+              await ctx.addInitScript(() => {
+                Object.defineProperty(navigator, "webdriver", { get: () => false });
+              });
               const page = await ctx.newPage();
               const hits = [];
-              page.on("response", (r) => {
-                if (r.url().includes("/_vercel/insights/")) hits.push(`${r.request().method()} ${new URL(r.url()).pathname} -> ${r.status()}`);
+              // The beacon is a keepalive POST, so watch requests rather than
+              // responses - a fire-and-forget send may never surface a response.
+              page.on("request", (r) => {
+                if (r.url().includes("/_vercel/insights/")) hits.push(`${r.method()} ${new URL(r.url()).pathname}`);
               });
               try {
                 await page.goto(url, { waitUntil: "load", timeout: 60000 });
@@ -53,7 +66,7 @@ jobs:
                 await ctx.close();
                 continue;
               }
-              const view = hits.find((h) => h.includes("/view") && /-> 2\d\d$/.test(h));
+              const view = hits.find((h) => h.startsWith("POST") && h.endsWith("/view"));
               console.log(`${view ? "OK  " : "FAIL"} ${url} :: ${hits.join(" | ") || "no insights traffic at all"}`);
               if (!view) failed = true;
               await ctx.close();
