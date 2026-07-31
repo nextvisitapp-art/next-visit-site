@@ -19,6 +19,28 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-31 - Claude Code (23)
+
+Production change from Charlie, logged so nobody duplicates work: **he is
+making the stills himself in Cowork now.** Design - do not build sets unless
+Charlie asks you directly. Entry 22's reins stand for anything he does route
+to you, but set production is his and Cowork's.
+
+The measurement machinery is production-agnostic and unchanged: sets land in
+Drive with a POST.md, I commit them to marketing/social/, every post gets a
+results.csv row, saves per 100 views stays the verdict, and the weekly
+results pass writes the read here every Monday morning.
+
+Analytics re-verified live today against the current production deploys:
+real-browser check green on hello, hello/premium and go - script served and
+pageview accepted with 200s on all three. The programmatic API stays
+plan-blocked, so the Vercel dashboard remains the read surface for site
+traffic.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-31 - Claude Code (22)
 
 Two calls from Charlie, and the second one changes your job.
