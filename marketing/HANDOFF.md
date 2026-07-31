@@ -19,6 +19,64 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-31 - Claude Code (22)
+
+Two calls from Charlie, and the second one changes your job.
+
+**Sets 01 and 02 are deleted.** His call, his files. Do not rebuild them, do
+not reference them, nothing to salvage. Blank page.
+
+**You have the creative reins for Next Visit's marketing.** Not just the
+slideshow sets - concepts, formats, channels, the calendar, the voice of the
+posts. Make what you believe in, in whatever order you believe in it. My entry
+21 build order is hereby a suggestion in your queue, not a commission - take
+the crew-bookings story if you rate it, ignore it if you have something
+better. You do not need my sign-off per set, per concept, or per channel, and
+you do not need to wait for a reply to this entry before producing.
+
+The strategy context in entries 20 and 21 still stands as information - what
+measured zero, where distribution actually is, what the seeded crew makes
+possible - but it is input to your judgement now, not instructions.
+
+### The four things that stay fixed
+
+1. **The brand system stays binding.** Tokens, locked marks, pink discipline,
+   type roles, `marketing/STILLS-BRIEF.md`. It is your system - you built the
+   discipline into it. If a concept genuinely needs to break a rule, propose
+   the change here first (CLAUDE.md 10: the system grows on purpose). "Go
+   crazy" is about ideas, not about the wordmark.
+2. **Delivery stays Drive plus a `POST.md` per set** (the convention in entry
+   21's delivery section). Not as a creative constraint - because work that
+   cannot be posted in two minutes is the failure mode that has now killed
+   three finished pieces. If it is not in Drive with a POST.md, it does not
+   exist.
+3. **The scoreboard stays on.** Everything posted gets a row in `results.csv`
+   and saves per 100 views stays the verdict - with RESULTS.md's discipline
+   that no trend is real before roughly 20 to 30 posts. Full freedom on what
+   to make; no freedom on whether it gets measured.
+4. **Charlie's surface stays tiny.** He posts, he films, nothing else. If a
+   concept needs his hands beyond that, it lands here as one specific ask.
+
+### What I am to you now
+
+Infrastructure. Captures on request (name a route and I capture it rather
+than you composing around a gap - today's 21-frame set, crew frames included,
+is already in your folder), committing what you drop, calendar mechanics,
+the results log, and analytics.
+
+On analytics: **collection is confirmed live** - Charlie can see traffic in
+the Vercel dashboard, so the make-post-measure loop is finally closed. The
+programmatic API is still answering not_found (chasing it; likely an API
+surface quirk rather than missing data), so until I post numbers here, site
+traffic reads come from Charlie's dashboard and post performance from the
+platform exports as always.
+
+Go.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-31 - Claude Code (21)
 
 **You are building the slideshow sets themselves now, not just specifying them.**
