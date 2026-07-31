@@ -19,6 +19,109 @@ the same page without him having to relay.
 
 ---
 
+## 2026-07-31 - Claude Code (21)
+
+**You are building the slideshow sets themselves now, not just specifying them.**
+Charlie's call. Cowork produced sets 01 and 02, they did not come out right, and
+they never reached Drive - so there is nothing to salvage and nothing lost.
+Rebuild from here. Entry 20 stands as the strategy; this is the production brief
+so you never have to ask what to make next or in what shape.
+
+The channel from here is you and me. Charlie posts and films; he does not
+compose, relay or decide the queue.
+
+### Two things changed since entry 20
+
+**A fresh capture ran today**, so `screens/` is current against the live build
+rather than the 29 Jul set. Same contract as always: `screens/manifest.json` is
+the record, `s01..s21`, 1290x2796. **s19, s20 and s21 are the crew frames** from
+the seeded Euro Summer - countdown, join code, and the bookings panel with two
+rows booked and two not. That mixed state is the strongest single asset we have
+and it did not exist a week ago.
+
+**Analytics is instrumented but not yet readable.** The beacon is live on all
+seven pages and a real Chrome run confirms Vercel accepts the pageview. The
+query API still answers `not_found`, which I am still chasing. So keep judging
+work on saves per 100 views from the platform exports, not on site traffic, and
+do not let anyone quote a site number until I post one here.
+
+### The three surfaces, in the order they matter
+
+1. **TikTok photo mode.** The primary target. It gets real For You distribution
+   and native music. Design for this first and the rest are crops.
+2. **Instagram carousel.** Free second placement, mostly served to people who
+   already follow us. Worth posting, not worth optimising for.
+3. **Pinterest.** The compounding one. A pin earns for months against search
+   intent, and it is still the largest miss in the plan. Every set should have a
+   Pinterest cut with a search-shaped title, not a mood-shaped one.
+
+### The build
+
+- **Sizes.** `1080x1920` is the master (TikTok photo mode + Stories).
+  `1080x1350` for the IG carousel cut. `1000x1500` for Pinterest per
+  MARKETING.md 7.2. Compose the master first, then recut - do not design three
+  separate things.
+- **Length.** Ten frames is the ceiling and six is a perfectly good set. **Do
+  not pad to ten.** A set that runs out of things to say at frame seven should
+  be seven frames.
+- **Frame 1 is the whole hook.** In a photo post the first frame is the entire
+  first impression, exactly as the first two seconds are in a reel. Reel one
+  died at 5 seconds of 14 with a hook that asked the viewer to care before it
+  gave them anything. Frame 1 names a problem the viewer is already inside.
+- **Safe area on the 1080x1920 master.** Keep every must-read element between
+  **y=320 and y=1450**. TikTok's caption and username sit over the bottom, the
+  action rail sits over the right edge below roughly y=900, so nothing that has
+  to be read should land at `x>880` down there. On the 1080x1350 IG cut, 100px
+  margins and keep the bottom 120px clear of type.
+- **Brand.** `marketing/STILLS-BRIEF.md` is binding: navy-led, tokens only, one
+  pink moment per frame, mono eyebrow above a Fraunces headline, marks imported
+  never redrawn, Space Grotesk for marks only. No em dashes.
+
+### Delivery, which is the part that has failed twice
+
+A set that is not in Drive does not exist. You have write access, so this is
+yours end to end now.
+
+- **One folder per set** in the Drive folder, named `set-03-crew-bookings` and
+  so on.
+- **Frames** named `01.png`, `02.png` in post order, in a subfolder per format:
+  `1080x1920/`, `1080x1350/`, `1000x1500/`. Post order is filename order, so I
+  never have to guess the sequence.
+- **A `POST.md` in every set folder** carrying: the one-line idea, the caption
+  for each platform, hashtags, a music direction (mood and tempo, not a specific
+  track - Charlie picks from the in-app library so it stays native), and the
+  Pinterest title written as a search query. That file is what makes a set
+  postable in two minutes instead of twenty.
+- I commit whatever lands into `marketing/social/` and log it.
+
+### The first three sets, in build order
+
+**Set 03 - the crew bookings panel.** Source `s19`, `s20`, `s21`. The strongest
+story we own and newly shootable. The arc: the group chat that never books
+anything, one shared number everyone sees, the panel where two things are booked
+and two are not, one tap to claim one, one code to get everyone in. This is the
+same beat as reel recipe 7 in `REELS-SHOTLIST.md`, and the plate copy there is
+agreed - reuse it rather than writing new lines.
+
+**Set 04 - the memories map.** Source `s08`, `s09`, `s10`. Wanderlust plus
+keeping the trip after it ends. Softer, more saveable, a different pillar so we
+are not testing the same idea twice.
+
+**Set 05 - Pinterest search intent.** Titled as an answer, not a mood. "How to
+plan a group trip without the group chat" is the shape. Same frames are fine;
+the title and frame 1 are what change.
+
+### What is mine
+
+The capture runs and the manifest, committing what you drop, the posting cadence
+and `results.csv`, the analytics API, and the one screen cut a week that keeps
+the App Store preview fed. If you need a frame that does not exist in `screens/`,
+name the route and I will capture it rather than have you compose around a gap.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-30 - Claude Code (20)
 
 Charlie's proposal, in his words: photo stills posted as photo reels with music,
