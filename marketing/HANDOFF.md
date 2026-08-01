@@ -31,7 +31,90 @@ the numbers said, and what is open.
 
 ---
 
-## 2026-08-01 - Claude Code (25)
+## 2026-08-01 - Claude Code (28)
+
+**Review sheets now live in git, and the first one rejected a cut.**
+
+Charlie's call: a sheet in Drive is a sheet neither of us can look at, because
+the hub can clone a repo but cannot pull a binary out of Drive. So the split is
+now by what a file is for. Videos go to Drive, which is where the source lives
+and where finished cuts get collected. Every JPEG the reel pipeline makes goes
+to **`marketing/review/`** in this repo. That covers the render contact sheet,
+the feed still, the probe sheet and the footage index.
+
+`marketing/review/README.md` says what each file is and how to read one.
+
+### The sheet paid for itself immediately
+
+The first render checked under the new rule failed. `-t` sits after `-i` in the
+clip render, so it caps the OUTPUT duration, and `setpts` has already stretched
+the clip by then. Every held clip was being cut straight back to its native
+length: the closing shot slowed to 3.00s played 1.46s, the app countdown held
+to 1.60s played 0.75s. The holds did nothing.
+
+Nothing else could have caught it. The clip list recorded the length **asked
+for**, so the total, the plate windows and the end mark were all computed
+against a timeline that did not exist, and the log printed 10.33s for a 7.9s
+file. Every check of intent agreed with every other check of intent. In the
+version that would have posted, **the end mark never drew a frame** - it was
+scheduled a second and a half past the last one - and the second plate bled off
+the app screen onto the boarding shot.
+
+Fixed, and the durable part is the second item: clip lengths are now **probed,
+not assumed**, and a clip that misses its target by more than 50ms fails the
+run. The assembled cut is probed too and must match the plate timeline. That
+kills the class of bug rather than this instance of it.
+
+The re-render is verified frame by frame and its sheet is committed:
+`reel-fiji-longweekend.jpg`.
+
+### The footage index settles an open question
+
+`footage-index.jpg` is one labelled frame per clip in the Drive Footage root,
+so a clip called `IMG_1234.MOV` can finally be picked by what is in it.
+
+Reading it answers something that had been running on assumption: **there are no
+raw island, palm, water or boarding clips in that folder.** All the Fiji
+material lives inside the single edited MOV the reel is cut from. The raw
+footage is airports, Brisbane river and skyline, a farmers market, domestic gate
+boarding, and a long run of concert and festival clips.
+
+Two consequences worth carrying forward:
+
+1. **The Fiji cut has no sunset and cannot have one.** The brief asked for the
+   end mark over a sunset; the source edit's closing shot is midday water, and
+   no choice of timecode changes that. The only genuinely warm-light clip in the
+   whole folder is `IMG_9402.MOV`, dusk cloud over water, and it is not Fiji.
+   The reel currently opens and closes on near-identical bright resort-from-the-
+   water framing, which is the weakest thing about it.
+2. **A Drive folder cannot deliver footage to the hub**, for exactly the reason
+   a sheet in Drive cannot deliver a sheet. `~/Google Drive` on the Mac is a dead
+   2020 Backup and Sync folder and nothing syncs into it, so that is not a route
+   either. Recommendation: retire `_hub-footage`, keep Drive as the render
+   source only (the pipeline reads it with credentials inside Actions, which
+   works), and give the hub the index sheet plus small proxies of any clip it
+   names. Committing 64 raw MOVs to git is not the answer.
+
+### One thing Charlie can do in two minutes
+
+A fine-grained PAT with `contents: write` on `next-visit-site`, saved as
+`SITE_REPO_TOKEN` in `next-visit-couples`. The pipeline already checks for it
+and switches by itself: with it, every run drops its sheets straight into
+`marketing/review/`. Without it they land in a `review-outbox/` in the couples
+repo for a session to carry across, which leaves a couple of MB of JPEG in that
+repo's history per render.
+
+Worth recording why the obvious route was not taken: the workflow does upload a
+run artefact, and it is fine for a human on github.com, but a Claude Code
+session cannot fetch it. GitHub serves artefact downloads from
+`*.blob.core.windows.net` and this org's egress policy answers 403 to CONNECT
+for that host. Git is reachable; blob storage is not.
+
+_- Claude Code_
+
+---
+
+## 2026-08-01 - Claude Code (27)
 
 Housekeeping so this file stops taxing every session that reads it:
 **entries 1 to 19 are archived to `marketing/HANDOFF-ARCHIVE.md`**, verbatim
