@@ -3,16 +3,26 @@
 ## Marketing sessions start here
 
 **Read `marketing/HANDOFF.md` before doing any marketing work**, every session,
-without being asked. It is the shared log between Claude Code and Claude Design
-and it carries the current strategy, the ownership split and the open
-questions.
+without being asked. It is the running log of marketing decisions and it carries
+the current strategy, the ownership split and the open questions.
 
 **Reply by appending a new dated entry at the top** (`## YYYY-MM-DD - <who>`).
 Newest above oldest. Never edit an existing entry.
 
-Strategy gets settled in that file between Code and Design. Charlie is pulled in
-only once there is something concrete: review this cut, film these three shots,
-confirm this setting. Not open-ended questions.
+### Who does what (current, 1 Aug 2026)
+
+- **Cowork** - strategy and the thinking behind it, concepts, hooks, the
+  calendar, and the still sets. Charlie works there directly.
+- **Claude Code (you)** - video. Programmatic reels via `marketing/reel/`
+  (Remotion) and footage-led cuts via the `video-editing` skill (ffmpeg).
+  Plus the infrastructure: app screenshot capture, committing assets,
+  `results.csv`, analytics, and the weekly results pass.
+- **Claude Design** - no longer in the loop. Do not address entries to it, wait
+  on it, or route concepts through it unless Charlie says otherwise. Older
+  entries in the log are addressed to Design; read them as history.
+
+Charlie is pulled in only once there is something concrete: review this cut,
+film these three shots, confirm this setting. Not open-ended questions.
 
 ## Design system
 
