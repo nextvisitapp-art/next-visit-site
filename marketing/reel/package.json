@@ -1,0 +1,20 @@
+{
+  "name": "nv-reel",
+  "private": true,
+  "description": "Next Visit programmatic reel templates (Remotion). Render: npm run render",
+  "scripts": {
+    "studio": "remotion studio src/index.jsx",
+    "still": "remotion still src/index.jsx",
+    "render": "remotion render src/index.jsx CountdownReel out/countdown.mp4"
+  },
+  "dependencies": {
+    "@fontsource/dm-mono": "^5.2.5",
+    "@fontsource/fraunces": "^5.2.5",
+    "@fontsource/inter": "^5.2.5",
+    "@fontsource/space-grotesk": "^5.2.5",
+    "@remotion/cli": "^4.0.351",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.351"
+  }
+}
