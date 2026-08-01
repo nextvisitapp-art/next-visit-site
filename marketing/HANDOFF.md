@@ -1,9 +1,18 @@
 # Marketing handoff log
 
-The shared channel between **Claude Code** (reels, listing copy, site code, app)
-and **Claude Design** (composed screenshots, static assets, site visual
-direction). Charlie reads it too, but this is mainly so the two of us stay on
-the same page without him having to relay.
+The running record of marketing decisions: what was decided, what shipped, what
+the numbers said, and what is open.
+
+## Who does what (current, 1 Aug 2026)
+
+- **Cowork** - strategy and the thinking behind it, concepts, hooks, the
+  calendar, and the still sets. Charlie works there directly.
+- **Claude Code** - video (Remotion templates in `marketing/reel/`, footage cuts
+  via the `video-editing` skill), plus infrastructure: screenshot capture,
+  committing assets, `results.csv`, analytics, and the weekly results pass.
+- **Claude Design** - no longer in the loop as of 1 Aug 2026. Entries 1 to 24
+  are largely addressed to Design; **read them as history, not as live
+  instructions or open questions.** Nothing in this log is waiting on Design.
 
 ## How to use it
 
@@ -11,11 +20,67 @@ the same page without him having to relay.
 2. **Reply by appending a new dated entry at the top** - newest above oldest.
    Never edit someone else's entry; add yours.
 3. Head each entry `## YYYY-MM-DD - <who>` and say what you decided, what you
-   shipped, and what you need from the other side.
-4. Strategy gets settled here between the two of us. Only once we know what to
-   produce does Charlie get pulled in - and then with a specific ask: review
-   this, film these three shots, confirm this setting. Not an open question.
+   shipped, and what you need from anyone else.
+4. Only once we know what to produce does Charlie get pulled in - and then with
+   a specific ask: review this cut, film these three shots, confirm this
+   setting. Not an open question.
 5. House rule: **no em dashes anywhere in this project.** Hyphens only.
+
+---
+
+## 2026-08-01 - Claude Code (25)
+
+**Structure change, and it supersedes the ownership split in every entry below
+this one.** Charlie's call, made today.
+
+- **Cowork owns the thinking**: marketing strategy, concepts, hooks, the
+  calendar, and the still sets. He works there directly and it replaces both
+  the Design creative reins from entry 22 and the strategy role I have been
+  playing in this log.
+- **I own video**: programmatic reels and footage-led cuts, on request, plus the
+  infrastructure I already ran (capture, committing assets, `results.csv`,
+  analytics, the Monday results pass).
+- **Claude Design is out of the loop.** Not a criticism of the work; the routing
+  simply changed. Entries 1 to 24 are addressed to Design and several ask it
+  open questions. **Those questions are closed. Nothing here is waiting on
+  anyone.** The header now says so, and so does `CLAUDE.md` in this repo and in
+  couples, which both still described marketing as a Code plus Design split
+  until today.
+
+### Both video toolchains are verified working, not just installed
+
+I proved these end to end in a cloud session today rather than assuming:
+
+- **Remotion.** `CountdownReel` rendered clean: 390 frames, 1080x1920, 30fps,
+  13.06s, h264. Frame checks confirm it holds the brand - navy-led, Fraunces
+  headline, DM Mono eyebrows, exactly one pink moment on "Today.", marks
+  imported not redrawn. Deps install in about 12 seconds; the container browser
+  quirk is already handled in `remotion.config.js`.
+- **ffmpeg.** Not preinstalled in a fresh cloud container. `apt-get install -y
+  ffmpeg` fixes it in one step and the `video-editing` skill (trim, silence
+  jump cuts, captions, overlays, speed) then works. Worth knowing so a future
+  session does not read a missing binary as a broken skill.
+
+So graphics-led motion costs a render, and footage-led cuts cost an edit. Both
+are same-session turnarounds.
+
+### What I need from a concept to return a cut
+
+A POST.md-shaped brief: the one-line idea, the hook for frame one, the beat
+list, the surfaces, and the copy. Everything else is mine. If the concept needs
+a screen that does not exist in `screens/`, name the route and I will capture it
+rather than compose around the gap.
+
+### Standing measurement, unchanged
+
+Sets and cuts land in Drive with a POST.md, I commit them to
+`marketing/social/`, every post gets a `results.csv` row, saves per 100 views
+stays the verdict, and the Monday pass writes the read here. Entry 5's finding
+still stands and is not relitigated: countdown montages earned zero saves, so
+the `CountdownReel` template is a capability demo on the brand's own gesture,
+not a format recommendation.
+
+_- Claude Code_
 
 ---
 
