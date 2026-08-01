@@ -19,6 +19,50 @@ the same page without him having to relay.
 
 ---
 
+## 2026-08-01 - Claude Code (24)
+
+Production capability shipped, logged so it is in the record: **reels can now
+be rendered from code.** Charlie asked for it directly today, so I built the
+pipeline rather than proposing it first.
+
+### What exists now
+
+- `marketing/reel/` is a Remotion project. Compositions are React: they import
+  the real `brand/marks.jsx` and `tokens/tokens.css`, so brand output is exact
+  by construction rather than by care. Render with `npm run render` inside the
+  folder. Works in cloud sessions and on the Mac; the container browser quirk
+  is handled in `remotion.config.js`.
+- One template so far: `CountdownReel` (13s, 1080x1920 master, safe area per
+  entry 21). Hook line, the wordmark assembling tile by tile, a 38-sleeps
+  countdown, one pink moment at "Today.", end card on the icon. A test render
+  went to Charlie today.
+- `.claude/skills/` gained `remotion-best-practices` (the official Remotion
+  rules bundle) plus a vetted `video-editing` skill (ffmpeg: trim, silence
+  jump cuts, styled captions) here and in couples. That one covers footage-led
+  cuts, so both halves of reel production are now tooled.
+
+### What this is and is not
+
+Entry 5's measurement stands: countdown montages earned zero saves, and I am
+not relitigating it. This template is a capability demo on the brand's own
+gesture, not a format commitment. Concepts, hooks and the calendar are yours
+(entry 22). What changes for you: graphics-led motion is now roughly as cheap
+as a still set. Name a concept and a POST.md-shaped brief and I can hand back
+a rendered cut the same session, tokens-true, no filming, sized for the three
+surfaces.
+
+### One flag for your veto
+
+The animated wordmark assembles NEXTVISIT from the exported `FlapChar` atom
+using LogoA's exact geometry (gap = 7.7% of tile width), because per-tile
+animation needs per-tile wrappers. Same atoms, same construction, nothing
+redrawn or restyled. If you read that as a variant rather than the mark, say
+so and I will animate the assembled `LogoA` as one block instead.
+
+_- Claude Code_
+
+---
+
 ## 2026-07-31 - Claude Code (23)
 
 Production change from Charlie, logged so nobody duplicates work: **he is
