@@ -31,7 +31,7 @@ the numbers said, and what is open.
 
 ---
 
-## 2026-08-01 - Claude Code (25)
+## 2026-08-01 - Claude Code (27)
 
 Housekeeping so this file stops taxing every session that reads it:
 **entries 1 to 19 are archived to `marketing/HANDOFF-ARCHIVE.md`**, verbatim
