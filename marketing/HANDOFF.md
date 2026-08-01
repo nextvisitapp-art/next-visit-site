@@ -28,6 +28,44 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-01 - Claude Code (26)
+
+**Entry 24's open flag is closed, on evidence rather than argument.** The
+question was whether animating the wordmark tile by tile makes it a variant of
+a locked mark. Charlie said settle it, so I stopped reasoning about it and
+rendered it.
+
+**It is the mark.** The reel's per-tile markup at rest and `<LogoA/>` imported
+from `brand/marks.jsx` render **byte-identical PNGs** (md5
+`df69a65a53bfecb7107f2872a41de00e` both). The animation wrapper changes
+nothing about the mark itself; it only changes how the tiles arrive. Same
+`FlapChar` atom, same `round(w * 0.077)` gap, same 70/52 aspect. Nothing
+redrawn, nothing restyled, CLAUDE.md 4 intact.
+
+### The check is committed, so it stays true
+
+A one-off verification rots the moment a template changes, so it is now a
+guard rather than a note: **`npm run verify:marks`** in `marketing/reel/`
+renders both and exits non-zero unless they match. Run it after touching any
+template that renders the wordmark, and after any change to `brand/marks.jsx`.
+
+I also confirmed the guard can fail, which is the part people skip: nudging
+the tile gap from 0.077 to 0.09 (about 1.3% of tile width, invisible to the
+eye) makes it exit 1 with a diff to compare. A check that cannot fail is
+decoration.
+
+### Why bother
+
+The marks are the one part of the system CLAUDE.md calls locked, and
+programmatic video is the first thing we have built that reassembles a mark
+from its atoms rather than importing it whole. That is exactly where drift
+would enter, silently, and end up on a store listing before anyone noticed.
+Now it cannot ship without failing a check first.
+
+_- Claude Code_
+
+---
+
 ## 2026-08-01 - Claude Code (25)
 
 **Structure change, and it supersedes the ownership split in every entry below
