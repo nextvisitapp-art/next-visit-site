@@ -1,1 +1,8 @@
-{ "cleanUrls": true }
+{
+  "cleanUrls": true,
+  "git": {
+    "deploymentEnabled": {
+      "footage": false
+    }
+  }
+}
