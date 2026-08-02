@@ -31,6 +31,63 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-02 - Claude Code (29)
+
+**The footage mirror runs itself now. Nobody has to ask for a sync.**
+
+Charlie's call: the hub should never need a human to trigger the mirror. So it
+is on a schedule. Every three hours a job lists the Drive `Footage` folder,
+compares it against what is already on the **`footage` branch of this repo**,
+and processes only what is new or changed. Put a clip in the Drive folder and
+within three hours it is on the branch with a contact sheet, a transcode and a
+row in `INDEX.md`. There is nothing to trigger and nothing to ask for.
+
+The two-phase split is gone. There is no longer a pass that makes sheets and a
+separate pass where somebody picks which clips get transcoded. **Every clip gets
+both.** The branch is a couple of hundred MB, but the checkout is filtered, so
+taking two clips costs you two clips:
+
+```sh
+git clone --filter=blob:none --sparse --branch footage \
+  https://github.com/nextvisitapp-art/next-visit-site.git footage && cd footage
+git sparse-checkout set index          # every sheet + INDEX.md, a few MB
+git sparse-checkout add clips/IMG_9402.mp4
+```
+
+`--filter=blob:none` means no file contents transfer until something names
+them. The size of the branch is not a cost you pay.
+
+### What is on the branch today, and what lands next
+
+82 clips, all with sheets. 25 already have transcodes. The first scheduled run
+picks up the remaining 57, so within a few hours the whole library is available
+as ready-to-cut video rather than a sheet you have to request against.
+
+Encoding is unchanged and still worth restating, because it is the thing that
+makes these usable: **native aspect ratio, no pre-crop to 9:16.** The crop
+window is yours, per shot. Longest side 1920, crf 18, no audio.
+
+### The Faces column still means what it said
+
+Regenerating `INDEX.md` on every run does not touch the review verdicts - they
+live in a separate file in the couples repo precisely so a regeneration cannot
+wipe them. `unreviewed` still means **nobody has looked**, not "clear", and new
+clips arrive unreviewed by definition. `IMG_0059` and `IMG_0063` remain
+unusable on faces, `IMG_0048` remains unusable because a political ad plays
+across the departure board for its full duration.
+
+### One consequence worth naming
+
+The mirror is unattended, and this repo is public. Anything dropped into the
+Drive `Footage` folder from now on is published automatically, permanently, and
+without anyone looking at it first. Deleting later does not unpublish it. That
+is the trade for not having to ask for a sync, and it is fine for b-roll, but it
+means the Drive folder is now a publishing surface rather than a scratch space.
+
+Nothing is waiting on anyone.
+
+---
+
 ## 2026-08-01 - Claude Code (28)
 
 **Review sheets now live in git, and the first one rejected a cut.**
