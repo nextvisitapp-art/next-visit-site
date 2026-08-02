@@ -31,6 +31,120 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-03 - Claude Code (30)
+
+**Weekly results pass. Three creatives went out, 1,596 views, zero saves on
+everything we can measure.**
+
+### What posted
+
+| Post | Date | Where | Views | Saves / 100 views |
+| --- | --- | --- | ---: | --- |
+| `dayzero-nofaces` (reel, b-roll, 14s) | 27 Jul | IG + TikTok | 1,086 | **0.00** (0 / 1,086) |
+| `planner-stopsaying` (reel, screen recording, 9s) | 29 Jul | IG + FB + TikTok | 295 | **0.00** (0 / 295) |
+| "Nine tabs open. Nothing booked." (static feed post) | ~31 Jul | IG + FB | 215 | not in the export |
+
+Read off the exports Charlie put in Drive (`Footage / Analytics exports`, 2 Aug):
+
+- **dayzero-nofaces** - IG 378 views, 279 reached, average watch 5s of 14s, 1
+  follow. Skip 72.6%, share 0.3%, like 1.4%. TikTok 708 views. Views kept
+  accruing after the first reading (IG 329 to 378, TikTok 700 to 708), so the
+  1,029 total in the old log is superseded.
+- **planner-stopsaying** - IG 149 + Facebook 54 = 203 views, 102 reached,
+  average watch 4s of 9s, 0 follows. **Save rate 0.0%, share rate 0.0%, like
+  rate 0.0%, skip rate 84.1%.** TikTok 92 views under a Copenhagen caption; the
+  analytics thumbnail is the "Skip the planning / Who's going?" frame, so it is
+  the same creative rather than a fourth post.
+- **"Nine tabs open"** - 212 IG + 3 Facebook = 215 views, 65 reached.
+- TikTok account, 25 to 31 Jul: 945 post views, 6 profile views, 15 likes,
+  $0.00 rewards. Audience 86% female, 14% male.
+
+### Two of the three were not in the log
+
+`results.csv` had `dayzero-nofaces` and one bare Instagram row for
+`planner-stopsaying`. The TikTok cut of `planner-stopsaying` and the whole
+"Nine tabs open" post were missing. Both are in now, with this week's numbers,
+in `next-visit-couples/marketing/reels/`.
+
+Worth naming because throughput is the metric that matters most at this stage
+and the log was under-reporting it by a third.
+
+Two things I did not fill in. `hook_type` and `pillar` are blank on the new
+rows: those are editorial calls made at approval time and reconstructing them
+from a screenshot is exactly what RESULTS.md says not to do. And the static
+post is recorded as `format=static`, which is **a new value** not in the
+RESULTS.md list (face / screen-recording / b-roll) - flagging it rather than
+quietly widening the taxonomy.
+
+### The funnel is empty, and that is not yet a finding
+
+`funnel.yml` on main: no events in 7 days. Ran it again at 90 days: also none.
+So `countdown_created`, `countdown_shared` and `member_joined` are zero for
+every space.
+
+Before anyone reads anything into that: **the instrumentation landed on 29 July**
+(`b8e63a9`), five days ago. There were five days in which an event could have
+been recorded, not ninety. Zero events in five days at this install volume is
+unremarkable and is **not** evidence of a broken pipe.
+
+I checked the two things that would make it one, and both are sound in source.
+All three events fire from real call sites (`AddMemory.jsx`, `CrewCard.jsx`,
+`CrewStrip.jsx`, `joinSpace.js`), and the `/events` rule in `firestore.rules`
+permits exactly the write `analytics.js` makes. What I cannot verify from here
+is whether those rules are actually deployed.
+
+The structural problem is worth fixing before it costs a month: `analytics.js`
+swallows write errors by design, so **a denied write and genuine non-use look
+identical**, and the funnel prints the same line either way. One deliberate
+event fired from a signed-in test space would separate them permanently. Say
+the word and I will wire it.
+
+### Site traffic: unavailable, as expected
+
+The programmatic Web Analytics API answers `not_found` for `next-visit-site` on
+this plan. Retried once in case the plan had changed; same answer. That is by
+design on this account, not breakage, and I did not spend time re-diagnosing it.
+No traffic figures in this entry.
+
+### Drive sweep: one set, no frames
+
+`Marketing assets / set-03-crew-bookings` contains a `POST.md` and nothing else.
+It specs 17 frames (6 at 1080x1920, 6 at 1080x1350, 5 at 1000x1500) with
+captions for TikTok photo mode, an IG carousel and a Pinterest pin written as a
+search query. **None of the frames are in Drive**, so there was nothing to
+commit. The `Posted` folder is empty.
+
+### What the numbers suggest
+
+Three posts. RESULTS.md sets the bar at roughly 20 to 30 before analysis is
+allowed to steer, so **this is raw reporting and I am not calling a trend.**
+Below that bar any pattern is invented.
+
+Raw, without interpretation:
+
+- Two reels, 1,381 views between them, **zero saves on both**.
+- They are different formats (b-roll, screen recording), so neither format has
+  failed twice running and **nothing meets the kill rule.** Nothing is cut.
+- Skip rate was 72.6% on the 14s b-roll and 84.1% on the 9s screen recording.
+  One observation each. That is not a direction.
+- The static post reached 65 accounts against the reels' 279 and 102.
+
+The one number that is a finding rather than noise: **three creatives in seven
+days is the highest throughput week so far**, and the log caught two of them.
+
+### One ask
+
+**Paste the Instagram insights for the "Nine tabs open. Nothing booked." post,
+specifically the saves count.** It is the only post this week whose saves I
+could not read - the Drive export has its Overview and Audience tabs but not
+Engagement - and saves are the number that decides creative.
+
+If the Vercel dashboard figures for `next-visit-site` and `next-visit-go` are
+to hand they would fill the traffic gap too, but the saves number is the one
+that changes what gets made next.
+
+---
+
 ## 2026-08-02 - Claude Code (29)
 
 **The footage mirror runs itself now. Nobody has to ask for a sync.**
