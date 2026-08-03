@@ -31,6 +31,252 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-03 - Claude Code (32)
+
+**The invite flow got the four changes it needed, and the biggest one was
+gated on a test rather than an opinion.**
+
+The claim that an iPhone invitee could not be allowed to join in Safari - the
+wall in front of nearly every invitee we have - rested on a plausible worry:
+that a browser join creates an anonymous account the installed app never sees,
+orphaning the pairing. That is a question with an answer, so it got one. A
+check now round-trips it against production: join in Safari, install, come back
+as a brand-new anonymous account. **11 of 11 checks pass.** The slot is
+reclaimed by name, or by answering "which of you are you?", the inviter is
+never disturbed, and a partner who has linked an email still cannot be
+displaced by someone who merely has the code. So the wall came down.
+
+What changes for the words we use:
+
+1. **"Join without installing anything" is true again on iPhone.** Join is the
+   primary action on every platform; the App Store is a quiet second option.
+   Any campaign line about frictionless joining no longer needs an asterisk.
+2. **The invite page now shows the thing before it asks for anything** -
+   "Em is counting down to Tokyo. 23 sleeps." → Join Em, or "Euro Summer
+   leaves in 41 sleeps. Charlie, Jess and 3 others are in." → Join the crew.
+   It reads like an invitation from a person rather than an ad from a
+   stranger, and it is resolved on the server, so the crew-greeted-as-a-couple
+   bug is now impossible rather than merely unlikely.
+3. **An unfilled invite finally gets chased**: one push the morning after the
+   space is made, one more five days in, landing on the invite card ready to
+   resend. Then silence forever - two is the whole budget.
+
+One thing that matters for reading the funnel: **the "invite links opened"
+number has been wrong since it shipped.** The event only ever fired on a screen
+that a brand-new invitee never reaches, so it was counting existing users
+tapping links and nothing else. Fixed, but it means opened-versus-joined rates
+from before today cannot be compared with the ones after. The first clean week
+starts now.
+
+`marketing/PRODUCT.md` on main is updated to match. All of the above is in the
+couples release branch, not yet on main, so the app in your hand still does the
+old thing until it merges.
+
+## 2026-08-03 - Claude Code (31)
+
+**The product picture is on main: `marketing/PRODUCT.md` plus 28 named
+frames in `marketing/product-screens/`.** Onboarding tap by tap, pairing
+from both sides, every screen and what needs a partner, Plus gating and
+prices, the planner handoff, notifications, widgets, the data model, and a
+blunt gaps list. Written from the deployed code against a same-day capture
+run; every claim with pixels has the frame named next to it.
+
+Three findings from writing it that touch marketing copy directly:
+
+1. **The iOS invite link does not join in the browser.** An iPhone invitee
+   without the app gets an App Store interstitial (deliberate in code: a
+   Safari join would orphan the pairing across two anonymous accounts).
+   Android and desktop invitees do join in the browser. So no "they can
+   join without installing anything" lines for iPhone audiences; the
+   funnel report will show what that wall costs.
+2. **Free couples never meet the paywall.** No Together doorway on Home,
+   and `/Together` silently redirects free users to /Us (photographed in
+   the set). The only doors to the purchase sheet are the Profile card and
+   the storage caps.
+3. **The crew interstitial greets people as couples** when its crew lookup
+   loses the race to first paint. Small, fixable, flagged in the doc.
+
+Housekeeping: the seeded demo crew's live join code was legible in two
+captured frames. The public copies on main are redacted; the un-redacted
+originals exist only in the private couples repo and the Drive mirror.
+Low-urgency ask for Charlie: rotate that crew's invite code from the app
+whenever convenient, and the next capture run picks up the new one.
+
+Also today, ahead of the doc: the events security rules are deployed and
+verified end to end (a client-path write lands, a mismatched uid is
+refused), so the invite-funnel numbers start recording from today.
+
+## 2026-08-03 - Claude Code (30)
+
+**Weekly results pass. Three creatives went out, 1,596 views, zero saves on
+everything we can measure.**
+
+### What posted
+
+| Post | Date | Where | Views | Saves / 100 views |
+| --- | --- | --- | ---: | --- |
+| `dayzero-nofaces` (reel, b-roll, 14s) | 27 Jul | IG + TikTok | 1,086 | **0.00** (0 / 1,086) |
+| `planner-stopsaying` (reel, screen recording, 9s) | 29 Jul | IG + FB + TikTok | 295 | **0.00** (0 / 295) |
+| "Nine tabs open. Nothing booked." (static feed post) | ~31 Jul | IG + FB | 215 | not in the export |
+
+Read off the exports Charlie put in Drive (`Footage / Analytics exports`, 2 Aug):
+
+- **dayzero-nofaces** - IG 378 views, 279 reached, average watch 5s of 14s, 1
+  follow. Skip 72.6%, share 0.3%, like 1.4%. TikTok 708 views. Views kept
+  accruing after the first reading (IG 329 to 378, TikTok 700 to 708), so the
+  1,029 total in the old log is superseded.
+- **planner-stopsaying** - IG 149 + Facebook 54 = 203 views, 102 reached,
+  average watch 4s of 9s, 0 follows. **Save rate 0.0%, share rate 0.0%, like
+  rate 0.0%, skip rate 84.1%.** TikTok 92 views under a Copenhagen caption; the
+  analytics thumbnail is the "Skip the planning / Who's going?" frame, so it is
+  the same creative rather than a fourth post.
+- **"Nine tabs open"** - 212 IG + 3 Facebook = 215 views, 65 reached.
+- TikTok account, 25 to 31 Jul: 945 post views, 6 profile views, 15 likes,
+  $0.00 rewards. Audience 86% female, 14% male.
+
+### Two of the three were not in the log
+
+`results.csv` had `dayzero-nofaces` and one bare Instagram row for
+`planner-stopsaying`. The TikTok cut of `planner-stopsaying` and the whole
+"Nine tabs open" post were missing. Both are in now, with this week's numbers,
+in `next-visit-couples/marketing/reels/`.
+
+Worth naming because throughput is the metric that matters most at this stage
+and the log was under-reporting it by a third.
+
+Two things I did not fill in. `hook_type` and `pillar` are blank on the new
+rows: those are editorial calls made at approval time and reconstructing them
+from a screenshot is exactly what RESULTS.md says not to do. And the static
+post is recorded as `format=static`, which is **a new value** not in the
+RESULTS.md list (face / screen-recording / b-roll) - flagging it rather than
+quietly widening the taxonomy.
+
+### The funnel is empty, and that is not yet a finding
+
+`funnel.yml` on main: no events in 7 days. Ran it again at 90 days: also none.
+So `countdown_created`, `countdown_shared` and `member_joined` are zero for
+every space.
+
+Before anyone reads anything into that: **the instrumentation landed on 29 July**
+(`b8e63a9`), five days ago. There were five days in which an event could have
+been recorded, not ninety. Zero events in five days at this install volume is
+unremarkable and is **not** evidence of a broken pipe.
+
+I checked the two things that would make it one, and both are sound in source.
+All three events fire from real call sites (`AddMemory.jsx`, `CrewCard.jsx`,
+`CrewStrip.jsx`, `joinSpace.js`), and the `/events` rule in `firestore.rules`
+permits exactly the write `analytics.js` makes. What I cannot verify from here
+is whether those rules are actually deployed.
+
+The structural problem is worth fixing before it costs a month: `analytics.js`
+swallows write errors by design, so **a denied write and genuine non-use look
+identical**, and the funnel prints the same line either way. One deliberate
+event fired from a signed-in test space would separate them permanently. Say
+the word and I will wire it.
+
+### Site traffic: unavailable, as expected
+
+The programmatic Web Analytics API answers `not_found` for `next-visit-site` on
+this plan. Retried once in case the plan had changed; same answer. That is by
+design on this account, not breakage, and I did not spend time re-diagnosing it.
+No traffic figures in this entry.
+
+### Drive sweep: one set, no frames
+
+`Marketing assets / set-03-crew-bookings` contains a `POST.md` and nothing else.
+It specs 17 frames (6 at 1080x1920, 6 at 1080x1350, 5 at 1000x1500) with
+captions for TikTok photo mode, an IG carousel and a Pinterest pin written as a
+search query. **None of the frames are in Drive**, so there was nothing to
+commit. The `Posted` folder is empty.
+
+### What the numbers suggest
+
+Three posts. RESULTS.md sets the bar at roughly 20 to 30 before analysis is
+allowed to steer, so **this is raw reporting and I am not calling a trend.**
+Below that bar any pattern is invented.
+
+Raw, without interpretation:
+
+- Two reels, 1,381 views between them, **zero saves on both**.
+- They are different formats (b-roll, screen recording), so neither format has
+  failed twice running and **nothing meets the kill rule.** Nothing is cut.
+- Skip rate was 72.6% on the 14s b-roll and 84.1% on the 9s screen recording.
+  One observation each. That is not a direction.
+- The static post reached 65 accounts against the reels' 279 and 102.
+
+The one number that is a finding rather than noise: **three creatives in seven
+days is the highest throughput week so far**, and the log caught two of them.
+
+### One ask
+
+**Paste the Instagram insights for the "Nine tabs open. Nothing booked." post,
+specifically the saves count.** It is the only post this week whose saves I
+could not read - the Drive export has its Overview and Audience tabs but not
+Engagement - and saves are the number that decides creative.
+
+If the Vercel dashboard figures for `next-visit-site` and `next-visit-go` are
+to hand they would fill the traffic gap too, but the saves number is the one
+that changes what gets made next.
+
+---
+
+## 2026-08-02 - Claude Code (29)
+
+**The footage mirror runs itself now. Nobody has to ask for a sync.**
+
+Charlie's call: the hub should never need a human to trigger the mirror. So it
+is on a schedule. Every three hours a job lists the Drive `Footage` folder,
+compares it against what is already on the **`footage` branch of this repo**,
+and processes only what is new or changed. Put a clip in the Drive folder and
+within three hours it is on the branch with a contact sheet, a transcode and a
+row in `INDEX.md`. There is nothing to trigger and nothing to ask for.
+
+The two-phase split is gone. There is no longer a pass that makes sheets and a
+separate pass where somebody picks which clips get transcoded. **Every clip gets
+both.** The branch is a couple of hundred MB, but the checkout is filtered, so
+taking two clips costs you two clips:
+
+```sh
+git clone --filter=blob:none --sparse --branch footage \
+  https://github.com/nextvisitapp-art/next-visit-site.git footage && cd footage
+git sparse-checkout set index          # every sheet + INDEX.md, a few MB
+git sparse-checkout add clips/IMG_9402.mp4
+```
+
+`--filter=blob:none` means no file contents transfer until something names
+them. The size of the branch is not a cost you pay.
+
+### What is on the branch today, and what lands next
+
+82 clips, all with sheets. 25 already have transcodes. The first scheduled run
+picks up the remaining 57, so within a few hours the whole library is available
+as ready-to-cut video rather than a sheet you have to request against.
+
+Encoding is unchanged and still worth restating, because it is the thing that
+makes these usable: **native aspect ratio, no pre-crop to 9:16.** The crop
+window is yours, per shot. Longest side 1920, crf 18, no audio.
+
+### The Faces column still means what it said
+
+Regenerating `INDEX.md` on every run does not touch the review verdicts - they
+live in a separate file in the couples repo precisely so a regeneration cannot
+wipe them. `unreviewed` still means **nobody has looked**, not "clear", and new
+clips arrive unreviewed by definition. `IMG_0059` and `IMG_0063` remain
+unusable on faces, `IMG_0048` remains unusable because a political ad plays
+across the departure board for its full duration.
+
+### One consequence worth naming
+
+The mirror is unattended, and this repo is public. Anything dropped into the
+Drive `Footage` folder from now on is published automatically, permanently, and
+without anyone looking at it first. Deleting later does not unpublish it. That
+is the trade for not having to ask for a sync, and it is fine for b-roll, but it
+means the Drive folder is now a publishing surface rather than a scratch space.
+
+Nothing is waiting on anyone.
+
+---
+
 ## 2026-08-01 - Claude Code (28)
 
 **Review sheets now live in git, and the first one rejected a cut.**
