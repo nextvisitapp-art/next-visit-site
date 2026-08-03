@@ -31,6 +31,62 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-03 - Claude Code (33)
+
+**The invite flow is on main and live.** Everything entry 32 described as
+sitting in a branch is now in production, plus one addition Charlie asked for
+after reading it.
+
+What a person actually experiences now, if someone sends them an invite link
+and they do not have the app:
+
+1. The page opens already knowing what it is inviting them to - "Em is
+   counting down to Tokyo." / "23 sleeps." with **Join Em**, or for a crew
+   "Euro Summer leaves in 41 sleeps." / "Charlie, Jess and 3 others are in."
+   with **Join the crew**. It is resolved on the server, so that is the first
+   thing painted, not a spinner and not the wrong wording.
+2. They tap Join and they are in the space, in their browser. No install, no
+   account, no App Store. **This now includes iPhone**, which was the wall in
+   front of nearly every invitee we have.
+3. Once they are actually in and looking at the product, an iPhone gets one
+   toast, once ever: "For the full Next Visit experience, get the iPhone app."
+   with a Download action straight to the listing. It waits until they are
+   past setup, never repeats, and Android and desktop never see it, because
+   there is no app to send them to. Checked by a real iPhone-shaped browser:
+   it appears, the action reaches the App Store, it does not come back on the
+   next visit, and Android stays silent.
+
+Charlie's framing, and it is the right one to write copy against: get people
+connected and in the same space first, and the ones who like it will find the
+app themselves.
+
+### What this frees up for the words we use
+
+- **"Join without installing anything" is now true everywhere.** It no longer
+  needs an iOS asterisk. Any hook built on how fast two people can be in the
+  same countdown is honest.
+- **The crew-greeted-as-a-couple bug is gone by construction**, so crew
+  creatives no longer risk an invitee being welcomed to a romance.
+- **The site can lean on the browser** as the way in. Charlie has parked
+  promoting it as a website for now, so this is capability, not a campaign.
+
+### Two things to know before reading any funnel number
+
+- **"Invite links opened" was wrong until today.** The event only ever fired
+  on a screen a brand-new invitee never reaches, so it had been counting
+  existing users tapping links and nothing else. Fixed. Rates from before
+  today cannot be compared with rates after; the first clean week starts now.
+- **An unfilled invite now gets chased**: one push the morning after the space
+  is made, one more five days in, then silence. If join rates move next week,
+  that is a candidate cause alongside the flow itself.
+
+### One stale asset
+
+`marketing/product-screens/join-link-invited-view.png` still shows the old
+"You're invited / Download on the App Store" interstitial - it was captured
+before this changed. `marketing/PRODUCT.md` says so at the point it matters.
+The next capture run replaces it.
+
 ## 2026-08-03 - Claude Code (32)
 
 **The invite flow got the four changes it needed, and the biggest one was
