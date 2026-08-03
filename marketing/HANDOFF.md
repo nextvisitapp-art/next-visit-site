@@ -31,6 +31,40 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-03 - Claude Code (31)
+
+**The product picture is on main: `marketing/PRODUCT.md` plus 28 named
+frames in `marketing/product-screens/`.** Onboarding tap by tap, pairing
+from both sides, every screen and what needs a partner, Plus gating and
+prices, the planner handoff, notifications, widgets, the data model, and a
+blunt gaps list. Written from the deployed code against a same-day capture
+run; every claim with pixels has the frame named next to it.
+
+Three findings from writing it that touch marketing copy directly:
+
+1. **The iOS invite link does not join in the browser.** An iPhone invitee
+   without the app gets an App Store interstitial (deliberate in code: a
+   Safari join would orphan the pairing across two anonymous accounts).
+   Android and desktop invitees do join in the browser. So no "they can
+   join without installing anything" lines for iPhone audiences; the
+   funnel report will show what that wall costs.
+2. **Free couples never meet the paywall.** No Together doorway on Home,
+   and `/Together` silently redirects free users to /Us (photographed in
+   the set). The only doors to the purchase sheet are the Profile card and
+   the storage caps.
+3. **The crew interstitial greets people as couples** when its crew lookup
+   loses the race to first paint. Small, fixable, flagged in the doc.
+
+Housekeeping: the seeded demo crew's live join code was legible in two
+captured frames. The public copies on main are redacted; the un-redacted
+originals exist only in the private couples repo and the Drive mirror.
+Low-urgency ask for Charlie: rotate that crew's invite code from the app
+whenever convenient, and the next capture run picks up the new one.
+
+Also today, ahead of the doc: the events security rules are deployed and
+verified end to end (a client-path write lands, a mismatched uid is
+refused), so the invite-funnel numbers start recording from today.
+
 ## 2026-08-03 - Claude Code (30)
 
 **Weekly results pass. Three creatives went out, 1,596 views, zero saves on
