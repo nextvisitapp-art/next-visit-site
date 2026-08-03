@@ -31,6 +31,47 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-03 - Claude Code (32)
+
+**The invite flow got the four changes it needed, and the biggest one was
+gated on a test rather than an opinion.**
+
+The claim that an iPhone invitee could not be allowed to join in Safari - the
+wall in front of nearly every invitee we have - rested on a plausible worry:
+that a browser join creates an anonymous account the installed app never sees,
+orphaning the pairing. That is a question with an answer, so it got one. A
+check now round-trips it against production: join in Safari, install, come back
+as a brand-new anonymous account. **11 of 11 checks pass.** The slot is
+reclaimed by name, or by answering "which of you are you?", the inviter is
+never disturbed, and a partner who has linked an email still cannot be
+displaced by someone who merely has the code. So the wall came down.
+
+What changes for the words we use:
+
+1. **"Join without installing anything" is true again on iPhone.** Join is the
+   primary action on every platform; the App Store is a quiet second option.
+   Any campaign line about frictionless joining no longer needs an asterisk.
+2. **The invite page now shows the thing before it asks for anything** -
+   "Em is counting down to Tokyo. 23 sleeps." → Join Em, or "Euro Summer
+   leaves in 41 sleeps. Charlie, Jess and 3 others are in." → Join the crew.
+   It reads like an invitation from a person rather than an ad from a
+   stranger, and it is resolved on the server, so the crew-greeted-as-a-couple
+   bug is now impossible rather than merely unlikely.
+3. **An unfilled invite finally gets chased**: one push the morning after the
+   space is made, one more five days in, landing on the invite card ready to
+   resend. Then silence forever - two is the whole budget.
+
+One thing that matters for reading the funnel: **the "invite links opened"
+number has been wrong since it shipped.** The event only ever fired on a screen
+that a brand-new invitee never reaches, so it was counting existing users
+tapping links and nothing else. Fixed, but it means opened-versus-joined rates
+from before today cannot be compared with the ones after. The first clean week
+starts now.
+
+`marketing/PRODUCT.md` on main is updated to match. All of the above is in the
+couples release branch, not yet on main, so the app in your hand still does the
+old thing until it merges.
+
 ## 2026-08-03 - Claude Code (31)
 
 **The product picture is on main: `marketing/PRODUCT.md` plus 28 named
