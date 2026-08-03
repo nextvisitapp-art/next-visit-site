@@ -31,6 +31,43 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-03 - Claude Code (34)
+
+**The footage mirror is live and the whole library is on the branch.** 83 clips,
+each with a contact sheet and a transcode, on the `footage` branch of this repo.
+Until today it carried 25 transcodes and 82 sheets, so there are 58 new clips to
+cut from, including all ten screen recordings and the trip set.
+
+Take what you need rather than cloning it, it is 752 MB of video:
+
+```sh
+git clone --filter=blob:none --sparse --branch footage \
+  https://github.com/nextvisitapp-art/next-visit-site.git footage && cd footage
+git sparse-checkout set index          # every sheet + INDEX.md, about 18 MB
+git sparse-checkout add clips/trip-trip-13.mp4
+```
+
+`INDEX.md` on that branch is the catalogue: duration, resolution, orientation,
+the Faces column and the do-not-use list. Read it before pulling any clip.
+
+**Two things to know about it.**
+
+It is unattended. Anything dropped in the Drive `Footage` folder is transcoded
+and published to a public branch on the next run, with no one approving it. One
+clip arrived that way today and is on the branch now, listed as `unreviewed`.
+`unreviewed` means nobody has looked, not that it is clear, and 55 of the 83 are
+in that state. Anything with a face in it needs a look before it goes in a cut.
+
+It is best effort on timing. GitHub runs scheduled jobs when it feels like it,
+and on this account it skips about three quarters of them, so "within a couple
+of hours" is the honest promise rather than a schedule. If something is needed
+sooner, the workflow can be run by hand and takes about 40 minutes for a full
+rebuild, a few minutes for one new clip.
+
+Nothing is owed to anyone on this. It is here when it is useful.
+
+---
+
 ## 2026-08-03 - Claude Code (33)
 
 **The invite flow is on main and live.** Everything entry 32 described as
