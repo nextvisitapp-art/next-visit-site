@@ -114,43 +114,40 @@ space: next-visit.app/join/ABC123 - code ABC123 if it asks."*
 **If the app is installed** (iPhone): the link is a Universal Link - iOS
 opens the app directly into the join flow. No code typing.
 
-**If the app is not installed, on an iPhone** - the most common case, and
-it does not do what the web-first architecture suggests: the link lands in
-Safari and the app deliberately does **not** let them join there. It
-renders an install interstitial (`join-link-invited-view.png`, code
-redacted): "You're invited", one primary button (**Download on the App
-Store**), the invite code printed beneath for after the install, and small
-print covering the already-installed case. Tapping the button silently
-copies the code to the clipboard before leaving, so the freshly installed
-app can offer a one-tap paste (that is the clipboard sniff in section 1).
-The gate is a considered decision, not an accident: a Safari join would
-create an anonymous account separate from the one the installed app gets,
-orphaning the pairing. Legitimate - but it means "join without installing
-anything" is not true on iOS, and the funnel's biggest wall sits exactly
-here (section 9).
+**If the app is not installed** - the common case, and as of 3 Aug the same
+on every platform: the link opens a page that already knows what it is
+inviting them to. The space is resolved on the server before the page is
+sent, so the first thing painted is real - "Em is counting down to Tokyo."
+with "23 sleeps." beneath it, or "Em made a space for the two of you." when
+there is no trip yet, or for a crew "Euro Summer leaves in 41 sleeps." with
+"Charlie, Jess and 3 others are in." One action: **Join Em** / **Join the
+crew**. On an iPhone there is also a small second line offering the app.
 
-**All three of those are being changed** (in the release branch, not yet
-shipped): the browser join is opened on iOS too, with Join as the primary
-action and the App Store demoted to a second option; the page is rebuilt to
-show the space's real state before it asks for anything ("Em is counting down
-to Tokyo. 23 sleeps." → Join Em); and the code is resolved server-side so the
-crew wording cannot lose its race. The reclaim that makes the first one safe -
-join in Safari, install, land back in the same slot - is now round-tripped
-against production on a schedule rather than assumed. Read the rest of this
-section as the behaviour still live today.
+Tapping Join runs the join in the browser and they are in the space. No
+install, no account, no App Store. That is true on iPhone now too: until
+3 Aug an iPhone invitee was diverted to the App Store first, on the
+reasoning that a Safari join would create an anonymous account the
+installed app never sees and orphan the pairing. That turned out to be
+false, and is now checked on a schedule rather than assumed: a browser
+join is reclaimed by the post-install account, by name or by answering
+"which of you are you?", with the inviter untouched.
 
-One wrinkle the frame photographs: the interstitial's copy is couple-first
-("Next Visit is an app for two...") and only switches to crew wording
-("The crew <name> is waiting for you") if a background server peek
-resolves in time - the capture used a crew code and still shows couple
-copy, which is what a crew invitee sees on first paint and, on a slow or
-failed peek, for the whole visit.
+Once someone is actually in a space on the web, an iPhone gets **one**
+toast, once ever: "For the full Next Visit experience, get the iPhone app."
+with a Download action. Nothing else asks. Android and desktop never see
+it, because there is no app to send them to.
 
-**Android and desktop browsers fall through to the real thing:** the join
-flow runs in the browser, and the invited person joins and sees the space,
-the countdown, the memories - with nothing installed and no account
-created. The web-first join is real, just not on the platform most
-invitees hold.
+Two consequences worth carrying into copy. "Join without installing
+anything" is now true everywhere, so it no longer needs the iOS asterisk.
+And the couple-versus-crew wording bug is gone by construction rather than
+by timing - the old page guessed couple, then corrected to crew only if a
+background lookup won the race, so crew invitees were regularly greeted as
+though joining a romance. Nothing client-side guesses any more.
+
+**The screenshot is out of date.** `join-link-invited-view.png` still shows
+the old "You're invited / Download on the App Store" interstitial - it was
+captured before this changed. Treat the words above as the truth until the
+next capture run replaces the frame.
 
 After joining: they land on the space's Home. For a couple, both phones now
 show the same countdown, and every shared surface (Us, Memories) is live
