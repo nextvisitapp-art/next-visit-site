@@ -129,6 +129,16 @@ orphaning the pairing. Legitimate - but it means "join without installing
 anything" is not true on iOS, and the funnel's biggest wall sits exactly
 here (section 9).
 
+**All three of those are being changed** (in the release branch, not yet
+shipped): the browser join is opened on iOS too, with Join as the primary
+action and the App Store demoted to a second option; the page is rebuilt to
+show the space's real state before it asks for anything ("Em is counting down
+to Tokyo. 23 sleeps." → Join Em); and the code is resolved server-side so the
+crew wording cannot lose its race. The reclaim that makes the first one safe -
+join in Safari, install, land back in the same slot - is now round-tripped
+against production on a schedule rather than assumed. Read the rest of this
+section as the behaviour still live today.
+
 One wrinkle the frame photographs: the interstitial's copy is couple-first
 ("Next Visit is an app for two...") and only switches to crew wording
 ("The crew <name> is waiting for you") if a background server peek
@@ -389,7 +399,9 @@ lists and Together data with it.
    cards only - no reminder, no push, no "your space is waiting" email
    (there are no emails at all). Given the whole product thesis is the
    second person, the silence after a skipped invite is the biggest hole in
-   the funnel.
+   the funnel. (Being fixed in the release branch: two pushes, the morning
+   after the space is made and again five days in, landing on the invite
+   card ready to resend, then silence. Two is the whole budget.)
 4. **The iOS invite link converts installs, not joins - watch that step.**
    An iPhone invitee without the app cannot join in the browser; they get
    the App Store interstitial (deliberate, to keep the pairing in one
@@ -398,31 +410,39 @@ lists and Together data with it.
    join. Every step now emits an event, but the wall is real. And the
    interstitial's crew wording depends on a background peek winning a
    race, so crew invitees are regularly greeted as couples. If joins lag
-   invites in the funnel report, this page is the first suspect.
-5. **The rating ask never fired in practice** - it sat behind a 30-day
+   invites in the funnel report, this page is the first suspect. (Both are
+   fixed in the release branch - see section 2.)
+5. **The funnel's "links opened" step was only counting existing users.**
+   The event fired on one screen that a brand-new invitee never reaches,
+   because anyone without a profile is routed straight into onboarding. So
+   the denominator under the join rate - the number the positioning
+   question rests on - has been missing its main case since it shipped.
+   Fixed in the release branch, but it means opened-versus-joined rates
+   from before that fix cannot be compared with the ones after it.
+6. **The rating ask never fired in practice** - it sat behind a 30-day
    gate in a category where ~96% of installs are gone by day 30, which is
    why the store shows two ratings. The success-moment rework is in the
    current release branch, not yet shipped.
-6. **Crews are half a product.** They get Home, Plan, Memories, bookings -
+7. **Crews are half a product.** They get Home, Plan, Memories, bookings -
    good - but no crew equivalent of Us, and the entire paid tier is
    couple-shaped (a comped crew landing on /Together meets partner duels
    and couple passports). Crew Plus effectively sells storage only.
-7. **Recovery is fragile by design.** Anonymous-first with optional email
+8. **Recovery is fragile by design.** Anonymous-first with optional email
    means a solo user (or crew creator) who never links an email and loses
    the phone loses the space. The recovery paths that exist all assume a
    partner who still has access.
-8. **Android does not exist.** The Play listing is "coming soon" on the
+9. **Android does not exist.** The Play listing is "coming soon" on the
    site; there is scaffolding in the repo but no shipped build. Every
    invited Android partner ends at the web app - which works, but the
    asymmetry is invisible in the marketing.
-9. **Quiz results, postcards and several Us modules read as couple-only**
+10. **Quiz results, postcards and several Us modules read as couple-only**
    even on crew spaces where they are hidden - fine - but the Us page on an
    unpaired couple is close to empty and does nothing to say why. It could
    sell the pairing moment; today it just looks unfinished.
-10. **No yearly price is live** despite the billing scaffold supporting it -
+11. **No yearly price is live** despite the billing scaffold supporting it -
     monthly A$3.99 is the only SKU. At this price point a yearly SKU is
     usually the majority of subscription revenue.
-11. **The screenshot set itself has three gaps:** no capture of the
+12. **The screenshot set itself has three gaps:** no capture of the
     unpaired-couple Home (the persistent invite card), none of the couple
     onboarding share step (both need a throwaway space per capture run),
     and none of the A$3.99 purchase sheet. The Together frame in the set
