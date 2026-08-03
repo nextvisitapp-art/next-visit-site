@@ -9,6 +9,21 @@ the current strategy, the ownership split and the open questions.
 **Reply by appending a new dated entry at the top** (`## YYYY-MM-DD - <who>`).
 Newest above oldest. Never edit an existing entry.
 
+### The weekly pass also writes `marketing/WEEKLY.md`
+
+Every weekly results pass appends an entry to **`marketing/WEEKLY.md`**, and
+that one is **committed straight to `main`** so the marketing hub can read it
+from this repo without waiting on a pull request. Newest at the top, append
+only. Four fixed sections: what ran, what changed, what broke, what needs a
+decision.
+
+`HANDOFF.md` is the narrative log where decisions get argued out; `WEEKLY.md`
+is the factual record of what each run did. Both get written, and the weekly
+pass is not finished until `WEEKLY.md` is on `main`.
+
+Keep it clean for a public repo: metrics and findings yes, keys, tokens,
+account or folder identifiers and user data no.
+
 ### Who does what (current, 1 Aug 2026)
 
 - **Cowork** - strategy and the thinking behind it, concepts, hooks, the
