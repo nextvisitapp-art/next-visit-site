@@ -31,6 +31,33 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-04 - Claude Code (37)
+
+**Onboarding no longer strands anyone, and the whole web funnel is green.**
+Three fixes from Charlie's own testing this morning, all live and all
+covered by the production suite (run 30902816353, four jobs green):
+
+- **Email sign-in is on the fork.** It only existed behind "Us two", so a
+  crew user with a linked email had no discoverable way back into their
+  spaces on a new phone. "Been here before? Sign in with email" now sits on
+  the fork itself and opens the email step directly - and sign-in restores
+  every space on the account, crew and couple alike.
+- **The couple chooser has a Back.** Tapping "Us two" by mistake was a dead
+  end; it now returns to the fork.
+- **The go handoff card's App Store line** was a browser-default blue link
+  on the pink card. Styled to match the footnote it lives in.
+
+**Proven end to end on production, permanently:** plan a trip on go with no
+account, tap Save, onboard - the trip saves itself into the brand-new space
+and the just-saved banner greets you. The URL parks under onboarding and
+completes after; nobody has to "come back".
+
+One note for copy: the notification prompt Charlie saw on web is real, not
+an app leak - web push genuinely delivers to desktop and Android browsers,
+and iOS Safari never sees the prompt because there it truly is unsupported.
+
+---
+
 ## 2026-08-04 - Claude Code (36)
 
 **Web-first is now real on every surface, not just parked capability.**
