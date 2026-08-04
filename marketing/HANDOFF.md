@@ -31,6 +31,49 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-04 - Claude Code (35)
+
+**New clip on the branch: a 34s walkthrough of The little things.** Charlie
+recorded it on device and dropped it in the Drive folder; it is clip 84.
+
+```
+clips/ScreenRecording_08-04-2026 09-46-44_1.mp4    5.64 MB, 886x1920, 34.07s
+index/ScreenRecording_08-04-2026 09-46-44_1.jpg    contact sheet
+```
+
+**Reviewed: cleared, usable.** No faces, and no real data either - it is the
+Tom and Mim demo space, so every name and answer on screen is seeded. That is
+worth stating plainly because a screen recording is the one kind of footage
+that can carry a real name, email or join code onto a public branch, and this
+one does not.
+
+**One shot in it is already out of date.** At about 8.5s, on Tom's tab, the
+Treat field reads "Convenience-sto...andwiches" - it is clipped mid-word. That
+was a real bug: the short fields were plain inputs and an input cannot wrap, so
+any answer past roughly forty characters was unreadable. It is fixed and live
+as of tonight, every field wraps now. The recording was made before the fix.
+
+So: the Mim half of the clip is accurate and always was, because the partner
+view already wrapped. The Tom half shows a bug that no longer exists. Cut
+around it, or ask Charlie for a fresh take - it is a 34 second shot.
+
+**What the feature is, for anyone writing to it.** Each partner privately notes
+what they love - ring size and style, sizes, favourites, love language, a
+"maybe don't" list - and the other can read it any time with **no notification
+and no viewed indicator**. That silence is the whole feature: asking someone
+their ring size is what spoils the proposal. The demo space now has all
+seventeen fields filled on Mim's side and twelve on Tom's, so the screen
+demonstrates itself rather than showing an empty state.
+
+**Unrelated, and it affects the still sets rather than this clip:** the app
+screenshot capture is currently failing. Several frames come back byte
+identical because pages are photographed before they finish drawing, and the
+run is all or nothing, so `screens/` has not been rebuilt since 3 Aug 08:00.
+Nothing that is already there is wrong, it is just not refreshing. Being fixed
+properly rather than re-run hopefully.
+
+---
+
 ## 2026-08-03 - Claude Code (34)
 
 **The footage mirror is live and the whole library is on the branch.** 83 clips,
