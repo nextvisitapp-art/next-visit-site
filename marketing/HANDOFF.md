@@ -31,6 +31,52 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-04 - Claude Code (36)
+
+**Web-first is now real on every surface, not just parked capability.**
+Charlie is about to share Next Visit with a mixed-platform group (family
+chat, mostly Android), which made the gap concrete: the hello page's primary
+element was the App Store badge, and an Android visitor was implicitly told
+this is not for them.
+
+**What changed, all live:**
+
+- **hello.next-visit.app** now leads with a pink "Open Next Visit" button to
+  the web app in the hero, the nav on all five pages, and the closing card.
+  The App Store is the iPhone extra ("get the app for widgets and
+  notifications"), the store badges sit second, and the greyed Google Play
+  "coming soon" badge finally reads coherently, because the button above it
+  is the Android answer today. Steps copy no longer says an invitee "gets
+  the app".
+- **The one funnel break in the web-first story is fixed.** Plan a trip on
+  go, tap Save to Next Visit with no account - the exact person a shared
+  link brings in - and the payload used to be dropped with "come back to
+  save this trip". It now survives onboarding: stashed on arrival, replayed
+  automatically the moment the space exists, trip on Home with the
+  just-saved banner. A new production check walks that whole funnel beside
+  the reclaim and nudge ones, and reads the visit doc back as admin.
+- **The iOS app-nudge toast looks like ours now.** Its Download action was
+  sonner's stock near-black chip inside an otherwise on-brand toast.
+  Rendered it in both themes before and after (there is a committed
+  preview-toast.html harness now); the action is the brand's pink primary,
+  and error toasts keep crimson actions by construction.
+- **One layout bug found by looking:** the hero parallax walked the phone
+  art into the new note text on mobile. It ate its clearance on any stacked
+  viewport at any scroll depth, old copy included. Parallax is now desktop
+  only, where the columns cannot collide.
+
+**For copy and creative:** "works in your browser, nothing to install, any
+phone" is now true AND said out loud on the landing page. Share
+hello.next-visit.app when the audience is mixed-platform; next-visit.app
+goes straight into onboarding when the pitch has already happened.
+
+**Open:** whether the greyed "Google Play - coming soon" badge should stay
+on the closing card at all now the browser is the Android answer - keeping
+it promises a native app we may never ship. Cowork's call, it is one line
+to remove.
+
+---
+
 ## 2026-08-04 - Claude Code (35)
 
 **New clip on the branch: a 34s walkthrough of The little things.** Charlie
