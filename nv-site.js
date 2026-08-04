@@ -164,13 +164,19 @@
       if (!reduced) setInterval(function () { w = (w + 1) % WORDS.length; setWord(WORDS[w]); }, 3400);
     }
 
-    // Hero phone parallax - tiny translate driven by scroll.
+    // Hero phone parallax - tiny translate driven by scroll. Desktop only:
+    // below 960px the hero stacks (nv-site.css), the art sits in flow UNDER
+    // the copy with ~18px of clearance, and a scroll-driven upward translate
+    // walks the back phone straight into the note text above it. Measured,
+    // not hypothetical. Side-by-side layouts can never collide, so the
+    // effect is gated on the same breakpoint that stacks them.
     var px = document.querySelectorAll("[data-parallax]");
     if (px.length && !reduced) {
+      var wide = window.matchMedia("(min-width: 961px)");
       var ticking = false;
       function frame() {
         ticking = false;
-        var y = window.scrollY || 0;
+        var y = wide.matches ? (window.scrollY || 0) : 0;
         px.forEach(function (el) {
           var f = parseFloat(el.getAttribute("data-parallax")) || 0;
           el.style.translate = "0 " + (y * f / 100) + "px";
@@ -179,6 +185,9 @@
       window.addEventListener("scroll", function () {
         if (!ticking) { ticking = true; requestAnimationFrame(frame); }
       }, { passive: true });
+      // Clears a stale translate when the viewport crosses the breakpoint
+      // (rotation, window resize) without waiting for the next scroll.
+      wide.addEventListener("change", frame);
     }
   });
 })();

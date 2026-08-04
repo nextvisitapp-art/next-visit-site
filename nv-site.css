@@ -396,6 +396,8 @@ html { scroll-behavior: smooth; }
   box-shadow: var(--nv-shadow-lg);
 }
 .cta__card > * { position: relative; }
+/* Web-first CTA pair: browser button above, store badge beneath. */
+.cta__actions { margin: 0 0 var(--nv-space-4); }
 .cta__icon {
   width: 76px; height: 76px; border-radius: 18px; display: block; margin: 0 auto var(--nv-space-6);
   box-shadow: var(--nv-shadow-lg), 0 0 0 1px var(--nv-border-subtle);

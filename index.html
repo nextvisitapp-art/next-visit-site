@@ -41,7 +41,7 @@
       <a href="/#crews">Crews</a>
       <a href="/premium">Pricing</a>
       <a href="/support">Support</a>
-      <a class="site-nav__cta" href="#get">Get the app</a>
+      <a class="site-nav__cta" href="https://next-visit.app">Open Next Visit</a>
       <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to light mode" onclick="nvToggleTheme()"></button>
     </nav>
   </div>
@@ -58,8 +58,12 @@
         </div>
         <h1 class="reveal">The countdown to your <em>next trip</em> together.</h1>
         <p class="lead reveal" data-delay="1">There's always a next trip - the weekend away, the big anniversary one, the mates' trip that's been all talk for a year. Next Visit turns it into a shared countdown you all watch, the plan you build together, and the memories you keep after.</p>
-        <div class="nv-stores reveal" data-delay="2" data-size="lg" aria-label="Download Next Visit"><a href="https://apps.apple.com/app/id6775123226">Download Next Visit on the App Store</a></div>
-        <p class="hero__note reveal" data-delay="3"><a href="https://next-visit.app">or open it in your browser →</a></p>
+        <!-- Web-first (4 Aug 2026): the browser is the front door, because it is
+             the version everyone can open - Android included. The App Store is
+             the iPhone upgrade, not the entry. Exact inversion of the old
+             hierarchy, which made the badge primary and the browser a footnote. -->
+        <div class="reveal" data-delay="2"><a class="site-btn site-btn--primary" href="https://next-visit.app">Open Next Visit</a></div>
+        <p class="hero__note reveal" data-delay="3">Free, in your browser - nothing to install, works on any phone.<br>On iPhone? <a href="https://apps.apple.com/app/id6775123226">Get the app</a> for widgets and notifications.</p>
       </div>
       <div class="hero__art" aria-hidden="true">
         <div class="nv-phone nv-phone--back" data-parallax="-14">
@@ -252,8 +256,8 @@
       <h2 class="reveal">One space, <em>both your phones.</em></h2>
       <p class="pair__lead reveal" data-delay="1">Start your space, send your partner the link, and you're paired. Whether you live in the same place or you're counting down from two cities, you're both looking at the same date. (Travelling as a group instead? <a href="#crews">Start a crew</a> - same idea, more people.)</p>
       <ol class="pair__steps">
-        <li class="reveal"><span class="pair__num">1</span><div><strong>Start your space.</strong> Open the app, add your name - that's it, you're in.</div></li>
-        <li class="reveal" data-delay="1"><span class="pair__num">2</span><div><strong>Send the link.</strong> Your partner taps it, gets the app, and lands straight in your shared space.</div></li>
+        <li class="reveal"><span class="pair__num">1</span><div><strong>Start your space.</strong> Open Next Visit in your browser, add your name - that's it, you're in.</div></li>
+        <li class="reveal" data-delay="1"><span class="pair__num">2</span><div><strong>Send the link.</strong> Your partner taps it and lands straight in your shared space - no install needed.</div></li>
         <li class="reveal" data-delay="2"><span class="pair__num">3</span><div><strong>Pick your next trip.</strong> Set the date and the countdown begins - on both phones at once.</div></li>
       </ol>
     </div>
@@ -266,6 +270,10 @@
         <img class="cta__icon" src="/favicon.svg" alt="Next Visit" width="76" height="76">
         <h2>Stop saying <em>"we should go somewhere."</em></h2>
         <p>Pick a date. Watch it tick down. Go - together.</p>
+        <!-- Browser first here too: the card sits on a surface wash, so the
+             pink primary is the one pink moment of this screenful, and the
+             store badge is the iPhone extra beneath it. -->
+        <div class="cta__actions"><a class="site-btn site-btn--primary" href="https://next-visit.app">Open Next Visit in your browser</a></div>
         <div class="nv-stores" data-size="lg" data-variant="on-pink" aria-label="Download Next Visit"><a href="https://apps.apple.com/app/id6775123226">Download Next Visit on the App Store</a></div>
       </div>
     </div>
@@ -277,6 +285,7 @@
     <div class="site-footer__copy">© 2026 Next Visit</div>
     <nav class="site-footer__links">
       <a href="/">Home</a>
+      <a href="https://next-visit.app" target="_blank" rel="noopener">Open Next Visit</a>
       <a href="https://apps.apple.com/app/id6775123226" target="_blank" rel="noopener">App Store</a>
       <a href="https://go.next-visit.app" target="_blank" rel="noopener">Plan a trip</a>
       <a href="/premium">Pricing</a>
