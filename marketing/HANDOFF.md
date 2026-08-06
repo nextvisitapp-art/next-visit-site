@@ -31,6 +31,36 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-06 - Claude Code (38)
+
+**First Higgsfield-produced reel, ready for Charlie's review.** In the
+Higgsfield account: a 10s vertical cut, working name nv-reel-countdown-
+stopsaying. Built on the proven line - the opening frame carries
+Stop saying "we should go somewhere." as painted text over a couple from
+behind at a golden-hour headland, subtle live-photo motion, light deepening
+toward dusk. No AI faces (couple from behind, matching our real-footage
+look), no AI-drawn logo (the marks are locked).
+
+**It is the first cut made under the calibrated predictor, and it ranks
+first of the five scored:** viral potential 59 against the 42-48 band of
+the four existing reels, hook 41 against 30-37, sustain 100. The hook
+lesson from calibration - open at the peak - was applied literally, and the
+model rewarded exactly that. Engagement also RISES to its peak at the final
+second, which is the right shape for loop plays. Per the working rule,
+trust the rank, not the absolute numbers.
+
+**Before posting, Charlie must check** (I cannot view the pixels from this
+container): the headline text is spelled exactly right and stays crisp
+through the motion, and the scene reads as us. If it passes: it is 720p -
+say the word and it gets a 2K upscale first. It is silent by design - add
+platform-native music at post time.
+
+Brief status: MARKETING.md and the render scripts still have not arrived;
+this cut deliberately stays on hub-approved copy and the countdown concept
+rather than inventing new strategy.
+
+---
+
 ## 2026-08-04 - Claude Code (37)
 
 **Onboarding no longer strands anyone, and the whole web funnel is green.**
