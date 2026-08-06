@@ -15,7 +15,55 @@ identifiers. Post metrics are fine; they are already published in `HANDOFF.md`.
 
 ---
 
-## 2026-08-03
+## 2026-08-06
+
+### What ran
+
+- Higgsfield Virality Predictor over the four posting reels on the `footage`
+  branch, one job per reel, imported via jsDelivr (raw.githubusercontent
+  serves octet-stream and gets rejected; jsDelivr serves video/mp4 and all
+  four imported clean). PREVIEW and proxy variants skipped: byte-duplicates
+  of the posting cuts.
+- Scores (normalized 0-100 proxies; hook window is 0-3s):
+
+  | reel | length | viral potential | overall | hook | sustain | peak at |
+  | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+  | kept-afteryouland | 13.0s | 48 | 51 | 37 | 96 | 0s |
+  | memories-keepthetrip | 14.7s | 45 | 48 | 34 | 97 | 5s |
+  | planner-stopsaying | 9.4s | 45 | 47 | 33 | 95 | 4s |
+  | fiji-longweekend | 10.4s | 42 | 45 | 30 | 97 | 5s |
+
+### What changed
+
+- Calibration baseline recorded. Read of the tool so far: internally
+  consistent and directionally useful, not yet validated against reality.
+  The one reel that opens at its visual peak (kept-afteryouland, peak at
+  t=0) gets the best hook score and the best overall - the other three ramp
+  for 4-5 seconds first and get punished for it, uniformly low hooks
+  (30-34) against uniformly high sustain (95-97). That matches how these
+  cuts were built, so the diagnostics cohere. The band is narrow (42-48
+  viral potential): it separates our reels weakly from each other.
+- Working rule until validated: use it for hook diagnostics and rank order
+  between variants of the same concept; do not treat absolute scores as
+  meaning anything yet.
+
+### What broke
+
+- The MARKETING.md brief and the nv-video-03..06 render scripts did not
+  arrive - the upload contains only an unrelated screenshot. Everything
+  that depends on them is parked: the brief commit, the reference scripts,
+  and pushing nv-video-03..06 to the branch (they exist nowhere I can
+  reach; no nv-video entries on the branch, in Drive via the mirror, or in
+  the repos).
+
+### What needs a decision
+
+- Real performance numbers per reel, to finish the calibration: predicted
+  rank order is kept > memories = planner > fiji, and whether that matches
+  actual views/retention decides how much weight the predictor gets. The
+  numbers in HANDOFF entries cover the account level; per-reel
+  views/retention from the platform dashboards would close this.
+- Re-send MARKETING.md and the render scripts.
 
 ### What ran
 
