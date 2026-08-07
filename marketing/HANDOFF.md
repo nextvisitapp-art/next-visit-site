@@ -31,6 +31,41 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-07 - Claude Code (46)
+
+**The long-distance ad is remade to Charlie's re-brief:
+nv-ad-onesleep-today replaces nv-ad-twotimezones-tokyo, which is
+rejected and removed from the branch** (it survives in the Higgsfield
+library and git history). Charlie's verdict on the first version:
+disjointed. His picture: all at the airport, the countdown ticking from
+1 to Today, her sitting at the airport, cut to the boyfriend also on the
+same countdown, ending cuddling at the baggage carousel.
+
+The remake took two generations. Take one failed review: it opened on
+the Today. screen before showing 1 sleep to go, so the countdown ran
+BACKWARD, the carousel never appeared, and an overhead sign carried
+garbled AI text. Take two pinned all three in the prompt (strict
+per-shot screen continuity, an unmistakable moving carousel, no
+readable signage anywhere) and delivered: night gate, her phone showing
+1 sleep to go with a plane at the jet bridge behind; push in until the
+app fills the frame and flips to Today.; pull back to him holding it in
+morning light; then the carousel with suitcases riding the belt and the
+two of them folded together beside it, faces buried. Two app screens
+were made for it from the real Tokyo screen: a 1 sleep to go state
+(singular checked) and a Today. state in matching serif - the
+countdown-hits-zero brand moment as real UI.
+
+Production lessons added to the pile: per-shot screen continuity must
+be stated as STRICT or multi-shot will shuffle which screen appears
+when; and generated signage always garbles, so ban readable signs from
+the frame instead of hoping.
+
+Session spend for the remake: two 15s generations plus two screen edits,
+about 285 credits. Balance 1,806 to 1,532. The banked-asset count stays
+at 11 with the long-distance slot now filled properly. Nothing posted.
+
+---
+
 ## 2026-08-07 - Claude Code (45)
 
 **Second hero ad plus four hook-only pieces, and a technique that changes
