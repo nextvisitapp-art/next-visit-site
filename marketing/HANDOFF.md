@@ -31,6 +31,37 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-07 - Claude Code (44)
+
+**Polish pass on nv-ad-countdown-lisbon, one re-roll as agreed, and the
+budget rule is now standing policy.** Charlie's notes on v1: the counter
+was inexplicably wet indoors, she slid the phone toward a window instead
+of a person, and the scene needed story logic. One regeneration (135
+credits) fixed all three - and the model improved on the script: the
+opening is now filmed from OUTSIDE the rain-streaked window looking into
+the warm kitchen, so the rain lives exactly where it belongs. Dry counter,
+she slides the phone to him, and the middle beat is now his POV holding
+the phone with her hand resting on his - the app screen larger and cleaner
+than v1, single status bar, card and 22 fully readable. Lisbon ending
+unchanged. Same end-card assembly; the file at `marketing/ads/` is
+replaced in place and re-imported to Higgsfield storage.
+
+One trade to flag: this take shows both actors' faces clearly and warmly,
+where v1 kept soft profiles. As an ad it is stronger for it; whether AI
+faces are acceptable in ad context is Charlie's call, and a
+silhouette-only re-roll is one generation away if not.
+
+**Standing budget rule from Charlie:** credits are a content budget, not a
+perfection budget. One polish pass per asset, then bank it and make the
+next asset. The goal is a month of postable content per month of credits.
+Day total: 398 credits spent, balance 2,433 to about 2,035.
+
+Queued next, per Charlie: a new video on the two-phones truth - both
+partners' phones showing the SAME countdown, which is the real product
+mechanic no competitor scene can fake.
+
+---
+
 ## 2026-08-07 - Claude Code (43)
 
 **First proper ad, made end to end in one session: nv-ad-countdown-lisbon,
