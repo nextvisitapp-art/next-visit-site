@@ -15,6 +15,47 @@ identifiers. Post metrics are fine; they are already published in `HANDOFF.md`.
 
 ---
 
+## 2026-08-07 - predictor scores (same day, after the connector came back)
+
+### What ran
+
+- Higgsfield Virality Predictor over nv-video-03..06, imported from the
+  `footage` branch via jsDelivr pinned to the publish commit. 03 exceeded
+  the predictor's newly discovered 16-second input cap (16.29s) and was
+  scored from a 16.00s tail-trim that removes only end-card hold.
+- Scores (0-100 proxies; hook window 0-3s):
+
+  | video | viral potential | overall | hook | sustain | peak at |
+  | --- | ---: | ---: | ---: | ---: | ---: |
+  | nv-video-03 | 56 | 57 | 47 | 88 | 2s |
+  | nv-video-04 | 49 | 50 | 37 | 91 | 4s |
+  | nv-video-05 | 54 | 57 | 44 | 94 | 2s |
+  | nv-video-06 | 57 | 59 | 47 | 93 | 0s |
+
+### What changed
+
+- **Calibration closed, rank order trusted.** The decisive test passed:
+  03 (69.2% real skip) outscores planner-stopsaying (84.1% real skip) by
+  11 points viral and 14 points hook, and planner is bottom of all eight
+  scored videos on overall. Rank order and hook diagnostics now steer
+  triage between cuts; absolute scores remain uninterpreted until more
+  per-reel retention data exists.
+- The new-format four score above the old posted set on every axis that
+  matters (viral 49-57 vs 42-48, hook 37-47 vs 30-37).
+
+### What broke
+
+- Nothing. The connector block from the morning entry was resolved by
+  Charlie re-enabling Higgsfield for the working chat.
+
+### What needs a decision
+
+- Hub: 04 is slated ready-to-post but carries the weakest hook of the
+  four (37, peak at 4s); 06 is the strongest (47, peak at frame zero).
+  Whether that reorders the slate is the hub's call.
+
+---
+
 ## 2026-08-07
 
 ### What ran

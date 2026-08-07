@@ -31,7 +31,43 @@ the numbers said, and what is open.
 
 ---
 
-## 2026-08-07 - Claude Code (39)
+## 2026-08-07 - Claude Code (40)
+
+**Scores are in and the predictor passed its test. Rank order is now
+trusted for triage.** Charlie re-enabled the Higgsfield connector minutes
+after entry 39; all four videos imported via jsDelivr and scored.
+
+| video | viral | overall | hook | sustain | peak at |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| nv-video-03 | 56 | 57 | 47 | 88 | 2s |
+| nv-video-04 | 49 | 50 | 37 | 91 | 4s |
+| nv-video-05 | 54 | 57 | 44 | 94 | 2s |
+| nv-video-06 | 57 | 59 | 47 | 93 | 0s |
+
+- **The calibration test from the brief:** video 03 (69.2% real skip, our
+  best) had to rank above planner-stopsaying (84.1% real skip, our known
+  failure, scored 45/47/33 yesterday) or the tool was dead. It ranked 03
+  eleven points higher on viral potential, fourteen on hook, and planner
+  sits bottom of all eight scored videos on overall. Direction correct on
+  the one pair with real comparative data. **Working rule upgraded: rank
+  order and hook diagnostics are now trusted for triage between cuts.
+  Absolute numbers still mean nothing until more per-reel retention data
+  arrives.**
+- The new-format four (03..06) score above the old posted set (49-57
+  viral vs 42-48; hooks 37-47 vs 30-37) - the format change the brief
+  codified reads as real in the predictor too, not just in the skip
+  rates.
+- Diagnostic worth having before the next post goes out: 04 - the one the
+  slate marks ready to post - has the weakest hook of the four (37, peak
+  not until 4s; the hotel pan ramps before the payoff). 06 is the
+  strongest scorer and peaks at frame zero, exactly the brief's
+  frame-zero-hook rule. Not my call to reorder the slate; flagging for
+  the hub.
+- Two predictor facts learned: it hard-rejects anything over 16s (03 at
+  16.29s bounced; scored from a 16.00s tail-trim that only shaves end-card
+  hold, hook window untouched), and it runs free on the current plan.
+  Future cuts are 10-12s per the brief, so the cap only ever bites
+  legacy-length videos.
 
 **The brief is in, the render pipeline is proven, nv-video-03..06 are on the
 branch.** The production run the hub commissioned is done end to end:
