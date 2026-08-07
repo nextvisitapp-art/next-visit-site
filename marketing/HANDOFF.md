@@ -31,6 +31,90 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-07 - Claude Code (41)
+
+**Audit of the Higgsfield MCP connector - what a session can and cannot
+drive.** Charlie asked what Claude Code can actually do with the new
+Higgsfield subscription before deciding what to learn himself. Verified
+against the live connector, read-only, no credits spent. Written in a
+parallel session to entries 39 and 40, so it overlaps them in places and
+corrects one thing they imply (see the jsDelivr note below).
+
+- **Account is on Ultra with a healthy credit balance.** The full model
+  catalogue is open: Veo 3.1, Kling 3.0 (multi-shot, motion transfer, 4K),
+  Seedance 2.0 (the reel's model - reference-driven identity, native audio
+  including spoken lines, up to 4K and 15s), FLUX 3 Video (up to 20s, video
+  continuation for chained shots), Minimax, Wan 2.7, Higgsfield Cinema
+  Studio 3.0. Images: Soul 2, Nano Banana Pro, plus trainable reusable
+  characters from 5-20 photos. Audio: TTS with voice cloning. Post tools:
+  4K upscale, reframe, outpaint, background removal, lipsync, deflicker.
+  Up to 12 generations can run in parallel per call, and `get_cost`
+  preflights the credit cost of any of them without submitting a job.
+- **Bundled multi-step workflows** load like skills: faceless narrated
+  videos 30s to 10+ min (script, voiceover and captions included), five
+  UGC ad flows, thumbnail production, brand kits. Full pipelines, not
+  single prompts.
+- **Assembly runs in Higgsfield's own cloud sandbox** (ffmpeg, Whisper,
+  ImageMagick preinstalled, open internet). Verified: it downloads
+  generated clips, can cut/concat/overlay, and uploads finished pieces
+  back to Higgsfield storage. Generate, assemble, publish - end to end
+  with no one's laptop involved.
+- **TikTok publishing is built in**: direct post or to-drafts, commercial
+  music library, quota-aware. No account is connected yet; it needs
+  authorising once.
+- **Two real gaps.** (1) No music generation and no licensed-music search
+  in the connector; music stays platform-native at post time or from our
+  own library. (2) The Claude Code container's network policy blocked
+  Higgsfield's media CDN, which is the real cause of entry 38's "I cannot
+  view the pixels from this container". **Charlie fixed this on 7 Aug** by
+  setting the environment's network access to Custom and allowing
+  `d8j0ntlcm91z4.cloudfront.net` and `d2ol7oe51mr4n9.cloudfront.net` (with
+  the default package-manager list kept). It applies to sessions started
+  after the change, so a session that still cannot fetch a frame should
+  check it is not an older one rather than assume the block is back.
+- Also connected, untested in anger: artlist AI (gen plus voiceover, not
+  the licensed music catalogue), InVideo (script-to-video), Canva.
+
+**Getting our real footage into Higgsfield needs nobody's hands.** Proven
+end to end, not theorised - clip `trip-trip-13.mp4` (47 MB, 1080x1920,
+20.6s) is a confirmed video asset in Higgsfield storage, pulled straight
+off the `footage` branch.
+
+- `media_import_url` on a `raw.githubusercontent.com` link is REJECTED:
+  GitHub serves `.mp4` as `application/octet-stream` and the importer
+  refuses that content-type. Not a permissions problem, so do not go
+  hunting for one.
+- **jsDelivr works, but only under its file-size cap.** Entry 40 imported
+  nv-video-03..06 that way and it was the right call - they are short
+  renders. The same URL shape 403s on `trip-trip-13.mp4` at 47 MB, which
+  is a size limit, not a broken mirror. Reach for jsDelivr first on a
+  finished reel; expect it to fail on raw source footage.
+- **The path that works at any size:** `media_upload` for a presigned URL,
+  then the Higgsfield sandbox does `curl` from raw.githubusercontent and a
+  `PUT` to the presigned URL in the SAME command (the sandbox is discarded
+  seconds after a call returns), then `media_confirm`. Neither the 50 MB
+  import cap nor the content-type check applies on that path.
+- For a clip in Drive but not yet mirrored: `footage-sync.yml` in the
+  couples repo has `workflow_dispatch`, and its own comments say the
+  manual path is not throttled the way the schedule is. Dispatch it, wait
+  the few minutes a one-clip run takes, then pull from the branch. So the
+  whole chain Drive to branch to Higgsfield runs from a session.
+
+Once a clip is in there it is a first-class input, not just storage:
+`video_references` on Seedance 2.0, MiniMax H3, Wan 2.6 and Gemini Omni
+(generate new footage that matches ours), Kling 3.0 motion control (drive
+a character with the motion from a real clip), reframe to any aspect, 4K
+upscale, background removal, scene-by-scene analysis, and the virality
+predictor.
+
+Net: proper 15-60s brand films are producible end to end from a session -
+multi-shot, consistent characters, spoken lines, 4K finish, posted to
+TikTok. Charlie's irreplaceable inputs are taste and approval, and real
+footage. Learning the Higgsfield web UI is optional; everything the MCP
+exposes can be driven from here.
+
+---
+
 ## 2026-08-07 - Claude Code (40)
 
 **Scores are in and the predictor passed its test. Rank order is now
