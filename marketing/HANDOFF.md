@@ -31,6 +31,52 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-07 - Claude Code (45)
+
+**Second hero ad plus four hook-only pieces, and a technique that changes
+what the ads can show: the app screen can now be re-dressed to any
+destination without leaving the real UI.** Charlie's brief: a two-phones
+long-distance ad, not Lisbon again, and more of the curiosity-hook
+live-photos that deliberately do NOT show the product so the intrigued
+viewer has to hit the profile. Both delivered.
+
+**nv-ad-twotimezones-tokyo, 17.5s, at `marketing/ads/` and in Higgsfield
+storage.** The two-phones product truth, finally shown: her phone at
+night in a rainy neon city, match cut to HIS hand in golden Tokyo
+morning holding the SAME countdown screen - same pink card, same 22,
+two time zones - then a silhouetted reunion hug at airport arrivals,
+faces in shadow throughout. Native ambience, no music, no voice, brand
+end card from og-share-card, 1080x1920.
+
+**The screen trick worth recording:** the reference screen was made by
+having Nano Banana surgically edit the REAL s01 home screenshot -
+"Tokyo, Japan" in matching Fraunces italic, Tokyo Tower dusk photo in
+the card, dates changed, every other pixel of the UI preserved,
+verified by eye against the original. One cheap image generation turns
+the one real screenshot we have into any destination an ad needs. The
+demo space really does have a Tokyo trip, so the screen stays honest to
+the product.
+
+**Four hook-only live-photos, 10s each, 1080x1920, text verified crisp
+at start and end, silent:** nv-hook-someday ("It's been \"someday\"
+since 2023." - dusty passports on a shelf), nv-hook-dates ("She already
+picked the dates." - her face lit by a hidden phone screen in bed),
+nv-hook-enddate ("Long distance has an end date." - wing and sunrise
+through a cabin window), nv-hook-flights ("Book the damn flights." -
+closed laptop, passport and a key under one pendant light). None shows
+the product; all four are profile-click bait by design, which is
+exactly the split Charlie asked for: hero ads that show the thing, hooks
+that only ask the question. Two needed a one-shot text-edit re-roll for
+a missing full stop; the fix took one image generation each. Note on
+motion: the locked-camera recipe keeps type perfect but reads as a
+premium still with breath, not action - platform music will carry them.
+
+Day running total: 690 credits, balance 2,433 to 1,806. Eleven finished
+assets banked today (5 hooks, 2 hero ads, plus the four entry-42 pieces
+still awaiting Charlie's watch). Nothing posted anywhere.
+
+---
+
 ## 2026-08-07 - Claude Code (44)
 
 **Polish pass on nv-ad-countdown-lisbon, one re-roll as agreed, and the
