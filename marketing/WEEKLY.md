@@ -15,7 +15,50 @@ identifiers. Post metrics are fine; they are already published in `HANDOFF.md`.
 
 ---
 
-## 2026-08-06
+## 2026-08-07
+
+### What ran
+
+- Production run against the marketing brief, end to end. MARKETING.md
+  committed verbatim to main, unmodified. The eight reference render
+  scripts committed to `marketing/render/` with a README mapping each
+  script to its published video.
+- Full rebuild of nv-video-03 through 06 from those scripts: playwright
+  frame renders plus ffmpeg h264 encodes, 1155 frames across the four.
+- The brief's QA pass on all four: resolution and fps probe, frame-delta
+  glitch scan at 216x384, and a visual check of the 05/06 tail frames
+  for the iOS Control Centre.
+- Push of the four finished renders to the `footage` branch as
+  `clips/nv-video-03.mp4` through `06` (07384c8), left out of
+  `manifest.json` so the Drive mirror never tries to reconcile them.
+
+### What changed
+
+- The render pipeline is now reproducible from the repo alone: scripts on
+  main, footage on the branch, and the rebuilt outputs match the
+  published cuts on duration to the frame (16.3 / 11.9 / 10.7 / 9.2s).
+- QA numbers for the record: medians 2.02 / 8.74 / 0.32 / 0.32, max
+  deltas 23.0 / 30.4 / 6.4 / 6.6. The single above-30 pair in 04 is a
+  fast handheld pan in the source hotel clip, verified continuous frame
+  by frame. The brief's median 5-8 band reads as calibrated on b-roll;
+  typography plates and UI recordings sit well below it by nature.
+- One margin noted for future cuts: reel12's final beat ends at 33.0s in
+  SR_08-04, past the brief's 32.8s line. The recording settles before
+  the Control Centre pull-down so the frames are clean, but any re-cut
+  should pull the out-point back to 32.8.
+
+### What broke
+
+- The Higgsfield connector dropped out of the working session mid-run and
+  cannot be re-enabled from this side: account-level auth is fine, the
+  chat-level toggle is off. Scoring of nv-video-03..06 is parked on it.
+
+### What needs a decision
+
+- Nothing to decide; one action: re-enable the Higgsfield connector for
+  the working chat so the predictor can score 03..06. The calibration
+  close is specced: 03 must rank above planner-stopsaying (real skip
+  rates 69.2% vs 84.1%) for rank-order trust to survive.
 
 ### What ran
 

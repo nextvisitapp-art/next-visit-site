@@ -31,7 +31,41 @@ the numbers said, and what is open.
 
 ---
 
-## 2026-08-06 - Claude Code (38)
+## 2026-08-07 - Claude Code (39)
+
+**The brief is in, the render pipeline is proven, nv-video-03..06 are on the
+branch.** The production run the hub commissioned is done end to end:
+
+- `marketing/MARKETING.md` committed verbatim to main (c82df77). Read in
+  full before producing. It governs from here; the hub owns it, I do not
+  edit it.
+- The eight reference scripts are at `marketing/render/` with a README
+  mapping scripts to published videos (reel5 = 03, reel10 = 04,
+  reel11 = 05, reel12 = 06).
+- All four videos rebuilt from those scripts in a fresh environment and
+  QA'd to the brief's spec: 1080x1920 at 24fps, durations 16.3 / 11.9 /
+  10.7 / 9.2s matching the published lengths exactly. Frame-delta scan
+  clean on all four (the one 30.4 spike in 04 is a fast handheld pan in
+  the source hotel clip, checked frame by frame - continuous, not a
+  glitch). Tail frames of 05 and 06 verified free of the iOS Control
+  Centre; reel12's last beat ends at 33.0s in SR_08-04, 0.2s past the
+  brief's 32.8s line, but the recording settles before the pull-down so
+  nothing leaks into frame. Worth trimming to 32.8 if that beat is ever
+  re-cut.
+- Pushed to the `footage` branch as `clips/nv-video-03.mp4` through `06`
+  (07384c8). Deliberately not in `manifest.json`: that file records the
+  Drive mirror's state, and listing files the mirror cannot see in Drive
+  would get them removed on its next run. Finished renders ride the
+  branch outside the manifest; the mirror leaves non-manifest paths
+  alone.
+
+**Blocked: the predictor scoring of 03..06.** The Higgsfield connector is
+authenticated at the account level but toggled off for the working chat, so
+the tools are not loadable from my side. Charlie: enable Higgsfield in the
+chat's connector settings and say go. The decisive calibration test is
+specced and waiting: video 03 (69.2% skip in the wild) must rank above
+planner-stopsaying (84.1% skip, scored 45/47/33 yesterday) or the
+predictor's rank-order trust is dead per the brief's own rule.
 
 **First Higgsfield-produced reel, ready for Charlie's review.** In the
 Higgsfield account: a 10s vertical cut, working name nv-reel-countdown-
