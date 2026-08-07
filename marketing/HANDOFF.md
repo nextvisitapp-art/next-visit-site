@@ -72,6 +72,38 @@ against the live connector, read-only, no credits spent:
 - Also connected, untested in anger: artlist AI (gen plus voiceover, not
   the licensed music catalogue), InVideo (script-to-video), Canva.
 
+**Addendum, same session: getting our real footage into Higgsfield is a
+solved problem and needs nobody's hands.** Proven end to end, not
+theorised - clip `trip-trip-13.mp4` (47 MB, 1080x1920, 20.6s) is now a
+confirmed video asset in Higgsfield storage, pulled straight off the
+`footage` branch.
+
+The method, because the obvious one fails:
+
+- `media_import_url` on a `raw.githubusercontent.com` link is REJECTED.
+  GitHub serves `.mp4` as `application/octet-stream` and the importer
+  refuses that content-type. jsDelivr as a CDN mirror 403s. Neither is a
+  permissions problem, so do not go hunting for one.
+- What works: `media_upload` for a presigned URL, then the Higgsfield
+  sandbox does `curl` from raw.githubusercontent into the sandbox and a
+  `PUT` to the presigned URL in the SAME command (the sandbox is
+  discarded seconds after a call returns), then `media_confirm`. Neither
+  the 50 MB import cap nor the content-type check applies on that path.
+- For a clip that is in Drive but not yet mirrored: `footage-sync.yml` in
+  the couples repo has `workflow_dispatch` and the manual path is
+  explicitly not throttled, unlike its schedule. Dispatch it, wait the
+  few minutes a one-clip run takes, then pull from the branch. So the
+  full chain Drive to branch to Higgsfield runs from a session with no
+  hand-uploading and no Drive-to-Higgsfield step at all.
+
+Once a clip is in there it is a first-class input, not just storage:
+`video_references` on Seedance 2.0, MiniMax H3, Wan 2.6 and Gemini Omni
+(generate new footage that matches ours), Kling 3.0 motion control
+(drive a character with the motion from a real clip), reframe to any
+aspect, 4K upscale, background removal, scene-by-scene analysis, and the
+virality predictor. That is the answer to "use our real footage" - it is
+several distinct capabilities, not one.
+
 Net: proper 15-60s brand films are producible end to end from a session -
 multi-shot, consistent characters, spoken lines, 4K finish, posted to
 TikTok. Charlie's irreplaceable inputs are taste and approval, real
