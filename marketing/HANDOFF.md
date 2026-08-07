@@ -31,6 +31,53 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-07 - Claude Code (43)
+
+**First proper ad, made end to end in one session: nv-ad-countdown-lisbon,
+17.5s, on the branch at `marketing/ads/` and imported into Higgsfield
+storage.** Charlie's instruction mid-session: stop treating the brief as a
+ceiling, use the subscription properly, make a real scene that shows off
+the product. So this one deliberately steps outside MARKETING.md's
+"abstract and atmospheric only" scope on his direct say-so.
+
+What it is: a three-beat commercial made with Seedance 2.0 multi-shot in a
+SINGLE generation - consistent couple across every shot, native ambient
+audio (rain, room tone, street; no music, no voice), 1080x1920, 24fps.
+Beat one: rainy weeknight kitchen, she slides her phone across the counter.
+Beat two: over the shoulder, both leaning over the glowing screen - and the
+screen is the REAL app home screen (the s01 Lisbon countdown, passed in as
+an image reference), pink card and the big 22 clearly readable. Beat three:
+the payoff, the same couple from behind walking a golden-hour Alfama
+alley into the sun. Then a 3s end card cut on in post from
+`og-share-card.png` - the real locked wordmark, headline and icon, no AI
+redrawing - with a 0.6s crossfade, assembled with ffmpeg in the session
+container and imported to Higgsfield via the jsDelivr path (18MB, under
+the cap).
+
+Honest QA, from looking at every beat: the phone UI in the over-shoulder
+beat is recognisably ours and the card plus 22 read clean, but the
+micro-text is AI-warped and the status bar doubles - it passes in motion,
+not on a freeze-frame. That beat runs about 90 frames. If this cut earns a
+post slot, the fix is known: either trim that beat tighter in a re-cut, or
+composite the real screen recording over the phone in post. The rest holds
+up frame by frame; the two frame-delta spikes are the two cuts.
+
+Numbers: the 15s 1080p multi-shot cost 135 credits. Running total for
+today's whole creative session (entry 42's four pieces plus retakes plus
+this): 263 credits, balance 2,433 to 2,170.
+
+**Faces note for Charlie's veto:** the couple's faces appear in soft
+profile in the kitchen beat - not front-on, but more visible than the
+from-behind rule of thumb. The non-negotiable was always about Charlie
+himself, and these are obviously staged ad actors, but it is his call
+whether AI faces are acceptable in an ad context. If not: the same
+generation can be re-rolled with silhouette-only framing.
+
+Also in this entry's session: TikTok publishing stays untouched, nothing
+posted anywhere, and the four entry-42 pieces are unchanged in the library.
+
+---
+
 ## 2026-08-07 - Claude Code (42)
 
 **The container can see Higgsfield pixels now, and the first same-session
