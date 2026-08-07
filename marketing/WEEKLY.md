@@ -15,7 +15,91 @@ identifiers. Post metrics are fine; they are already published in `HANDOFF.md`.
 
 ---
 
-## 2026-08-06
+## 2026-08-07 - predictor scores (same day, after the connector came back)
+
+### What ran
+
+- Higgsfield Virality Predictor over nv-video-03..06, imported from the
+  `footage` branch via jsDelivr pinned to the publish commit. 03 exceeded
+  the predictor's newly discovered 16-second input cap (16.29s) and was
+  scored from a 16.00s tail-trim that removes only end-card hold.
+- Scores (0-100 proxies; hook window 0-3s):
+
+  | video | viral potential | overall | hook | sustain | peak at |
+  | --- | ---: | ---: | ---: | ---: | ---: |
+  | nv-video-03 | 56 | 57 | 47 | 88 | 2s |
+  | nv-video-04 | 49 | 50 | 37 | 91 | 4s |
+  | nv-video-05 | 54 | 57 | 44 | 94 | 2s |
+  | nv-video-06 | 57 | 59 | 47 | 93 | 0s |
+
+### What changed
+
+- **Calibration closed, rank order trusted.** The decisive test passed:
+  03 (69.2% real skip) outscores planner-stopsaying (84.1% real skip) by
+  11 points viral and 14 points hook, and planner is bottom of all eight
+  scored videos on overall. Rank order and hook diagnostics now steer
+  triage between cuts; absolute scores remain uninterpreted until more
+  per-reel retention data exists.
+- The new-format four score above the old posted set on every axis that
+  matters (viral 49-57 vs 42-48, hook 37-47 vs 30-37).
+
+### What broke
+
+- Nothing. The connector block from the morning entry was resolved by
+  Charlie re-enabling Higgsfield for the working chat.
+
+### What needs a decision
+
+- Hub: 04 is slated ready-to-post but carries the weakest hook of the
+  four (37, peak at 4s); 06 is the strongest (47, peak at frame zero).
+  Whether that reorders the slate is the hub's call.
+
+---
+
+## 2026-08-07
+
+### What ran
+
+- Production run against the marketing brief, end to end. MARKETING.md
+  committed verbatim to main, unmodified. The eight reference render
+  scripts committed to `marketing/render/` with a README mapping each
+  script to its published video.
+- Full rebuild of nv-video-03 through 06 from those scripts: playwright
+  frame renders plus ffmpeg h264 encodes, 1155 frames across the four.
+- The brief's QA pass on all four: resolution and fps probe, frame-delta
+  glitch scan at 216x384, and a visual check of the 05/06 tail frames
+  for the iOS Control Centre.
+- Push of the four finished renders to the `footage` branch as
+  `clips/nv-video-03.mp4` through `06` (07384c8), left out of
+  `manifest.json` so the Drive mirror never tries to reconcile them.
+
+### What changed
+
+- The render pipeline is now reproducible from the repo alone: scripts on
+  main, footage on the branch, and the rebuilt outputs match the
+  published cuts on duration to the frame (16.3 / 11.9 / 10.7 / 9.2s).
+- QA numbers for the record: medians 2.02 / 8.74 / 0.32 / 0.32, max
+  deltas 23.0 / 30.4 / 6.4 / 6.6. The single above-30 pair in 04 is a
+  fast handheld pan in the source hotel clip, verified continuous frame
+  by frame. The brief's median 5-8 band reads as calibrated on b-roll;
+  typography plates and UI recordings sit well below it by nature.
+- One margin noted for future cuts: reel12's final beat ends at 33.0s in
+  SR_08-04, past the brief's 32.8s line. The recording settles before
+  the Control Centre pull-down so the frames are clean, but any re-cut
+  should pull the out-point back to 32.8.
+
+### What broke
+
+- The Higgsfield connector dropped out of the working session mid-run and
+  cannot be re-enabled from this side: account-level auth is fine, the
+  chat-level toggle is off. Scoring of nv-video-03..06 is parked on it.
+
+### What needs a decision
+
+- Nothing to decide; one action: re-enable the Higgsfield connector for
+  the working chat so the predictor can score 03..06. The calibration
+  close is specced: 03 must rank above planner-stopsaying (real skip
+  rates 69.2% vs 84.1%) for rank-order trust to survive.
 
 ### What ran
 

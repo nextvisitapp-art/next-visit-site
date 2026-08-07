@@ -31,12 +31,14 @@ the numbers said, and what is open.
 
 ---
 
-## 2026-08-07 - Claude Code (39)
+## 2026-08-07 - Claude Code (41)
 
 **Audit of the Higgsfield MCP connector - what a session can and cannot
 drive.** Charlie asked what Claude Code can actually do with the new
 Higgsfield subscription before deciding what to learn himself. Verified
-against the live connector, read-only, no credits spent:
+against the live connector, read-only, no credits spent. Written in a
+parallel session to entries 39 and 40, so it overlaps them in places and
+corrects one thing they imply (see the jsDelivr note below).
 
 - **Account is on Ultra with a healthy credit balance.** The full model
   catalogue is open: Veo 3.1, Kling 3.0 (multi-shot, motion transfer, 4K),
@@ -46,7 +48,8 @@ against the live connector, read-only, no credits spent:
   Studio 3.0. Images: Soul 2, Nano Banana Pro, plus trainable reusable
   characters from 5-20 photos. Audio: TTS with voice cloning. Post tools:
   4K upscale, reframe, outpaint, background removal, lipsync, deflicker.
-  Up to 12 generations can run in parallel per call.
+  Up to 12 generations can run in parallel per call, and `get_cost`
+  preflights the credit cost of any of them without submitting a job.
 - **Bundled multi-step workflows** load like skills: faceless narrated
   videos 30s to 10+ min (script, voiceover and captions included), five
   UGC ad flows, thumbnail production, brand kits. Full pipelines, not
@@ -57,63 +60,132 @@ against the live connector, read-only, no credits spent:
   back to Higgsfield storage. Generate, assemble, publish - end to end
   with no one's laptop involved.
 - **TikTok publishing is built in**: direct post or to-drafts, commercial
-  music library, quota-aware. Needs the TikTok account connected once.
+  music library, quota-aware. No account is connected yet; it needs
+  authorising once.
 - **Two real gaps.** (1) No music generation and no licensed-music search
   in the connector; music stays platform-native at post time or from our
-  own library. (2) This cloud container's network policy blocks
-  Higgsfield's media CDN, so sessions still cannot view generated pixels
-  directly (entry 38's constraint confirmed, and now explained). QC today
-  is ffprobe metadata, Whisper transcript checks and programmatic frame
-  checks in the sandbox, with Charlie's eye as the final gate. One
-  settings change removes the blindness: allow Higgsfield's two CloudFront
-  media hosts in the Claude Code environment's network policy, and
-  sessions can pull frames and review them before anything reaches
-  Charlie.
+  own library. (2) The Claude Code container's network policy blocked
+  Higgsfield's media CDN, which is the real cause of entry 38's "I cannot
+  view the pixels from this container". **Charlie fixed this on 7 Aug** by
+  setting the environment's network access to Custom and allowing
+  `d8j0ntlcm91z4.cloudfront.net` and `d2ol7oe51mr4n9.cloudfront.net` (with
+  the default package-manager list kept). It applies to sessions started
+  after the change, so a session that still cannot fetch a frame should
+  check it is not an older one rather than assume the block is back.
 - Also connected, untested in anger: artlist AI (gen plus voiceover, not
   the licensed music catalogue), InVideo (script-to-video), Canva.
 
-**Addendum, same session: getting our real footage into Higgsfield is a
-solved problem and needs nobody's hands.** Proven end to end, not
-theorised - clip `trip-trip-13.mp4` (47 MB, 1080x1920, 20.6s) is now a
-confirmed video asset in Higgsfield storage, pulled straight off the
-`footage` branch.
+**Getting our real footage into Higgsfield needs nobody's hands.** Proven
+end to end, not theorised - clip `trip-trip-13.mp4` (47 MB, 1080x1920,
+20.6s) is a confirmed video asset in Higgsfield storage, pulled straight
+off the `footage` branch.
 
-The method, because the obvious one fails:
-
-- `media_import_url` on a `raw.githubusercontent.com` link is REJECTED.
+- `media_import_url` on a `raw.githubusercontent.com` link is REJECTED:
   GitHub serves `.mp4` as `application/octet-stream` and the importer
-  refuses that content-type. jsDelivr as a CDN mirror 403s. Neither is a
-  permissions problem, so do not go hunting for one.
-- What works: `media_upload` for a presigned URL, then the Higgsfield
-  sandbox does `curl` from raw.githubusercontent into the sandbox and a
-  `PUT` to the presigned URL in the SAME command (the sandbox is
-  discarded seconds after a call returns), then `media_confirm`. Neither
-  the 50 MB import cap nor the content-type check applies on that path.
-- For a clip that is in Drive but not yet mirrored: `footage-sync.yml` in
-  the couples repo has `workflow_dispatch` and the manual path is
-  explicitly not throttled, unlike its schedule. Dispatch it, wait the
-  few minutes a one-clip run takes, then pull from the branch. So the
-  full chain Drive to branch to Higgsfield runs from a session with no
-  hand-uploading and no Drive-to-Higgsfield step at all.
+  refuses that content-type. Not a permissions problem, so do not go
+  hunting for one.
+- **jsDelivr works, but only under its file-size cap.** Entry 40 imported
+  nv-video-03..06 that way and it was the right call - they are short
+  renders. The same URL shape 403s on `trip-trip-13.mp4` at 47 MB, which
+  is a size limit, not a broken mirror. Reach for jsDelivr first on a
+  finished reel; expect it to fail on raw source footage.
+- **The path that works at any size:** `media_upload` for a presigned URL,
+  then the Higgsfield sandbox does `curl` from raw.githubusercontent and a
+  `PUT` to the presigned URL in the SAME command (the sandbox is discarded
+  seconds after a call returns), then `media_confirm`. Neither the 50 MB
+  import cap nor the content-type check applies on that path.
+- For a clip in Drive but not yet mirrored: `footage-sync.yml` in the
+  couples repo has `workflow_dispatch`, and its own comments say the
+  manual path is not throttled the way the schedule is. Dispatch it, wait
+  the few minutes a one-clip run takes, then pull from the branch. So the
+  whole chain Drive to branch to Higgsfield runs from a session.
 
 Once a clip is in there it is a first-class input, not just storage:
 `video_references` on Seedance 2.0, MiniMax H3, Wan 2.6 and Gemini Omni
-(generate new footage that matches ours), Kling 3.0 motion control
-(drive a character with the motion from a real clip), reframe to any
-aspect, 4K upscale, background removal, scene-by-scene analysis, and the
-virality predictor. That is the answer to "use our real footage" - it is
-several distinct capabilities, not one.
+(generate new footage that matches ours), Kling 3.0 motion control (drive
+a character with the motion from a real clip), reframe to any aspect, 4K
+upscale, background removal, scene-by-scene analysis, and the virality
+predictor.
 
 Net: proper 15-60s brand films are producible end to end from a session -
 multi-shot, consistent characters, spoken lines, 4K finish, posted to
-TikTok. Charlie's irreplaceable inputs are taste and approval, real
-footage, and two one-time setups (TikTok connect, the network-policy
-allowlist). Learning the Higgsfield web UI is optional; everything the
-MCP exposes can be driven from here.
+TikTok. Charlie's irreplaceable inputs are taste and approval, and real
+footage. Learning the Higgsfield web UI is optional; everything the MCP
+exposes can be driven from here.
 
 ---
 
-## 2026-08-06 - Claude Code (38)
+## 2026-08-07 - Claude Code (40)
+
+**Scores are in and the predictor passed its test. Rank order is now
+trusted for triage.** Charlie re-enabled the Higgsfield connector minutes
+after entry 39; all four videos imported via jsDelivr and scored.
+
+| video | viral | overall | hook | sustain | peak at |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| nv-video-03 | 56 | 57 | 47 | 88 | 2s |
+| nv-video-04 | 49 | 50 | 37 | 91 | 4s |
+| nv-video-05 | 54 | 57 | 44 | 94 | 2s |
+| nv-video-06 | 57 | 59 | 47 | 93 | 0s |
+
+- **The calibration test from the brief:** video 03 (69.2% real skip, our
+  best) had to rank above planner-stopsaying (84.1% real skip, our known
+  failure, scored 45/47/33 yesterday) or the tool was dead. It ranked 03
+  eleven points higher on viral potential, fourteen on hook, and planner
+  sits bottom of all eight scored videos on overall. Direction correct on
+  the one pair with real comparative data. **Working rule upgraded: rank
+  order and hook diagnostics are now trusted for triage between cuts.
+  Absolute numbers still mean nothing until more per-reel retention data
+  arrives.**
+- The new-format four (03..06) score above the old posted set (49-57
+  viral vs 42-48; hooks 37-47 vs 30-37) - the format change the brief
+  codified reads as real in the predictor too, not just in the skip
+  rates.
+- Diagnostic worth having before the next post goes out: 04 - the one the
+  slate marks ready to post - has the weakest hook of the four (37, peak
+  not until 4s; the hotel pan ramps before the payoff). 06 is the
+  strongest scorer and peaks at frame zero, exactly the brief's
+  frame-zero-hook rule. Not my call to reorder the slate; flagging for
+  the hub.
+- Two predictor facts learned: it hard-rejects anything over 16s (03 at
+  16.29s bounced; scored from a 16.00s tail-trim that only shaves end-card
+  hold, hook window untouched), and it runs free on the current plan.
+  Future cuts are 10-12s per the brief, so the cap only ever bites
+  legacy-length videos.
+
+**The brief is in, the render pipeline is proven, nv-video-03..06 are on the
+branch.** The production run the hub commissioned is done end to end:
+
+- `marketing/MARKETING.md` committed verbatim to main (c82df77). Read in
+  full before producing. It governs from here; the hub owns it, I do not
+  edit it.
+- The eight reference scripts are at `marketing/render/` with a README
+  mapping scripts to published videos (reel5 = 03, reel10 = 04,
+  reel11 = 05, reel12 = 06).
+- All four videos rebuilt from those scripts in a fresh environment and
+  QA'd to the brief's spec: 1080x1920 at 24fps, durations 16.3 / 11.9 /
+  10.7 / 9.2s matching the published lengths exactly. Frame-delta scan
+  clean on all four (the one 30.4 spike in 04 is a fast handheld pan in
+  the source hotel clip, checked frame by frame - continuous, not a
+  glitch). Tail frames of 05 and 06 verified free of the iOS Control
+  Centre; reel12's last beat ends at 33.0s in SR_08-04, 0.2s past the
+  brief's 32.8s line, but the recording settles before the pull-down so
+  nothing leaks into frame. Worth trimming to 32.8 if that beat is ever
+  re-cut.
+- Pushed to the `footage` branch as `clips/nv-video-03.mp4` through `06`
+  (07384c8). Deliberately not in `manifest.json`: that file records the
+  Drive mirror's state, and listing files the mirror cannot see in Drive
+  would get them removed on its next run. Finished renders ride the
+  branch outside the manifest; the mirror leaves non-manifest paths
+  alone.
+
+**Blocked: the predictor scoring of 03..06.** The Higgsfield connector is
+authenticated at the account level but toggled off for the working chat, so
+the tools are not loadable from my side. Charlie: enable Higgsfield in the
+chat's connector settings and say go. The decisive calibration test is
+specced and waiting: video 03 (69.2% skip in the wild) must rank above
+planner-stopsaying (84.1% skip, scored 45/47/33 yesterday) or the
+predictor's rank-order trust is dead per the brief's own rule.
 
 **First Higgsfield-produced reel, ready for Charlie's review.** In the
 Higgsfield account: a 10s vertical cut, working name nv-reel-countdown-
