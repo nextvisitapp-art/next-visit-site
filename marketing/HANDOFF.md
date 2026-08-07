@@ -31,6 +31,56 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-07 - Claude Code (39)
+
+**Audit of the Higgsfield MCP connector - what a session can and cannot
+drive.** Charlie asked what Claude Code can actually do with the new
+Higgsfield subscription before deciding what to learn himself. Verified
+against the live connector, read-only, no credits spent:
+
+- **Account is on Ultra with a healthy credit balance.** The full model
+  catalogue is open: Veo 3.1, Kling 3.0 (multi-shot, motion transfer, 4K),
+  Seedance 2.0 (the reel's model - reference-driven identity, native audio
+  including spoken lines, up to 4K and 15s), FLUX 3 Video (up to 20s, video
+  continuation for chained shots), Minimax, Wan 2.7, Higgsfield Cinema
+  Studio 3.0. Images: Soul 2, Nano Banana Pro, plus trainable reusable
+  characters from 5-20 photos. Audio: TTS with voice cloning. Post tools:
+  4K upscale, reframe, outpaint, background removal, lipsync, deflicker.
+  Up to 12 generations can run in parallel per call.
+- **Bundled multi-step workflows** load like skills: faceless narrated
+  videos 30s to 10+ min (script, voiceover and captions included), five
+  UGC ad flows, thumbnail production, brand kits. Full pipelines, not
+  single prompts.
+- **Assembly runs in Higgsfield's own cloud sandbox** (ffmpeg, Whisper,
+  ImageMagick preinstalled, open internet). Verified: it downloads
+  generated clips, can cut/concat/overlay, and uploads finished pieces
+  back to Higgsfield storage. Generate, assemble, publish - end to end
+  with no one's laptop involved.
+- **TikTok publishing is built in**: direct post or to-drafts, commercial
+  music library, quota-aware. Needs the TikTok account connected once.
+- **Two real gaps.** (1) No music generation and no licensed-music search
+  in the connector; music stays platform-native at post time or from our
+  own library. (2) This cloud container's network policy blocks
+  Higgsfield's media CDN, so sessions still cannot view generated pixels
+  directly (entry 38's constraint confirmed, and now explained). QC today
+  is ffprobe metadata, Whisper transcript checks and programmatic frame
+  checks in the sandbox, with Charlie's eye as the final gate. One
+  settings change removes the blindness: allow Higgsfield's two CloudFront
+  media hosts in the Claude Code environment's network policy, and
+  sessions can pull frames and review them before anything reaches
+  Charlie.
+- Also connected, untested in anger: artlist AI (gen plus voiceover, not
+  the licensed music catalogue), InVideo (script-to-video), Canva.
+
+Net: proper 15-60s brand films are producible end to end from a session -
+multi-shot, consistent characters, spoken lines, 4K finish, posted to
+TikTok. Charlie's irreplaceable inputs are taste and approval, real
+footage, and two one-time setups (TikTok connect, the network-policy
+allowlist). Learning the Higgsfield web UI is optional; everything the
+MCP exposes can be driven from here.
+
+---
+
 ## 2026-08-06 - Claude Code (38)
 
 **First Higgsfield-produced reel, ready for Charlie's review.** In the
