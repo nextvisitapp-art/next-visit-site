@@ -31,6 +31,87 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-07 - Claude Code (42)
+
+**The container can see Higgsfield pixels now, and the first same-session
+produce-and-review run is done.** Charlie's CDN allowlist change works:
+frames pulled from Higgsfield-hosted videos straight into the working
+container and reviewed by eye. The review-blind era of entries 38 and 40
+is over. Charlie also called a pivot mid-session: pause the analysis
+track, use Higgsfield to make new content. So this entry is one review
+that came free with the connectivity proof, one QA rejection, and a
+four-piece creative run. Nothing has been posted anywhere.
+
+**nv-reel-countdown-stopsaying is confirmed postable.** The check Charlie
+was queued for is done by eye: the headline reads exactly
+Stop saying "we should go somewhere." - correct spelling and spacing,
+pinned and crisp at 0s, 5s and 10s, couple stays from behind, no
+artifacts. One deviation: the light brightens toward the end instead of
+deepening to dusk; reads fine, arguably better for loops. It is 716x1284,
+so it does want the 2K upscale before posting. Say the word.
+
+**The 4 Aug Veo split-flap departure board fails QA.** A large muddy
+smear artifact sits across the middle band of the board for most of the
+clip. Do not cut it in. The concept is right (amber tiles on navy is
+practically our brand); the render is not. Superseded by nv-hf-04 below.
+
+**The creative run: four new 10s vertical pieces.** Method that worked:
+generate the frame-zero still first (Nano Banana 2, painted cream serif
+headline, text verified exact by eye before any video credits spent),
+then animate with Kling 3.0 turbo as subtle live-photo motion, 1076x1924
+native. All silent by design (music stays platform-native at post time),
+all faceless or couple-from-behind, no AI-drawn marks, headlines re-verified
+crisp at start, middle and end. Frame-delta QA clean on everything kept.
+
+1. **nv-hf-01-sleeps-away** - "This is 14 sleeps away." over an Amalfi
+   golden-hour cliff village. The slate's travel-led test in countdown
+   vocabulary. Clean end to end. Ready for review.
+2. **nv-hf-02-trip-you-keep** - "The trip you get to keep." over two
+   pairs of hands sorting printed travel photos on a bed, lamp light.
+   Video 04's truth in its soft, saveable form. One nit: the boarding-pass
+   prop reads TOKYO cleanly but its micro-text is AI gibberish; invisible
+   at feed size, visible on a freeze-frame.
+3. **nv-hf-03-two-tickets** - "Two tickets. One countdown." couple from
+   behind at an airport window, sunset taxiing plane. Two takes exist:
+   a push-in take with real motion whose headline edge-clips after 6s
+   (usable trimmed to 6s), and a locked-off take that holds the full 10s
+   but is near-still. Charlie picks, or both get binned.
+4. **nv-hf-04-lisbon-board** - a real-world mechanical split-flap board
+   spelling LISBON / 22 SLEEPS on a navy wall, warm tungsten. The brand's
+   own gesture as a physical object, deliberately NOT spelling NEXTVISIT
+   (the marks stay locked). The locked-camera take is the keeper: crisp
+   for the full 10s. A push-in take also exists, clean to about 7s.
+
+**What the run taught, worth keeping:**
+
+- Painted-headline still first, animate second. Text survives perfectly
+  when it exists in the start image; the model treats it as scenery.
+  Never ask a video model to invent typography.
+- Camera push-ins crop painted text. Lock the camera or budget a tail
+  trim. Kling takes "locked-off" very literally - motion goes near-still -
+  so the sweet spot is naming the exact scene motion wanted and nothing else.
+- Cost reality: the whole run - 4 stills, 6 videos, two of them retakes -
+  cost 128 credits. Balance 2,433 to 2,305 on Ultra. Same-session
+  generate-QA-retake is affordable as a habit.
+
+**Flag for the hub:** MARKETING.md scopes generated b-roll to "abstract
+and atmospheric only". These four are staged scenes with painted
+headlines, made on Charlie's direct instruction to see what Higgsfield
+can do. If the experiment graduates to posting, the brief's Higgsfield
+section should be updated at the source rather than quietly drifted past.
+
+**Not done, deliberately:** the 04-versus-06 slate-order comparison from
+the review queue - Charlie paused the analysis track mid-session. It is
+a ten-minute job now that frames are viewable; say go when wanted.
+
+**For Charlie:** four pieces are in the Higgsfield library dated today.
+Watch them, name any that deserve platform music and a post slot, or name
+the variants wanted (different city on the board, different destination
+line, tighter length). And the countdown reel still wants its one-word
+upscale decision.
+
+---
+
 ## 2026-08-07 - Claude Code (41)
 
 **Audit of the Higgsfield MCP connector - what a session can and cannot
