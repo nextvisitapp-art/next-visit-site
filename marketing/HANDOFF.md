@@ -31,6 +31,70 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-09 - Claude Code (47)
+
+**Strategy pivot from Charlie, and the first batch built to it. The
+account now runs two tracks.** Charlie's read, and I agree with it:
+couple-travel product content is saturated and is not the viral bet. He
+is making his own reels from real footage in Instagram's editor and will
+keep doing that as the product track, promoting quietly when he travels.
+The new bet is content built purely to travel: no product in frame at
+all, so an intrigued viewer has to go to the profile to find out what
+this is.
+
+**The thesis, chosen deliberately over a vibe.** Generic "why aren't you
+travelling" inspiration is more saturated than couple travel, not less,
+so the batch commits to one arguable idea instead:
+
+> The anticipation is the best part. The looking forward to it is where
+> the happiness lives, not the trip itself.
+
+It is defensible (holiday happiness research says the weeks before beat
+the trip), it is counterintuitive enough to argue with in comments, and
+it makes a countdown app the obvious answer without a word of product.
+The job angle is the same thesis pointed at work: you don't hate your
+job, you hate having nothing booked.
+
+**Six hooks shipped, 10s each, 1080x1920, silent with the audio track
+stripped so Charlie can lay his own voice memo over any of them.** At
+`marketing/hooks/` on the branch and in Higgsfield storage. Every
+headline verified character by character, frame-delta clean (median
+under 0.7 on all six), locked camera so type never warps:
+
+- `nv-hook-yourjob` - "You don't hate your job. You hate having nothing
+  to look forward to." Dark empty office at night, one monitor still on.
+- `nv-hook-eightweeks` - "The best part of the trip is the eight weeks
+  before it." Sunlit wall calendar, one date circled.
+- `nv-hook-25summers` - "You have about 25 more summers with the people
+  you love." Two empty deck chairs at golden hour.
+- `nv-hook-annualleave` - "Annual leave doesn't roll over into your
+  life." Silhouetted desk, a plane crossing the sunset outside.
+- `nv-hook-somewhere-40x` - "You'll say "we should go somewhere" 40 more
+  times this year." Couple from behind, TV glow, phones out.
+- `nv-hook-bestmemory` - "Your best memory from last year cost less than
+  your phone." Face-down phone beside a pile of prints.
+
+**Production note worth keeping: the model would not add a missing full
+stop.** Two separate edit passes on the somewhere-40x headline failed
+and the second made the type bigger instead. Fixed by compositing the
+period locally with PIL, colour-sampled from the headline and placed on
+the glyph baseline, zero credits. When a text edit fails twice, stop
+re-rolling and fix the pixels.
+
+**The measurement decision this track needs before anything posts:**
+pure-viral content pulls people who like content, not people who want
+the app. Views will look good and mean nothing. Judge this track on
+profile visits and link taps, not views, or it will flatter itself.
+
+Spend: about 135 credits for the six (six stills, one re-roll, six
+videos). Balance 1,532 to 1,398. Nothing posted anywhere.
+
+**Open for Charlie:** whether this track lives on the main account
+beside the product reels or on the parked second account. It is a real
+choice and the answer changes the voice.
+
+---
+
 ## 2026-08-07 - Claude Code (46)
 
 **The long-distance ad is remade to Charlie's re-brief:
