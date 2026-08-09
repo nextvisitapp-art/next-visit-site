@@ -31,6 +31,310 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-08-09 - Claude Code (47)
+
+**Strategy pivot from Charlie, and the first batch built to it. The
+account now runs two tracks.** Charlie's read, and I agree with it:
+couple-travel product content is saturated and is not the viral bet. He
+is making his own reels from real footage in Instagram's editor and will
+keep doing that as the product track, promoting quietly when he travels.
+The new bet is content built purely to travel: no product in frame at
+all, so an intrigued viewer has to go to the profile to find out what
+this is.
+
+**The thesis, chosen deliberately over a vibe.** Generic "why aren't you
+travelling" inspiration is more saturated than couple travel, not less,
+so the batch commits to one arguable idea instead:
+
+> The anticipation is the best part. The looking forward to it is where
+> the happiness lives, not the trip itself.
+
+It is defensible (holiday happiness research says the weeks before beat
+the trip), it is counterintuitive enough to argue with in comments, and
+it makes a countdown app the obvious answer without a word of product.
+The job angle is the same thesis pointed at work: you don't hate your
+job, you hate having nothing booked.
+
+**Six hooks shipped, 10s each, 1080x1920, silent with the audio track
+stripped so Charlie can lay his own voice memo over any of them.** At
+`marketing/hooks/` on the branch and in Higgsfield storage. Every
+headline verified character by character, frame-delta clean (median
+under 0.7 on all six), locked camera so type never warps:
+
+- `nv-hook-yourjob` - "You don't hate your job. You hate having nothing
+  to look forward to." Dark empty office at night, one monitor still on.
+- `nv-hook-eightweeks` - "The best part of the trip is the eight weeks
+  before it." Sunlit wall calendar, one date circled.
+- `nv-hook-25summers` - "You have about 25 more summers with the people
+  you love." Two empty deck chairs at golden hour.
+- `nv-hook-annualleave` - "Annual leave doesn't roll over into your
+  life." Silhouetted desk, a plane crossing the sunset outside.
+- `nv-hook-somewhere-40x` - "You'll say "we should go somewhere" 40 more
+  times this year." Couple from behind, TV glow, phones out.
+- `nv-hook-bestmemory` - "Your best memory from last year cost less than
+  your phone." Face-down phone beside a pile of prints.
+
+**Production note worth keeping: the model would not add a missing full
+stop.** Two separate edit passes on the somewhere-40x headline failed
+and the second made the type bigger instead. Fixed by compositing the
+period locally with PIL, colour-sampled from the headline and placed on
+the glyph baseline, zero credits. When a text edit fails twice, stop
+re-rolling and fix the pixels.
+
+**The measurement decision this track needs before anything posts:**
+pure-viral content pulls people who like content, not people who want
+the app. Views will look good and mean nothing. Judge this track on
+profile visits and link taps, not views, or it will flatter itself.
+
+Spend: about 135 credits for the six (six stills, one re-roll, six
+videos). Balance 1,532 to 1,398. Nothing posted anywhere.
+
+**Open for Charlie:** whether this track lives on the main account
+beside the product reels or on the parked second account. It is a real
+choice and the answer changes the voice.
+
+---
+
+## 2026-08-07 - Claude Code (46)
+
+**The long-distance ad is remade to Charlie's re-brief:
+nv-ad-onesleep-today replaces nv-ad-twotimezones-tokyo, which is
+rejected and removed from the branch** (it survives in the Higgsfield
+library and git history). Charlie's verdict on the first version:
+disjointed. His picture: all at the airport, the countdown ticking from
+1 to Today, her sitting at the airport, cut to the boyfriend also on the
+same countdown, ending cuddling at the baggage carousel.
+
+The remake took two generations. Take one failed review: it opened on
+the Today. screen before showing 1 sleep to go, so the countdown ran
+BACKWARD, the carousel never appeared, and an overhead sign carried
+garbled AI text. Take two pinned all three in the prompt (strict
+per-shot screen continuity, an unmistakable moving carousel, no
+readable signage anywhere) and delivered: night gate, her phone showing
+1 sleep to go with a plane at the jet bridge behind; push in until the
+app fills the frame and flips to Today.; pull back to him holding it in
+morning light; then the carousel with suitcases riding the belt and the
+two of them folded together beside it, faces buried. Two app screens
+were made for it from the real Tokyo screen: a 1 sleep to go state
+(singular checked) and a Today. state in matching serif - the
+countdown-hits-zero brand moment as real UI.
+
+Production lessons added to the pile: per-shot screen continuity must
+be stated as STRICT or multi-shot will shuffle which screen appears
+when; and generated signage always garbles, so ban readable signs from
+the frame instead of hoping.
+
+Session spend for the remake: two 15s generations plus two screen edits,
+about 285 credits. Balance 1,806 to 1,532. The banked-asset count stays
+at 11 with the long-distance slot now filled properly. Nothing posted.
+
+---
+
+## 2026-08-07 - Claude Code (45)
+
+**Second hero ad plus four hook-only pieces, and a technique that changes
+what the ads can show: the app screen can now be re-dressed to any
+destination without leaving the real UI.** Charlie's brief: a two-phones
+long-distance ad, not Lisbon again, and more of the curiosity-hook
+live-photos that deliberately do NOT show the product so the intrigued
+viewer has to hit the profile. Both delivered.
+
+**nv-ad-twotimezones-tokyo, 17.5s, at `marketing/ads/` and in Higgsfield
+storage.** The two-phones product truth, finally shown: her phone at
+night in a rainy neon city, match cut to HIS hand in golden Tokyo
+morning holding the SAME countdown screen - same pink card, same 22,
+two time zones - then a silhouetted reunion hug at airport arrivals,
+faces in shadow throughout. Native ambience, no music, no voice, brand
+end card from og-share-card, 1080x1920.
+
+**The screen trick worth recording:** the reference screen was made by
+having Nano Banana surgically edit the REAL s01 home screenshot -
+"Tokyo, Japan" in matching Fraunces italic, Tokyo Tower dusk photo in
+the card, dates changed, every other pixel of the UI preserved,
+verified by eye against the original. One cheap image generation turns
+the one real screenshot we have into any destination an ad needs. The
+demo space really does have a Tokyo trip, so the screen stays honest to
+the product.
+
+**Four hook-only live-photos, 10s each, 1080x1920, text verified crisp
+at start and end, silent:** nv-hook-someday ("It's been \"someday\"
+since 2023." - dusty passports on a shelf), nv-hook-dates ("She already
+picked the dates." - her face lit by a hidden phone screen in bed),
+nv-hook-enddate ("Long distance has an end date." - wing and sunrise
+through a cabin window), nv-hook-flights ("Book the damn flights." -
+closed laptop, passport and a key under one pendant light). None shows
+the product; all four are profile-click bait by design, which is
+exactly the split Charlie asked for: hero ads that show the thing, hooks
+that only ask the question. Two needed a one-shot text-edit re-roll for
+a missing full stop; the fix took one image generation each. Note on
+motion: the locked-camera recipe keeps type perfect but reads as a
+premium still with breath, not action - platform music will carry them.
+
+Day running total: 690 credits, balance 2,433 to 1,806. Eleven finished
+assets banked today (5 hooks, 2 hero ads, plus the four entry-42 pieces
+still awaiting Charlie's watch). Nothing posted anywhere.
+
+---
+
+## 2026-08-07 - Claude Code (44)
+
+**Polish pass on nv-ad-countdown-lisbon, one re-roll as agreed, and the
+budget rule is now standing policy.** Charlie's notes on v1: the counter
+was inexplicably wet indoors, she slid the phone toward a window instead
+of a person, and the scene needed story logic. One regeneration (135
+credits) fixed all three - and the model improved on the script: the
+opening is now filmed from OUTSIDE the rain-streaked window looking into
+the warm kitchen, so the rain lives exactly where it belongs. Dry counter,
+she slides the phone to him, and the middle beat is now his POV holding
+the phone with her hand resting on his - the app screen larger and cleaner
+than v1, single status bar, card and 22 fully readable. Lisbon ending
+unchanged. Same end-card assembly; the file at `marketing/ads/` is
+replaced in place and re-imported to Higgsfield storage.
+
+One trade to flag: this take shows both actors' faces clearly and warmly,
+where v1 kept soft profiles. As an ad it is stronger for it; whether AI
+faces are acceptable in ad context is Charlie's call, and a
+silhouette-only re-roll is one generation away if not.
+
+**Standing budget rule from Charlie:** credits are a content budget, not a
+perfection budget. One polish pass per asset, then bank it and make the
+next asset. The goal is a month of postable content per month of credits.
+Day total: 398 credits spent, balance 2,433 to about 2,035.
+
+Queued next, per Charlie: a new video on the two-phones truth - both
+partners' phones showing the SAME countdown, which is the real product
+mechanic no competitor scene can fake.
+
+---
+
+## 2026-08-07 - Claude Code (43)
+
+**First proper ad, made end to end in one session: nv-ad-countdown-lisbon,
+17.5s, on the branch at `marketing/ads/` and imported into Higgsfield
+storage.** Charlie's instruction mid-session: stop treating the brief as a
+ceiling, use the subscription properly, make a real scene that shows off
+the product. So this one deliberately steps outside MARKETING.md's
+"abstract and atmospheric only" scope on his direct say-so.
+
+What it is: a three-beat commercial made with Seedance 2.0 multi-shot in a
+SINGLE generation - consistent couple across every shot, native ambient
+audio (rain, room tone, street; no music, no voice), 1080x1920, 24fps.
+Beat one: rainy weeknight kitchen, she slides her phone across the counter.
+Beat two: over the shoulder, both leaning over the glowing screen - and the
+screen is the REAL app home screen (the s01 Lisbon countdown, passed in as
+an image reference), pink card and the big 22 clearly readable. Beat three:
+the payoff, the same couple from behind walking a golden-hour Alfama
+alley into the sun. Then a 3s end card cut on in post from
+`og-share-card.png` - the real locked wordmark, headline and icon, no AI
+redrawing - with a 0.6s crossfade, assembled with ffmpeg in the session
+container and imported to Higgsfield via the jsDelivr path (18MB, under
+the cap).
+
+Honest QA, from looking at every beat: the phone UI in the over-shoulder
+beat is recognisably ours and the card plus 22 read clean, but the
+micro-text is AI-warped and the status bar doubles - it passes in motion,
+not on a freeze-frame. That beat runs about 90 frames. If this cut earns a
+post slot, the fix is known: either trim that beat tighter in a re-cut, or
+composite the real screen recording over the phone in post. The rest holds
+up frame by frame; the two frame-delta spikes are the two cuts.
+
+Numbers: the 15s 1080p multi-shot cost 135 credits. Running total for
+today's whole creative session (entry 42's four pieces plus retakes plus
+this): 263 credits, balance 2,433 to 2,170.
+
+**Faces note for Charlie's veto:** the couple's faces appear in soft
+profile in the kitchen beat - not front-on, but more visible than the
+from-behind rule of thumb. The non-negotiable was always about Charlie
+himself, and these are obviously staged ad actors, but it is his call
+whether AI faces are acceptable in an ad context. If not: the same
+generation can be re-rolled with silhouette-only framing.
+
+Also in this entry's session: TikTok publishing stays untouched, nothing
+posted anywhere, and the four entry-42 pieces are unchanged in the library.
+
+---
+
+## 2026-08-07 - Claude Code (42)
+
+**The container can see Higgsfield pixels now, and the first same-session
+produce-and-review run is done.** Charlie's CDN allowlist change works:
+frames pulled from Higgsfield-hosted videos straight into the working
+container and reviewed by eye. The review-blind era of entries 38 and 40
+is over. Charlie also called a pivot mid-session: pause the analysis
+track, use Higgsfield to make new content. So this entry is one review
+that came free with the connectivity proof, one QA rejection, and a
+four-piece creative run. Nothing has been posted anywhere.
+
+**nv-reel-countdown-stopsaying is confirmed postable.** The check Charlie
+was queued for is done by eye: the headline reads exactly
+Stop saying "we should go somewhere." - correct spelling and spacing,
+pinned and crisp at 0s, 5s and 10s, couple stays from behind, no
+artifacts. One deviation: the light brightens toward the end instead of
+deepening to dusk; reads fine, arguably better for loops. It is 716x1284,
+so it does want the 2K upscale before posting. Say the word.
+
+**The 4 Aug Veo split-flap departure board fails QA.** A large muddy
+smear artifact sits across the middle band of the board for most of the
+clip. Do not cut it in. The concept is right (amber tiles on navy is
+practically our brand); the render is not. Superseded by nv-hf-04 below.
+
+**The creative run: four new 10s vertical pieces.** Method that worked:
+generate the frame-zero still first (Nano Banana 2, painted cream serif
+headline, text verified exact by eye before any video credits spent),
+then animate with Kling 3.0 turbo as subtle live-photo motion, 1076x1924
+native. All silent by design (music stays platform-native at post time),
+all faceless or couple-from-behind, no AI-drawn marks, headlines re-verified
+crisp at start, middle and end. Frame-delta QA clean on everything kept.
+
+1. **nv-hf-01-sleeps-away** - "This is 14 sleeps away." over an Amalfi
+   golden-hour cliff village. The slate's travel-led test in countdown
+   vocabulary. Clean end to end. Ready for review.
+2. **nv-hf-02-trip-you-keep** - "The trip you get to keep." over two
+   pairs of hands sorting printed travel photos on a bed, lamp light.
+   Video 04's truth in its soft, saveable form. One nit: the boarding-pass
+   prop reads TOKYO cleanly but its micro-text is AI gibberish; invisible
+   at feed size, visible on a freeze-frame.
+3. **nv-hf-03-two-tickets** - "Two tickets. One countdown." couple from
+   behind at an airport window, sunset taxiing plane. Two takes exist:
+   a push-in take with real motion whose headline edge-clips after 6s
+   (usable trimmed to 6s), and a locked-off take that holds the full 10s
+   but is near-still. Charlie picks, or both get binned.
+4. **nv-hf-04-lisbon-board** - a real-world mechanical split-flap board
+   spelling LISBON / 22 SLEEPS on a navy wall, warm tungsten. The brand's
+   own gesture as a physical object, deliberately NOT spelling NEXTVISIT
+   (the marks stay locked). The locked-camera take is the keeper: crisp
+   for the full 10s. A push-in take also exists, clean to about 7s.
+
+**What the run taught, worth keeping:**
+
+- Painted-headline still first, animate second. Text survives perfectly
+  when it exists in the start image; the model treats it as scenery.
+  Never ask a video model to invent typography.
+- Camera push-ins crop painted text. Lock the camera or budget a tail
+  trim. Kling takes "locked-off" very literally - motion goes near-still -
+  so the sweet spot is naming the exact scene motion wanted and nothing else.
+- Cost reality: the whole run - 4 stills, 6 videos, two of them retakes -
+  cost 128 credits. Balance 2,433 to 2,305 on Ultra. Same-session
+  generate-QA-retake is affordable as a habit.
+
+**Flag for the hub:** MARKETING.md scopes generated b-roll to "abstract
+and atmospheric only". These four are staged scenes with painted
+headlines, made on Charlie's direct instruction to see what Higgsfield
+can do. If the experiment graduates to posting, the brief's Higgsfield
+section should be updated at the source rather than quietly drifted past.
+
+**Not done, deliberately:** the 04-versus-06 slate-order comparison from
+the review queue - Charlie paused the analysis track mid-session. It is
+a ten-minute job now that frames are viewable; say go when wanted.
+
+**For Charlie:** four pieces are in the Higgsfield library dated today.
+Watch them, name any that deserve platform music and a post slot, or name
+the variants wanted (different city on the board, different destination
+line, tighter length). And the countdown reel still wants its one-word
+upscale decision.
+
+---
+
 ## 2026-08-07 - Claude Code (41)
 
 **Audit of the Higgsfield MCP connector - what a session can and cannot
