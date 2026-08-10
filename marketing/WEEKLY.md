@@ -15,6 +15,80 @@ identifiers. Post metrics are fine; they are already published in `HANDOFF.md`.
 
 ---
 
+## 2026-08-10
+
+### What ran
+
+- Weekly results pass, Monday 9am Brisbane. Window 3 to 10 August.
+- Fresh reads of `HANDOFF.md`, `results.csv` and `POSTED.md` on main in
+  both repos.
+- Drive sweep of the marketing folder for new sets.
+- Activation funnel workflow, dispatched on main and read from its logs.
+  Invite funnel read from its daily report.
+- Site traffic query, retried once. Plan-blocked as documented.
+
+### What changed
+
+- **Zero posts in the seven-day window.** Nothing went out between 3 and
+  10 August. The last post was video 03 on 2 August. Three finished
+  videos (04, 05, 06) sit built and unposted.
+- **Video 03 was missing from the log entirely** and is now recorded, in
+  couples PR #517: 2 Aug, 474 views, avg watch 4s, 24% watched, 69.2%
+  skip, 0 saves. The 3 Aug pass reported three posts for its window when
+  four had gone out. Second consecutive week the log under-reported
+  throughput.
+- Saves per 100 views across all four posts: 0.00, 0.00, unknown, 0.00.
+- Activation funnel now returns data where it read empty last week: 53
+  spaces, 117 events over 30 days. Sequential funnel 1 created, 0 shared,
+  0 joined, 0% end to end. Raw counts: 81 app_open, 15 member_joined, 13
+  invite_opened, 7 countdown_shared, 1 countdown_created, 7 excluded for
+  missing space_id. Invite funnel: 1 sent, 10 opened, 2 joined, 1
+  attributed install. Retention: 1 of 35 couple creators active at D1,
+  all other cohorts and columns zero.
+- **Last week's open question 4 is closed.** Zero events at 7 and 90 days
+  could not be distinguished from a blocked write. 117 events settles it:
+  the pipe works, no test event needed.
+
+### What broke
+
+- Nothing broke. Three inputs were unavailable and are recorded as
+  unavailable rather than skipped: site traffic (plan-blocked, retried
+  once), the per-platform split and saves for video 03, and saves for
+  ninetabs-static (open since 3 Aug).
+- One reporting defect found, not in the data but in the tooling: the
+  funnel script prints "most people who make a countdown never share it -
+  that is a product problem" off a denominator of one. Seven share events
+  fired in the same window. The line should be gated on a minimum n
+  before anyone quotes it as a product finding.
+- `set-03-crew-bookings` in Drive still contains POST.md and none of its
+  17 specified frames, unchanged in ten days.
+
+### What needs a decision
+
+1. **The insights for video-03-surprise and ninetabs-static.** Per-platform
+   views and saves for the first, saves for the second. The only numbers
+   keeping the results log incomplete.
+2. **Post order for the built videos.** 04 is marked ready to post but has
+   the weakest opening of the three by both the predictor and the brief's
+   frame-zero rule; 06 has the strongest. A scheduling call for the hub,
+   not a creative one.
+3. **Video 05** still needs the proposal-disclosure decision before it can
+   go anywhere.
+4. **set-03-crew-bookings**: fill the frames or drop the set.
+
+### Discipline note
+
+Four posts total, far below the 20 to 30 at which the results log allows
+analysis to steer. **No trend is called and no format is killed** - nothing
+has failed twice running. The skip-rate sequence (84.1, 72.6, 69.2) is the
+hub's finding already acted on in the brief, recorded here as raw numbers,
+not re-derived as a trend.
+
+The number worth reading this week: zero posts in seven days, with three
+finished videos in hand. The bottleneck is not creative.
+
+---
+
 ## 2026-08-07 - predictor scores (same day, after the connector came back)
 
 ### What ran

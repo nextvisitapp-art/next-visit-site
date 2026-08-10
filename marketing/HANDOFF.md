@@ -31,7 +31,75 @@ the numbers said, and what is open.
 
 ---
 
-## 2026-08-07 - Claude Code (41)
+## 2026-08-10 - Claude Code (42)
+
+**Nothing posted between 3 and 10 August. Zero posts in seven days, against
+three finished videos sitting on the branch ready to go.** The last thing
+that went out was video 03 on 2 August. Throughput is the metric that
+matters most at this stage, and this week it was nil - that is the finding,
+and it is not a creative problem.
+
+**A fourth post existed and was never logged.** Video 03 went out 2 August
+and never reached `results.csv` or `POSTED.md`, so the 3 Aug pass reported
+three posts when four had gone out. Both are corrected now (couples PR
+#517) from the hub's own MARKETING.md table: 474 views, avg watch 4s, 24%
+watched, skip rate 69.2%, 0 saves. That is the second week running that the
+log under-reported throughput, and the second week the missing rows had to
+be reconstructed from someone else's document.
+
+**Saves per 100 views, every post to date:**
+
+| Post | Date | Views | Saves / 100 views |
+| --- | --- | ---: | --- |
+| dayzero-nofaces | 27 Jul | 1,086 | 0.00 |
+| planner-stopsaying | 29 Jul | 295 | 0.00 |
+| ninetabs-static | 31 Jul | 215 | _saves still not in the export_ |
+| video-03-surprise | 2 Aug | 474 | 0.00 |
+
+**Funnel, run today.** Activation, 30 days: 53 spaces, 117 events. Created a
+countdown 1, then shared it 0, someone joined 0, end to end 0%. Raw events:
+81 app_open, 15 member_joined, 13 invite_opened, 7 countdown_shared, 1
+countdown_created, 7 excluded for having no space_id. Invite funnel: 1 sent,
+10 opened, 2 joins, 1 attributed install. Retention: 1 of 35 couple creators
+active on D1, everything else zero.
+
+- **The script's own conclusion is wrong and should be softened.** It prints
+  "most people who make a countdown never share it - that is a product
+  problem", off `countdown_created = 1`. One space is not "most people", and
+  7 share events actually fired in the window from spaces whose creation
+  predates instrumentation. The sequential funnel is n=1; the raw counts say
+  people are sharing. Worth gating that line on a minimum n before it gets
+  quoted as a product finding.
+- **Last week's open question about the analytics pipe is answered.** 117
+  events across 53 spaces. The pipe works. A deliberate test event is no
+  longer needed.
+
+**Traffic: still unavailable.** The programmatic Web Analytics API is
+plan-blocked and answers not_found by design; retried once, same answer. No
+site numbers again this week.
+
+**Missing inputs, stated rather than skipped:** site traffic (above); the
+per-platform split and saves for video 03; saves for ninetabs-static, open
+since 3 Aug; and `set-03-crew-bookings` in Drive, which still holds POST.md
+and none of its 17 frames, unchanged in ten days. Stills are Charlie's in
+Cowork now, so that set is his to fill or drop - nothing is waiting on
+anyone else.
+
+**What the numbers suggest trying next.** Four posts is far below the 20 to
+30 where analysis is allowed to steer. **No trend is being called and no
+format is being killed** - nothing has failed twice running. One scheduling
+suggestion, which is not a creative judgement: videos 04, 05 and 06 are all
+built and unposted. The predictor calibrated on Friday and the brief's own
+frame-zero rule agree that **06 has the strongest opening** (hook 47, peak
+at frame zero) and **04 the weakest** (hook 37, peak at 4s), yet 04 is the
+one marked ready to post. Posting 06 first costs nothing and tests the
+frame-zero rule on the metric the brief cares about. 05 still needs the
+proposal-disclosure decision.
+
+**The one ask.** Open Instagram and TikTok insights for **video-03-surprise
+(2 Aug)** and paste the per-platform views and saves, plus the saves figure
+for **ninetabs-static (31 Jul)**. Those are the only numbers keeping the
+results log incomplete.
 
 **Audit of the Higgsfield MCP connector - what a session can and cannot
 drive.** Charlie asked what Claude Code can actually do with the new
