@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-04T02:02:23.086Z",
+  "generatedAt": "2026-08-16T10:26:52.833Z",
   "repo": "nextvisitapp-art/next-visit-site",
   "branch": "footage",
-  "totalClips": 84,
+  "totalClips": 85,
   "clips": [
     {
       "base": "3AC736FF-1E7C-45BE-A164-A05517C9D6F7",
@@ -1053,6 +1053,22 @@
       "rotationFlag": 0,
       "clipMB": 5.64,
       "sheetKB": 229
+    },
+    {
+      "base": "ScreenRecording_08-16-2026 20-10-43_1",
+      "source": "ScreenRecording_08-16-2026 20-10-43_1.mov",
+      "folder": "",
+      "driveId": "1T2jqIef2aFcTRm3G2oH-UTw6URgPkCJO",
+      "md5": "8c48a42000430cc7fa65ea46861572a0",
+      "size": 37758497,
+      "modifiedTime": "2026-08-16T10:12:40.826Z",
+      "collided": false,
+      "durationSeconds": 23.08,
+      "native": "886x1920",
+      "orientation": "portrait",
+      "rotationFlag": 0,
+      "clipMB": 3.36,
+      "sheetKB": 234
     },
     {
       "base": "trip-trip-01",
