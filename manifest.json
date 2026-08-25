@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-16T10:26:52.833Z",
+  "generatedAt": "2026-08-25T04:01:55.220Z",
   "repo": "nextvisitapp-art/next-visit-site",
   "branch": "footage",
-  "totalClips": 85,
+  "totalClips": 87,
   "clips": [
     {
       "base": "3AC736FF-1E7C-45BE-A164-A05517C9D6F7",
@@ -35,6 +35,38 @@
       "rotationFlag": 0,
       "clipMB": 1.73,
       "sheetKB": 188
+    },
+    {
+      "base": "hf_20260825_030656_5aa2cb09-7fa8-4bec-8b00-cc63172f30bc",
+      "source": "hf_20260825_030656_5aa2cb09-7fa8-4bec-8b00-cc63172f30bc.mp4",
+      "folder": "",
+      "driveId": "1-89jUUQPly6gLiXvHGkFn0O0cDaPuWXP",
+      "md5": "6239eed3ee4ee869db53cb8f8e882f9d",
+      "size": 3397111,
+      "modifiedTime": "2026-08-25T03:16:59.000Z",
+      "collided": false,
+      "durationSeconds": 5.04,
+      "native": "1080x1920",
+      "orientation": "portrait",
+      "rotationFlag": 0,
+      "clipMB": 2.7,
+      "sheetKB": 253
+    },
+    {
+      "base": "hf_20260825_030656_9f4e88ce-b300-4ef9-a710-467cebd804af",
+      "source": "hf_20260825_030656_9f4e88ce-b300-4ef9-a710-467cebd804af.mp4",
+      "folder": "",
+      "driveId": "1T7kpJRKjvNR3Hw10_hf1aM0-1lWLrLNG",
+      "md5": "0b445fd500c9dc6959584fe4fa91c21b",
+      "size": 2051491,
+      "modifiedTime": "2026-08-25T03:18:48.000Z",
+      "collided": false,
+      "durationSeconds": 5.04,
+      "native": "1080x1920",
+      "orientation": "portrait",
+      "rotationFlag": 0,
+      "clipMB": 1.64,
+      "sheetKB": 164
     },
     {
       "base": "IMG_0044",

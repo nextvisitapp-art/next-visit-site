@@ -1,8 +1,8 @@
 # Footage library
 
-Every video in the Drive `Footage` folder, subfolders included: **85 clips**,
-each with a contact sheet and a transcode. 18.6 MB of sheets,
-761.0 MB of video.
+Every video in the Drive `Footage` folder, subfolders included: **87 clips**,
+each with a contact sheet and a transcode. 19.0 MB of sheets,
+765.4 MB of video.
 
 **This branch mirrors Drive automatically.** Add a clip to the Drive folder and
 it appears here on the next run, usually within a couple of hours, without
@@ -59,7 +59,7 @@ that have nothing to do with faces, so check this list as well as the column.
 
 > ### Faces
 >
-> `cleared` and `**FACE**` are the hub's verdicts, 29 of 85 so far.
+> `cleared` and `**FACE**` are the hub's verdicts, 29 of 87 so far.
 > **`unreviewed` means nobody has looked** - it does not mean the clip is clear,
 > and an unreviewed row must never be read as cleared. New clips arrive
 > unreviewed by definition.
@@ -81,6 +81,8 @@ that have nothing to do with faces, so check this list as well as the column.
 | --- | ---: | --- | --- | --- | --- |
 | `3AC736FF-1E7C-45BE-A164-A05517C9D6F7` | 19.43s | 1920x1920 | square | unreviewed | [sheet](index/3AC736FF-1E7C-45BE-A164-A05517C9D6F7.jpg) &middot; [clip](clips/3AC736FF-1E7C-45BE-A164-A05517C9D6F7.mp4) |
 | `att.tjCE2F1uk9V4LBx3xgw5KlkYa8SdpSPJzJqEbLx-UB8` | 6.07s | 720x1280 | portrait | unreviewed | [sheet](index/att.tjCE2F1uk9V4LBx3xgw5KlkYa8SdpSPJzJqEbLx-UB8.jpg) &middot; [clip](clips/att.tjCE2F1uk9V4LBx3xgw5KlkYa8SdpSPJzJqEbLx-UB8.mp4) |
+| `hf_20260825_030656_5aa2cb09-7fa8-4bec-8b00-cc63172f30bc` | 5.04s | 1080x1920 | portrait | unreviewed | [sheet](index/hf_20260825_030656_5aa2cb09-7fa8-4bec-8b00-cc63172f30bc.jpg) &middot; [clip](clips/hf_20260825_030656_5aa2cb09-7fa8-4bec-8b00-cc63172f30bc.mp4) |
+| `hf_20260825_030656_9f4e88ce-b300-4ef9-a710-467cebd804af` | 5.04s | 1080x1920 | portrait | unreviewed | [sheet](index/hf_20260825_030656_9f4e88ce-b300-4ef9-a710-467cebd804af.jpg) &middot; [clip](clips/hf_20260825_030656_9f4e88ce-b300-4ef9-a710-467cebd804af.mp4) |
 | `IMG_0044` | 2.80s | 1080x1920 | portrait | cleared | [sheet](index/IMG_0044.jpg) &middot; [clip](clips/IMG_0044.mp4) |
 | `IMG_0045` | 2.53s | 1080x1920 | portrait | unreviewed | [sheet](index/IMG_0045.jpg) &middot; [clip](clips/IMG_0045.mp4) |
 | `IMG_0046` | 3.50s | 1080x1920 | portrait | cleared | [sheet](index/IMG_0046.jpg) &middot; [clip](clips/IMG_0046.mp4) |
