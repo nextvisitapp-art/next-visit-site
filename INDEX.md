@@ -1,8 +1,8 @@
 # Footage library
 
-Every video in the Drive `Footage` folder, subfolders included: **93 clips**,
-each with a contact sheet and a transcode. 19.9 MB of sheets,
-780.2 MB of video.
+Every video in the Drive `Footage` folder, subfolders included: **94 clips**,
+each with a contact sheet and a transcode. 20.1 MB of sheets,
+785.8 MB of video.
 
 **This branch mirrors Drive automatically.** Add a clip to the Drive folder and
 it appears here on the next run, usually within a couple of hours, without
@@ -59,7 +59,7 @@ that have nothing to do with faces, so check this list as well as the column.
 
 > ### Faces
 >
-> `cleared` and `**FACE**` are the hub's verdicts, 29 of 93 so far.
+> `cleared` and `**FACE**` are the hub's verdicts, 29 of 94 so far.
 > **`unreviewed` means nobody has looked** - it does not mean the clip is clear,
 > and an unreviewed row must never be read as cleared. New clips arrive
 > unreviewed by definition.
@@ -155,6 +155,7 @@ that have nothing to do with faces, so check this list as well as the column.
 | `ScreenRecording_07-26-2026 22-12-48_1` | 4.72s | 1180x2392 | portrait | cleared | [sheet](index/ScreenRecording_07-26-2026%2022-12-48_1.jpg) &middot; [clip](clips/ScreenRecording_07-26-2026%2022-12-48_1.mp4) |
 | `ScreenRecording_08-04-2026 09-46-44_1` | 34.07s | 886x1920 | portrait | cleared | [sheet](index/ScreenRecording_08-04-2026%2009-46-44_1.jpg) &middot; [clip](clips/ScreenRecording_08-04-2026%2009-46-44_1.mp4) |
 | `ScreenRecording_08-16-2026 20-10-43_1` | 23.08s | 886x1920 | portrait | unreviewed | [sheet](index/ScreenRecording_08-16-2026%2020-10-43_1.jpg) &middot; [clip](clips/ScreenRecording_08-16-2026%2020-10-43_1.mp4) |
+| `ScreenRecording_09-02-2026 10-18-41_1` | 22.67s | 948x1920 | portrait | unreviewed | [sheet](index/ScreenRecording_09-02-2026%2010-18-41_1.jpg) &middot; [clip](clips/ScreenRecording_09-02-2026%2010-18-41_1.mp4) |
 | `trip-trip-01` | 15.37s | 1080x1920 | portrait | unreviewed | [sheet](index/trip-trip-01.jpg) &middot; [clip](clips/trip-trip-01.mp4) |
 | `trip-trip-02` | 16.22s | 1080x1920 | portrait | unreviewed | [sheet](index/trip-trip-02.jpg) &middot; [clip](clips/trip-trip-02.mp4) |
 | `trip-trip-03` | 9.33s | 1080x1920 | portrait | unreviewed | [sheet](index/trip-trip-03.jpg) &middot; [clip](clips/trip-trip-03.mp4) |
