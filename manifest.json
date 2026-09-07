@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-02T01:27:00.174Z",
+  "generatedAt": "2026-09-07T12:34:30.261Z",
   "repo": "nextvisitapp-art/next-visit-site",
   "branch": "footage",
-  "totalClips": 94,
+  "totalClips": 97,
   "clips": [
     {
       "base": "3AC736FF-1E7C-45BE-A164-A05517C9D6F7",
@@ -163,6 +163,54 @@
       "rotationFlag": 0,
       "clipMB": 2.47,
       "sheetKB": 204
+    },
+    {
+      "base": "hf_20260906_003249_47c8fbd5-7a04-490f-aa40-374ef5ae6ded",
+      "source": "hf_20260906_003249_47c8fbd5-7a04-490f-aa40-374ef5ae6ded.mp4",
+      "folder": "",
+      "driveId": "1P-DTLo7aEEHzVGYdi6GXKiUXwny3UAcl",
+      "md5": "1664ba55b38a65371eebae75bf9a4e7d",
+      "size": 3139898,
+      "modifiedTime": "2026-09-07T07:36:29.000Z",
+      "collided": false,
+      "durationSeconds": 5.04,
+      "native": "1080x1920",
+      "orientation": "portrait",
+      "rotationFlag": 0,
+      "clipMB": 2.39,
+      "sheetKB": 149
+    },
+    {
+      "base": "hf_20260906_003249_9335e873-71a8-432d-91de-979e6fba9312",
+      "source": "hf_20260906_003249_9335e873-71a8-432d-91de-979e6fba9312.mp4",
+      "folder": "",
+      "driveId": "1RGKT1zlFPUT_hnIpFWijUPjYqnt2Bf7C",
+      "md5": "5cf197b35499da02309428cfc48912c7",
+      "size": 2761947,
+      "modifiedTime": "2026-09-07T07:36:15.000Z",
+      "collided": false,
+      "durationSeconds": 5.04,
+      "native": "1080x1920",
+      "orientation": "portrait",
+      "rotationFlag": 0,
+      "clipMB": 2.06,
+      "sheetKB": 139
+    },
+    {
+      "base": "hf_20260906_003249_d056ccdb-7280-4475-a278-d896f2d0172c",
+      "source": "hf_20260906_003249_d056ccdb-7280-4475-a278-d896f2d0172c.mp4",
+      "folder": "",
+      "driveId": "1hGmNUD5t7jnilaUSiAH1w6vAGq23Xc3I",
+      "md5": "7c553801859c8223b23b7c5c11c0400b",
+      "size": 2712628,
+      "modifiedTime": "2026-09-07T07:35:40.000Z",
+      "collided": false,
+      "durationSeconds": 5.04,
+      "native": "1080x1920",
+      "orientation": "portrait",
+      "rotationFlag": 0,
+      "clipMB": 2,
+      "sheetKB": 154
     },
     {
       "base": "IMG_0044",
