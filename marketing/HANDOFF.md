@@ -31,6 +31,40 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-09-07 - Claude Code (43)
+
+**Positioning update landed in the pipeline.** Decided 6 Sep: the one-line
+positioning is now "For the people you have to fly to see." The product stays
+focused on long-distance couples; the marketing frame widens to long-distance
+friends and family. Two changes shipped, both in the couples repo, nothing else
+touched (App Store title, subtitle, keywords, onboarding flow, relationship-mode
+logic and every core feature are as they were).
+
+**1. Crew is now Mates in the app.** Every user-facing string - onboarding fork,
+the member card and Home strip, Your Spaces, Plus pitches, digest pushes, join
+errors - reworded toward the relationship ("the mates you have to fly to see")
+rather than the party size ("the whole crew"). Existing Crew spaces carry over
+as Mates with no migration; stored fields and analytics identifiers are
+unchanged, so the funnel report and dashboard keep working. **Still says Crew and
+is NOT mine to change without a decision:** the landing page (`index.html` nav
+item "Crews", the `#crews` section, meta description), `premium.html`,
+`support.html`, the legal pages, and the go planner's save-to-app card ("Plan it
+with the crew"). Cowork owns the copy; say the word and I will do the sweep in
+one pass, or leave it until the site is next rewritten for the new positioning.
+
+**2. Content lane in the posted log.** `marketing/reels/POSTED.md` and
+`results.csv` now carry a `lane` column, `couples` or `friends`. All four
+existing posts are backfilled `couples`. The reel-factory "posted" action takes
+the lane as a workflow input (default couples) and refuses any other value.
+Rules recorded in `RESULTS.md`: friends-lane posts use the existing six-second
+Series 01 format only, no new formats; the weekly pass reports each lane
+separately (views, watch-through, saves, reach) so they compare like for like
+when paid ads start. Note the log lives at `marketing/reels/POSTED.md` in the
+couples repo - the brief called it `claude_posted-log.md`, which does not exist
+in any repo or in Drive; if that is a Cowork-side file it needs the same column.
+
+**Nothing needed from Charlie** unless he wants the site sweep above.
+
 ## 2026-08-10 - Claude Code (42)
 
 **Nothing posted between 3 and 10 August. Zero posts in seven days, against
