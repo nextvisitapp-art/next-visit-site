@@ -6,13 +6,13 @@
 <script>(function(){try{var v=localStorage.getItem('nv_appearance');document.documentElement.setAttribute('data-theme',v==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <meta name="theme-color" content="#0e2240">
 <title>Pricing - Next Visit</title>
-<meta name="description" content="Next Visit plans: Free and Plus, for couples and for crews. Free forever to plan trips and keep memories - Plus adds room for every photo and video, and the Together world for couples.">
+<meta name="description" content="Next Visit pricing, in plain terms. Free forever for couples and for mates. Plus is the one upgrade: for couples it unlocks the Together world and more photo room; for mates it adds photo room only.">
 <link rel="canonical" href="https://hello.next-visit.app/premium">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="apple-itunes-app" content="app-id=6775123226">
 <meta property="og:title" content="Pricing - Next Visit">
-<meta property="og:description" content="Free and Plus - for your person or the whole crew. See exactly what each one gets.">
+<meta property="og:description" content="Free and Plus - for your partner or your mates. See exactly what each one gets.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Next Visit">
 <meta property="og:url" content="https://hello.next-visit.app/premium">
@@ -53,7 +53,20 @@
   @media (min-width: 861px) { .plan--featured { transform: translateY(-8px); } }
   @media (max-width: 860px) { .plans__grid { grid-template-columns: 1fr; max-width: 420px; } .plan__blurb { min-height: 0; } .plan--featured { transform: none; } }
 
-  /* Who's it for - segmented switch between the couple and crew answers.
+  /* The short version - three plain cards above the switch, so the page
+     answers "what's free, what's Plus, and does it differ for mates?" before
+     anyone has to tap anything. */
+  .plans__short { display: grid; gap: var(--nv-space-4); grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 900px; margin: 0 auto var(--nv-space-10); }
+  .short { background: var(--nv-bg-subtle); border: 1px solid var(--nv-border-subtle); border-radius: 16px; padding: var(--nv-space-5); }
+  .short__kicker { font-family: var(--nv-font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--nv-text-muted); margin: 0 0 6px; }
+  .short__kicker i { color: var(--nv-pink-500); margin-right: 4px; }
+  .short h3 { font-family: var(--nv-font-serif); font-size: 19px; font-weight: 600; color: var(--nv-text-primary); margin: 0 0 8px; line-height: 1.2; }
+  .short p { font-size: 13.5px; color: var(--nv-text-secondary); margin: 0; line-height: 1.55; }
+  .short p + p { margin-top: 6px; }
+  .short strong { color: var(--nv-text-primary); font-weight: 600; }
+  @media (max-width: 860px) { .plans__short { grid-template-columns: 1fr; max-width: 420px; } }
+
+  /* Who's it for - segmented switch between the couple and Mates answers.
      Both panels are in the DOM and labelled, so with JS off the page still
      reads as two clear sections instead of one blank one. */
   .plans__switch { display: flex; justify-content: center; margin: 0 0 var(--nv-space-8); }
@@ -65,7 +78,7 @@
   .plans__panelhead { text-align: center; max-width: 560px; margin: 0 auto var(--nv-space-6); }
   .plans__panelhead h2 { font-family: var(--nv-font-serif); font-size: 22px; font-weight: 600; color: var(--nv-text-primary); margin: 0 0 var(--nv-space-2); }
   .plans__panelhead p { font-size: 14px; color: var(--nv-text-secondary); margin: 0; line-height: 1.6; }
-  /* Honest note about what Plus does NOT do in a crew. Neutral, not a warning
+  /* Honest note about what Plus does NOT do in a Mates space. Neutral, not a warning
      colour - it's information, not an error. */
   .plans__note { max-width: 640px; margin: var(--nv-space-6) auto 0; padding: var(--nv-space-5); border-radius: 16px; background: var(--nv-bg-subtle); border: 1px solid var(--nv-border-subtle); }
   .plans__note p { margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--nv-text-secondary); }
@@ -97,13 +110,35 @@
     <div class="plans__head">
       <p class="eyebrow">Pricing</p>
       <h1>Start free. Grow into it.</h1>
-      <p>Next Visit is free to use forever, whether it's your person or the whole crew. Plus is the one upgrade - and what it adds depends on which one you're in.</p>
+      <p>Next Visit is free, forever - for you and your partner, and for you and your mates. Plus is the one upgrade, A$3.99 a month. What it unlocks depends on the kind of space you're in, so here it is in plain terms.</p>
+    </div>
+
+    <!-- ── The short version ─────────────────────────────────────────── -->
+    <div class="plans__short" aria-label="The short version">
+      <div class="short">
+        <p class="short__kicker"><i class="ph ph-heart"></i>Couple space</p>
+        <h3>You and your partner</h3>
+        <p><strong>Free:</strong> the countdown, the planner, memories, your Us page and the daily postcard.</p>
+        <p><strong>Plus:</strong> the Together world - shared health, widgets, surprise trips, the games for two - and room for 2,000 photos.</p>
+      </div>
+      <div class="short">
+        <p class="short__kicker"><i class="ph ph-airplane-tilt"></i>Mates space</p>
+        <h3>You and your mates</h3>
+        <p><strong>Free is the whole thing:</strong> the countdown, the planner, the shared plan and booking list, memories and the postcard leaderboard.</p>
+        <p><strong>Plus:</strong> room for 2,000 photos and 100 videos. That's all it adds here.</p>
+      </div>
+      <div class="short">
+        <p class="short__kicker"><i class="ph ph-user"></i>One subscription</p>
+        <h3>One person pays</h3>
+        <p>Plus covers everyone in the space it's bought in - your partner, or all your mates.</p>
+        <p>And the extra photo room follows you into every other space you're in, so nobody ever pays twice.</p>
+      </div>
     </div>
 
     <div class="plans__switch">
       <div class="segmented" role="tablist" aria-label="Who are you using Next Visit with?">
-        <button type="button" role="tab" id="tab-couple" aria-controls="panel-couple" aria-selected="true">Me and my person</button>
-        <button type="button" role="tab" id="tab-crew" aria-controls="panel-crew" aria-selected="false">A crew</button>
+        <button type="button" role="tab" id="tab-couple" aria-controls="panel-couple" aria-selected="true">Me and my partner</button>
+        <button type="button" role="tab" id="tab-mates" aria-controls="panel-mates" aria-selected="false">Me and my mates</button>
       </div>
     </div>
 
@@ -118,36 +153,37 @@
 
         <!-- FREE -->
         <div class="plan">
-          <p class="plan__tag" style="color: var(--nv-text-muted)">Free</p>
+          <p class="plan__tag" style="color: var(--nv-text-muted)">Free · couple space</p>
           <p class="plan__name">Free</p>
           <p class="plan__price">$0</p>
-          <p class="plan__blurb">Everything you need to count down to your next visit and start keeping memories.</p>
+          <p class="plan__blurb">Everything you need to count down to your next visit, plan it, and start keeping memories.</p>
           <ul class="plan__list">
-            <li><i class="ph ph-check"></i> Unlimited trip countdowns</li>
-            <li><i class="ph ph-check"></i> Up to 10 memories</li>
-            <li><i class="ph ph-check"></i> 150 photos and 15 videos</li>
-            <li><i class="ph ph-check"></i> Your song, lists and anniversaries</li>
+            <li><i class="ph ph-check"></i> Unlimited trip countdowns, on both your phones</li>
+            <li><i class="ph ph-check"></i> The planner - flights, stays and things to do, prefilled as links</li>
+            <li><i class="ph ph-check"></i> A booking list, so you both book the same thing</li>
+            <li><i class="ph ph-check"></i> Up to 10 memories, 150 photos and 15 videos</li>
+            <li><i class="ph ph-check"></i> Your Us page - your song, lists, anniversaries and quizzes</li>
             <li><i class="ph ph-check"></i> The daily postcard game</li>
             <li><i class="ph ph-check"></i> AI date ideas</li>
           </ul>
         </div>
 
-        <!-- PLUS - the one upgrade, everything included -->
+        <!-- PLUS - the one upgrade. The list is entitlements.js's TOGETHER
+             set plus the storage caps, nothing the app doesn't enforce. -->
         <div class="plan plan--featured">
-          <p class="plan__tag">Everything</p>
+          <p class="plan__tag">Plus · couple space · everything</p>
           <p class="plan__name">Plus</p>
           <p class="plan__price">A$3.99 <span class="plan__per">/ month</span></p>
           <p class="plan__blurb">One upgrade, all of it - every memory kept, and the whole Together world for the two of you.</p>
           <ul class="plan__list">
             <li><i class="ph ph-check"></i> Everything in Free</li>
             <li><i class="ph ph-check"></i> Unlimited memories, 2,000 photos and 100 videos</li>
-            <li><i class="ph ph-check"></i> Health together - share sleep and steps, walk to your trip, weekly step face-off</li>
-            <li><i class="ph ph-check"></i> One-tap check-ins - thinking of you, moods, wind-downs</li>
-            <li><i class="ph ph-check"></i> Home-screen widgets - send a feeling, two clocks, the countdown</li>
-            <li><i class="ph ph-check"></i> Surprise trips - book it, they see only the countdown</li>
-            <li><i class="ph ph-check"></i> Games and rituals - daily question, date roulette, little bets, guess where</li>
-            <li><i class="ph ph-check"></i> Couple passport, dream pins and a live flight tracker</li>
-            <li><i class="ph ph-check"></i> The bigger storage caps in every crew you're in, too</li>
+            <li><i class="ph ph-check"></i> Health together - sleep and steps side by side, walk to your trip, a weekly step face-off</li>
+            <li><i class="ph ph-check"></i> Home-screen widgets - the countdown, both your clocks, one-tap "thinking of you"</li>
+            <li><i class="ph ph-check"></i> Surprise trips - plan it in secret, they see only the countdown</li>
+            <li><i class="ph ph-check"></i> Games and rituals for two - guess where, same sky, date roulette, local tourist and more</li>
+            <li><i class="ph ph-check"></i> Couple streaks, your passport and badges</li>
+            <li><i class="ph ph-check"></i> The bigger photo room in every Mates space you're in, too</li>
           </ul>
           <p class="plan__soon">One subscription covers both of you.</p>
         </div>
@@ -155,65 +191,64 @@
       </div>
     </section>
 
-    <!-- ── CREW ───────────────────────────────────────────────────────── -->
-    <section class="plans__panel" id="panel-crew" role="tabpanel" aria-labelledby="tab-crew" hidden>
+    <!-- ── MATES ──────────────────────────────────────────────────────── -->
+    <section class="plans__panel" id="panel-mates" role="tabpanel" aria-labelledby="tab-mates" hidden>
       <div class="plans__panelhead plans__panelhead--fallback">
-        <h2>For a crew</h2>
-        <p>A group space for anyone actually going somewhere together - mates, family, the ski trip.</p>
+        <h2>For your mates</h2>
+        <p>A Mates space - for the friend or family a flight away. One of them or a few.</p>
       </div>
 
       <div class="plans__grid">
 
-        <!-- FREE - the whole crew product is free -->
+        <!-- FREE - the whole Mates product is free -->
         <div class="plan">
-          <p class="plan__tag" style="color: var(--nv-text-muted)">Free</p>
+          <p class="plan__tag" style="color: var(--nv-text-muted)">Free · Mates space · the whole thing</p>
           <p class="plan__name">Free</p>
           <p class="plan__price">$0</p>
-          <p class="plan__blurb">The whole crew experience, free. Start as many crews as you like - no sign-up, no per-person fee.</p>
+          <p class="plan__blurb">Everything a Mates space does, free. Start as many as you like - no sign-up, no per-person fee.</p>
           <ul class="plan__list">
-            <li><i class="ph ph-check"></i> Unlimited crews and trip countdowns</li>
-            <li><i class="ph ph-check"></i> One invite link - everyone who taps it is in</li>
-            <li><i class="ph ph-check"></i> Shared planning and the booking list, so nobody's on the wrong flight</li>
-            <li><i class="ph ph-check"></i> Up to 10 memories</li>
-            <li><i class="ph ph-check"></i> 150 photos and 15 videos</li>
-            <li><i class="ph ph-check"></i> The daily postcard game, with a crew leaderboard</li>
+            <li><i class="ph ph-check"></i> Unlimited Mates spaces and trip countdowns</li>
+            <li><i class="ph ph-check"></i> One invite link - everyone who taps it is in, no sign-up</li>
+            <li><i class="ph ph-check"></i> The planner, a shared plan list and a booking list, so nobody's on the wrong flight</li>
+            <li><i class="ph ph-check"></i> Up to 10 memories, 150 photos and 15 videos</li>
+            <li><i class="ph ph-check"></i> The daily postcard game, with a leaderboard</li>
           </ul>
         </div>
 
-        <!-- PLUS in a crew = STORAGE ONLY. entitlements.js hard-blocks every
-             Together feature for group spaces, so this list must not promise
-             one. -->
+        <!-- PLUS in a Mates space = STORAGE ONLY. entitlements.js hard-blocks
+             every Together feature for group spaces, so this list must not
+             promise one. -->
         <div class="plan plan--featured">
-          <p class="plan__tag">More room</p>
+          <p class="plan__tag">Plus · Mates space · more room only</p>
           <p class="plan__name">Plus</p>
           <p class="plan__price">A$3.99 <span class="plan__per">/ month</span></p>
-          <p class="plan__blurb">For crews, Plus is one thing: room. Keep every photo and video from the trip instead of hitting a cap.</p>
+          <p class="plan__blurb">For mates, Plus is one thing: room. Keep every photo and video from the trip instead of hitting a cap.</p>
           <ul class="plan__list">
             <li><i class="ph ph-check"></i> Everything in Free</li>
             <li><i class="ph ph-check"></i> Unlimited trip memories</li>
             <li><i class="ph ph-check"></i> 2,000 photos and 100 videos</li>
-            <li><i class="ph ph-check"></i> Nobody else in the crew has to pay</li>
+            <li><i class="ph ph-check"></i> One person buys it - nobody else in the space pays</li>
           </ul>
-          <p class="plan__soon">One subscription covers the whole crew - and if any member already has Plus, the crew has the extra room already.</p>
+          <p class="plan__soon">If anyone in the space already has Plus, the room is already there.</p>
         </div>
 
       </div>
 
       <div class="plans__note">
-        <p><strong>To be straight with you:</strong> Plus in a crew is storage, not extras. The Together world - shared health, check-ins, surprise trips, home-screen widgets and the couple games - is built for two people and stays in a couple space. If a crew is all you need, Free is genuinely the whole thing.</p>
-        <p style="margin-top: var(--nv-space-4)"><strong>And you never pay twice.</strong> Plus follows the person, not the space: if one member of the crew has Plus - from this crew or from their couple space - the whole crew already has the bigger caps. Nobody else needs to buy anything.</p>
+        <p><strong>To be straight with you:</strong> in a Mates space, Plus is room and nothing else. The Together world - shared health, widgets, surprise trips and the games - is built for two people and lives in a couple space. If a Mates space is all you need, Free is genuinely the whole thing.</p>
+        <p style="margin-top: var(--nv-space-4)"><strong>And you never pay twice.</strong> Plus follows the person, not the space: if one member has Plus - bought here or in their couple space - the whole Mates space already has the bigger caps. Nobody else needs to buy anything.</p>
       </div>
     </section>
 
     <div class="plans__foot">
       <a class="site-btn site-btn--primary" href="/#get">Get Next Visit</a>
-      <p class="plans__finenote">One account holds your couple space and every crew you're in - switch between them any time. Plus applies to the space you buy it in and covers everyone in it. Plans are managed in the app under You. Prices shown in AUD; your local price appears at checkout. Change or cancel anytime.</p>
+      <p class="plans__finenote">One account holds your couple space and every Mates space you're in - switch between them any time under You. Plus applies to the space you buy it in and covers everyone in it. Plans are managed in the app under You. Prices shown in AUD; your local price appears at checkout. Change or cancel anytime.</p>
     </div>
   </div>
 </main>
 
 <script>
-// Couple / crew switch. Progressive enhancement: the .js class (set here, so
+// Couple / Mates switch. Progressive enhancement: the .js class (set here, so
 // it only ever applies when this script actually ran) is what hides the
 // unselected panel - with JS off both panels render under their own
 // headings and the page still answers the question.
@@ -221,13 +256,13 @@
   var root = document.documentElement;
   var tabs = {
     couple: document.getElementById('tab-couple'),
-    crew: document.getElementById('tab-crew'),
+    mates: document.getElementById('tab-mates'),
   };
   var panels = {
     couple: document.getElementById('panel-couple'),
-    crew: document.getElementById('panel-crew'),
+    mates: document.getElementById('panel-mates'),
   };
-  if (!tabs.couple || !tabs.crew || !panels.couple || !panels.crew) return;
+  if (!tabs.couple || !tabs.mates || !panels.couple || !panels.mates) return;
   root.classList.add('js');
 
   function select(which, focus) {
@@ -237,7 +272,7 @@
       panels[k].hidden = !on;
     });
     if (focus) tabs[which].focus();
-    try { history.replaceState(null, '', which === 'crew' ? '#crew' : location.pathname); } catch (e) { /* file:// - fine */ }
+    try { history.replaceState(null, '', which === 'mates' ? '#mates' : location.pathname); } catch (e) { /* file:// - fine */ }
   }
 
   Object.keys(tabs).forEach(function (k) {
@@ -248,14 +283,15 @@
     tabs[k].addEventListener('keydown', function (e) {
       if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
       e.preventDefault();
-      select(k === 'couple' ? 'crew' : 'couple', true);
+      select(k === 'couple' ? 'mates' : 'couple', true);
     });
   });
 
-  // /premium#crew (and #crews) opens straight on the crew answer - that's
-  // the link the crews section on the home page can point at.
+  // /premium#mates opens straight on the Mates answer - the link the Mates
+  // section on the home page points at. #crew and #crews are the old names
+  // (renamed 7 Sep 2026) and still land in the right place.
   var hash = (location.hash || '').toLowerCase();
-  select(hash === '#crew' || hash === '#crews' ? 'crew' : 'couple');
+  select(hash === '#mates' || hash === '#crew' || hash === '#crews' ? 'mates' : 'couple');
 })();
 </script>
 
