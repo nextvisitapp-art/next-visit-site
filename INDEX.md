@@ -1,8 +1,8 @@
 # Footage library
 
-Every video in the Drive `Footage` folder, subfolders included: **97 clips**,
-each with a contact sheet and a transcode. 20.6 MB of sheets,
-792.2 MB of video.
+Every video in the Drive `Footage` folder, subfolders included: **101 clips**,
+each with a contact sheet and a transcode. 21.1 MB of sheets,
+804.0 MB of video.
 
 **This branch mirrors Drive automatically.** Add a clip to the Drive folder and
 it appears here on the next run, usually within a couple of hours, without
@@ -59,7 +59,7 @@ that have nothing to do with faces, so check this list as well as the column.
 
 > ### Faces
 >
-> `cleared` and `**FACE**` are the hub's verdicts, 29 of 97 so far.
+> `cleared` and `**FACE**` are the hub's verdicts, 29 of 101 so far.
 > **`unreviewed` means nobody has looked** - it does not mean the clip is clear,
 > and an unreviewed row must never be read as cleared. New clips arrive
 > unreviewed by definition.
@@ -92,6 +92,10 @@ that have nothing to do with faces, so check this list as well as the column.
 | `hf_20260906_003249_47c8fbd5-7a04-490f-aa40-374ef5ae6ded` | 5.04s | 1080x1920 | portrait | unreviewed | [sheet](index/hf_20260906_003249_47c8fbd5-7a04-490f-aa40-374ef5ae6ded.jpg) &middot; [clip](clips/hf_20260906_003249_47c8fbd5-7a04-490f-aa40-374ef5ae6ded.mp4) |
 | `hf_20260906_003249_9335e873-71a8-432d-91de-979e6fba9312` | 5.04s | 1080x1920 | portrait | unreviewed | [sheet](index/hf_20260906_003249_9335e873-71a8-432d-91de-979e6fba9312.jpg) &middot; [clip](clips/hf_20260906_003249_9335e873-71a8-432d-91de-979e6fba9312.mp4) |
 | `hf_20260906_003249_d056ccdb-7280-4475-a278-d896f2d0172c` | 5.04s | 1080x1920 | portrait | unreviewed | [sheet](index/hf_20260906_003249_d056ccdb-7280-4475-a278-d896f2d0172c.jpg) &middot; [clip](clips/hf_20260906_003249_d056ccdb-7280-4475-a278-d896f2d0172c.mp4) |
+| `hf_20260915_101655_651ba6aa-d066-4822-81d7-c43c4f928004` | 5.04s | 1080x1920 | portrait | unreviewed | [sheet](index/hf_20260915_101655_651ba6aa-d066-4822-81d7-c43c4f928004.jpg) &middot; [clip](clips/hf_20260915_101655_651ba6aa-d066-4822-81d7-c43c4f928004.mp4) |
+| `hf_20260915_101655_67bf73fd-e959-4732-b96d-d3b3ea7a1cd6` | 5.04s | 1080x1920 | portrait | unreviewed | [sheet](index/hf_20260915_101655_67bf73fd-e959-4732-b96d-d3b3ea7a1cd6.jpg) &middot; [clip](clips/hf_20260915_101655_67bf73fd-e959-4732-b96d-d3b3ea7a1cd6.mp4) |
+| `hf_20260915_101656_6c24a785-d858-41b5-bd12-78f0b2fee2b4` | 5.04s | 1080x1920 | portrait | unreviewed | [sheet](index/hf_20260915_101656_6c24a785-d858-41b5-bd12-78f0b2fee2b4.jpg) &middot; [clip](clips/hf_20260915_101656_6c24a785-d858-41b5-bd12-78f0b2fee2b4.mp4) |
+| `hf_20260915_101657_341912b3-8542-4969-825f-16ce34938cb4` | 5.04s | 1080x1920 | portrait | unreviewed | [sheet](index/hf_20260915_101657_341912b3-8542-4969-825f-16ce34938cb4.jpg) &middot; [clip](clips/hf_20260915_101657_341912b3-8542-4969-825f-16ce34938cb4.mp4) |
 | `IMG_0044` | 2.80s | 1080x1920 | portrait | cleared | [sheet](index/IMG_0044.jpg) &middot; [clip](clips/IMG_0044.mp4) |
 | `IMG_0045` | 2.53s | 1080x1920 | portrait | unreviewed | [sheet](index/IMG_0045.jpg) &middot; [clip](clips/IMG_0045.mp4) |
 | `IMG_0046` | 3.50s | 1080x1920 | portrait | cleared | [sheet](index/IMG_0046.jpg) &middot; [clip](clips/IMG_0046.mp4) |
