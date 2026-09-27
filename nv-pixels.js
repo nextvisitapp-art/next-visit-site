@@ -1,6 +1,7 @@
 // Meta Pixel + TikTok Pixel for hello.next-visit.app.
 //
-// Both pixels are OFF until an id is set below. With an empty id nothing
+// A pixel is OFF until its id is set below (Meta is live since 27 Sep 2026,
+// TikTok is still waiting on its id). With an empty id nothing
 // loads: no script, no network request, no cookie, no console error. So this
 // file can ship ahead of the ids and switches on the moment they are pasted.
 //
@@ -20,7 +21,7 @@
 // kept honest.
 (function () {
   var IDS = {
-    meta: '',    // e.g. '1234567890123456'
+    meta: '1066112329815469',
     tiktok: '',  // e.g. 'D1ABCDEFGHIJKLMNOP'
   };
   // Local smoke test only: lets the Playwright check inject ids on localhost
