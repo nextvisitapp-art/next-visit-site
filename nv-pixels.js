@@ -46,6 +46,7 @@
     /* eslint-enable */
     window.ttq.load(IDS.tiktok);
     window.ttq.page();
-    if (isLanding) window.ttq.track('ViewContent', { content_name: 'Landing page', content_category: 'marketing' });
+    // TikTok's own parameter shape (contents[] with content_id / content_type / content_name). No value or currency: the page is free to view.
+    if (isLanding) window.ttq.track('ViewContent', { contents: [{ content_id: 'landing', content_type: 'product', content_name: 'Landing page' }] });
   }
 })();
