@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Next Visit on the App Store</title>
+<meta name="robots" content="noindex">
+<!-- /ios: the ad destination for App Store traffic (5 Oct 2026).
+     Meta's Traffic campaigns reject apps.apple.com as a destination and
+     follow redirects to check, so a plain redirect fails the same way. This
+     is a real page: the pixels fire a PageView, then the visitor is sent
+     to the listing. The pause before the hop is what lets the pixel
+     requests leave the browser - navigate instantly and they are cancelled.
+     Served at /ios by cleanUrls. Pixel ids live in nv-pixels.js. -->
+<link rel="stylesheet" href="/tokens/tokens.css">
+<script src="/nv-pixels.js"></script>
+<script>
+  (function () {
+    var STORE = "https://apps.apple.com/au/app/id6775123226";
+    var go = function () { location.replace(STORE); };
+    // ~0.6s: long enough for fbevents.js / events.js to load and flush the
+    // PageView on a normal connection, short enough that nobody notices.
+    setTimeout(go, 600);
+    document.addEventListener("DOMContentLoaded", function () {
+      var a = document.getElementById("store"); if (a) a.href = STORE;
+    });
+  })();
+</script>
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--nv-navy-800);color:var(--nv-cream-100);font-family:var(--nv-font-sans);text-align:center;padding:24px}
+  p{margin:0;font-size:var(--nv-text-base)}
+  a{display:inline-block;margin-top:16px;padding:14px 28px;border-radius:999px;background:var(--nv-pink-500);color:var(--nv-paper);text-decoration:none;font-weight:600}
+  a:hover,a:focus-visible{filter:brightness(1.08);outline:2px solid var(--nv-pink-500);outline-offset:3px}
+</style>
+</head>
+<body>
+<div>
+  <p>Taking you to the App Store…</p>
+  <a id="store" href="https://apps.apple.com/au/app/id6775123226">Open the App Store</a>
+</div>
+</body>
+</html>

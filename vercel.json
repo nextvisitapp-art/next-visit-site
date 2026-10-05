@@ -4,12 +4,5 @@
     "deploymentEnabled": {
       "footage": false
     }
-  },
-  "redirects": [
-    {
-      "source": "/ios",
-      "destination": "https://apps.apple.com/au/app/id6775123226",
-      "permanent": false
-    }
-  ]
+  }
 }
