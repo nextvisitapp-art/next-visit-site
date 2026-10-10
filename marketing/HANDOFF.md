@@ -31,6 +31,45 @@ the numbers said, and what is open.
 
 ---
 
+## 2026-10-10 - Claude Code (44)
+
+**next-visit.app is now the sign-up destination, and it is instrumented for
+it.** Charlie's decision of 10 Oct: all traffic, organic and any future paid,
+goes to the web app, not the hello landing page and not the App Store. One
+number: new users per week, by source, and cost per sign-up when paid runs.
+Shipped today in the couples repo and the dashboard:
+
+**1. Mobile-browser sign-up path checked.** A production build was driven on
+emulated Android Chrome, iPhone Safari and the Instagram in-app browser: land,
+pick Us two or Mates, name, space created, invite step, no dead ends. There is
+no Google or email sign-in step on the way in - the app signs people up
+without an account and offers email linking afterwards - so the Instagram
+browser has nothing to block. The iOS Smart App Banner stays and is not modal.
+
+**2. Pixels on the web app.** Meta and TikTok fire PageView on load,
+CompleteRegistration the moment a space is created or joined,
+`PartnerJoined` when a second profile joins, and `trip_created` on a device's
+first trip. Same pixel ids as hello and go.
+
+**3. UTM passthrough and source on the profile.** The router does not strip
+the query string. `utm_source` (plus medium, campaign, content) is captured at
+boot, kept 30 days, and written onto the user profile at sign-up. No utm but
+a recognisable referrer (instagram.com, tiktok.com, facebook, x, google)
+counts as that source. Nothing known = `direct`, which the dashboard shows as
+organic.
+
+**4. Invite copy says the web.** Every invite message and the invite landing
+page now say the partner can join on any phone with no download. That is the
+Android answer for now.
+
+**5. Dashboard.** "New users · 7d" carries a by-source line.
+
+**For whoever repoints the links (Cowork / Charlie):** use these exact
+`utm_source` values so the dashboard buckets line up - `tiktok`, `instagram`,
+`meta-paid`. Form: `https://next-visit.app/?utm_source=tiktok&utm_medium=social`.
+Add `utm_campaign` per post or flight if you want to split further; it is
+stored too. Paid stays off until Charlie says go.
+
 ## 2026-09-07 - Claude Code (43)
 
 **Positioning update landed in the pipeline.** Decided 6 Sep: the one-line
